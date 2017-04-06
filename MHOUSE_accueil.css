@@ -1,0 +1,171 @@
+html
+{
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	margin:0;
+	padding: 0;
+}
+
+.top_banner
+{
+	background-color: rgb(0,98,161);
+	height:20px;
+}
+header
+{
+	height: 200px;
+	background-color: rgb(0, 68, 112);
+}
+
+#image_titre
+{
+	
+	width: 50%;
+	margin : auto;
+	text-align: center;
+}
+
+menu
+{
+	float: right;
+	padding: none;
+	margin: none;
+	margin-right : 5%;
+	height: 150px;
+	width : 100px;
+	border: 2px solid rgb(245,163,1);
+	text-align: center;
+
+	display : flex;
+	flex-direction: column;
+
+}
+
+/*
+.menu_nav
+{
+	margin: auto;
+	text-align: center;
+	border: 2px solid rgb(245,163,1);
+	color: rgb(245,163,1);
+}
+*/
+
+
+nav
+{
+	background-color: rgb(51,129,180);
+	height:50;
+
+}
+
+nav ul
+{
+
+	margin : auto; /* enleve l'espace top qui est moche */
+
+	margin-left: 10%;
+	flex-direction: row;
+	list-style-type: none; /* retire l'image de la puce useless*/
+	display: flex;
+}
+
+nav li
+{
+
+	padding : 20px;
+	height: 100%;
+}
+
+nav li:hover
+{
+	background-color: rgb(0,98,161);
+}
+
+nav a
+{
+	color : white;
+
+}
+
+
+aside
+{
+	display : flex;
+	flex-direction: column;
+
+	position: fixed;
+	right: 0px;
+	bottom :50px;
+
+	margin: auto;
+	height: 300px;
+	width : 15%;
+	min-width: 180px;
+
+	background-color: white;
+	border: 3px solid rgb(0, 68, 112);
+	border-radius: 10px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+.text_aside
+{
+	color:white;
+	margin: auto;
+	text-align: center;
+}
+
+.petit_bloc_info
+{
+	height : 40%;
+	width : 90%;
+	margin : auto;
+	background-color: rgb(0,98,161);
+	border-color: rgb(0, 68, 112);
+	border: 3px solid rgb(0, 68, 112);
+}
+
+#fond_pale_page
+{
+	display: flex;
+	margin: auto;
+	width: 80%;
+	background-color: rgb(217,232,241);
+	min-height: 100vh;  /*TAILLE DU NAVIGATEUR*/
+}
+
+footer 
+{
+	background-color: rgb(0,98,161);
+	height:20px;
+	float: bottom;
+}
+
+.copyright
+{
+	margin: auto;
+	text-align: center;
+	color: white;
+	font-style: italic;
+}
+
+
+p
+{
+    color: white;
+}
+
+/*
+.background
+{
+	background-color: rgb(217,232,241);
+	width : 500px;
+	height: 500px;
+	margin:auto;
+	flex : 1;
+}/*
