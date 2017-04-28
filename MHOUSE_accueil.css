@@ -160,12 +160,13 @@ p
     color: white;
 }
 
-/*
-.background
+
+
+
+.notif
 {
-	background-color: rgb(217,232,241);
-	width : 500px;
-	height: 500px;
-	margin:auto;
-	flex : 1;
-}/*
+	border : 3px solid black;
+	width : 80%;
+	margin : auto;
+	padding: 10px;
+}
