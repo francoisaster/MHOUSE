@@ -7,6 +7,8 @@
  */
 require 'Views/inscription.php';
 
+ // require 'Views/capteurs.php';
+
 
 
 

@@ -13,7 +13,7 @@
        <legend>Inscription</legend>
     <p>
     <label for="pseudo">Votre pseudo </label> :
-    <input type="text" name="pseudo" id="pseudo" placeholder="Maxime2326"/> <!-- Pour mettre un champ text avec le nom pseudo -->
+    <input type="text" name="pseudo" id="pseudo" placeholder="Maxime2326" autofocus=""/> <!-- Pour mettre un champ text avec le nom pseudo -->
        <!-- for et id avec le meme nom permettent de lier les zones de texte-->
        <!-- placeholder permet de mettre une indication dans le champ-->
     <br />
@@ -21,16 +21,50 @@
        <label for="pass">Votre mot de passe </label> :
         <input type="password" name="pass" id="pass" placeholder="*********"/>
         <br />
-
 <!--
        <label for="pass">Retapez votre mot de passe : </label>
         <input type="password" name="verify_pass" id="pass" placeholder="*********"/>
         <br /> -->
 
-        <label for="email">Votre email </label> :
+    <label for="prenom">Votre prenom </label> :
+    <input type="text" name="prenom" id="prenom" placeholder="Maxime"/>
+    <br />
+
+    <label for="nom">Votre nom </label> :
+    <input type="text" name="nom" id="nom" placeholder="DU COCQ"/>
+    <br />
+
+    <label for="adresse">Votre adresse </label> :
+    <input type="text" name="adresse" id="adresse" placeholder="21, rue des marguerittes, 75 001, PARIS"/>
+    <br />
+
+    
+    <label for="sexe">Civité :</label><br />
+      <select name="sexe" id="sexe">
+        <option value="homme">Homme</option>
+        <option value="femme">Femme</option>
+    </select>
+      <br />
+
+      
+    <label for="date_naissance">Votre date de naissance </label> :
+    <input type="date" name="date_naissance" id="date_naissance"/>
+    <br />
+
+    <label for="email">Votre email </label> :
         <input type="email" name="email" id="email" placeholder="email@email.fr"/> 
         <br />
-        <input type="submit" value="Envoyer" />
+
+      <label for="admin">Admin :</label><br />
+      <select name="admin" id="admin">
+        <option value="true">Oui</option>
+        <option value="false">Non</option> <!-- A mettre en boolean... Dans la DB il est en VARCHAR-->
+    </select>
+      <br />
+
+
+    <input type="submit" value="Envoyer" />
+
     </p>
    </fieldset>
 </form>
