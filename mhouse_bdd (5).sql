@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 12 Mai 2017 à 08:59
+-- Généré le :  Dim 14 Mai 2017 à 17:54
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `capteurs` (
   `id_capteur` int(11) NOT NULL,
-  `nom_capteur` varchar(255) NOT NULL,
-  `type_capteur` varchar(255) NOT NULL,
+  `nom_capteur` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `type_capteur` varchar(255) CHARACTER SET utf8 NOT NULL,
   `date_d_ajout` date NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
-  `id_piece` varchar(255) NOT NULL
+  `id_piece` varchar(255) CHARACTER SET utf8 NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
