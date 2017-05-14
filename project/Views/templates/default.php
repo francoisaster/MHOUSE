@@ -30,6 +30,13 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="http://localhost:63342/project/public/index.php?p=home">MHOUSE</a>
         </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="http://localhost/project/public/index.php?p=capteurs">Capteurs</a></li>
+                <li><a href="http://localhost/project/public/index.php?p=inscription">Inscription</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
     </div>
 </nav>
 
