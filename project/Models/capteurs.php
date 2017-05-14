@@ -9,8 +9,6 @@ catch (Exception $e)
     die('Erreur : ' . $e->getMessage());
 }
 
-//A RAJOUTER LE HASHAGE
-
 // Insertion
 
 $req=$bdd->prepare('INSERT INTO capteurs(nom_capteur, type_capteur, date_d_ajout) VALUES(:nom_capteur, :type_capteur, NOW())');

@@ -17,7 +17,9 @@ if($p === 'home'){ //3 = c'est pour vérifier une chaine de caractère
 }elseif ($p =='capteurs'){
     require '../Views/capteurs.php';
 }elseif ($p =='inscriptionSuccessfull'){
-    require '../Views/inscriptionSuccessfull.php.php';
+    require '../Views/inscriptionSuccessfull.php';
+}elseif ($p =='pieces'){
+    require '../Views/pieces.php';
 }
 // olutot que d'afficher les requires, ils seront stockés dans la variable $content.
 $content = ob_get_clean();
