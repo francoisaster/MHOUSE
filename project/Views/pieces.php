@@ -1,12 +1,18 @@
 <?php
+/*
+ * <label for="choix_capteur">Choix du capteur :</label>
+<select name="choix_capteur" id="choix_capteur">
+    <option value="lumiere">Lumière</option>
+    <option value="temperature">Température</option>
+</select>
+ */
 /**
  * Created by PhpStorm.
  * User: Aster
  * Date: 14/05/2017
  * Time: 21:15
  */?>
-
-<form action="../Models/pieces.php" method="post" >
+<form action="../Controllers/pieces.php" method="post" >
     <fieldset>
         <legend>Ajout d'une pièce</legend>
         <p>
@@ -19,30 +25,17 @@
     </fieldset>
 </form>
 
-
 <fieldset>
     <legend>Les différentes pièces :</legend>
     <?php
-    // Connexion à la base de données
-    try {
-        $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8', 'root', '');
-    } catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
-    }
-    // Récupération des pièces
-    $reponse = $bdd->query('SELECT nom_piece FROM piece ORDER BY ID');
-    // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
-    while ($donnees = $reponse->fetch()) {
-        echo '<p>' . htmlspecialchars($donnees['nom_piece']) . '</p>';
-    }
-    $reponse->closeCursor();
-    ?>
+    require '../Models/pieces.php';
+    affichePieces();?>
 </fieldset>
 
 
-<!-- PIECE -->
+<!-- CAPTEURS  -->
 
-<form action="../Models/capteurs.php" method="post" >
+<form action="../Controllers/capteurs.php" method="post" >
     <fieldset>
         <legend>Ajout de capteurs</legend>
         <p>
@@ -69,20 +62,6 @@
 <fieldset>
     <legend>Les capteurs :</legend>
     <?php
-    try
-    {
-        $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8', 'root', '');
-    }
-    catch(Exception $e)
-    {
-        die('Erreur : '.$e->getMessage());
-    }
-    // Récupération des 20 derniers messages
-    $reponse = $bdd->query('SELECT nom_capteur, type_capteur FROM capteurs ORDER BY id_capteur DESC LIMIT 0, 20');
-    while ($donnees = $reponse->fetch())
-    {
-        echo '<p><strong>' . htmlspecialchars($donnees['nom_capteur']) . '</strong> : ' . htmlspecialchars($donnees['type_capteur']) . '</p>';
-    }
-    $reponse->closeCursor();
-    ?>
+    require '../Models/capteurs.php';
+    afficheCapteurs();?>
 </fieldset>

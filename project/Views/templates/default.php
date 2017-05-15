@@ -33,8 +33,9 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="http://localhost/project/public/index.php?p=inscription">Inscription</a></li>
-                <li><a href="http://localhost/project/public/index.php?p=capteurs">Capteurs</a></li>
                 <li><a href="http://localhost/project/public/index.php?p=pieces">Pièces</a></li>
+                <li><a href="http://localhost/project/public/index.php?p=contact">Contact</a></li>
+                <li><a href="http://localhost/project/public/index.php?p=profil">Profil</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

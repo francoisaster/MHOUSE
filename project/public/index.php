@@ -14,12 +14,14 @@ if($p === 'home'){ //3 = c'est pour vérifier une chaine de caractère
     require '../Views/home.php';
 }elseif ($p =='inscription'){
     require '../Views/inscription.php';
-}elseif ($p =='capteurs'){
-    require '../Views/capteurs.php';
 }elseif ($p =='inscriptionSuccessfull'){
     require '../Views/inscriptionSuccessfull.php';
 }elseif ($p =='pieces'){
     require '../Views/pieces.php';
+}elseif ($p =='contact'){
+    require '../Views/contact.php';
+}elseif ($p =='profil'){
+    require '../Views/profil.php';
 }
 // plutot que d'afficher les requires, ils seront stockés dans la variable $content.
 $content = ob_get_clean();

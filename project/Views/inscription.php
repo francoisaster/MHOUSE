@@ -7,7 +7,6 @@
        <!-- for et id avec le meme nom permettent de lier les zones de texte-->
        <!-- placeholder permet de mettre une indication dans le champ-->
     <br />
-
        <label for="pass">Votre mot de passe </label> :
         <input type="password" name="pass" id="pass" placeholder="*********"/>
         <br />
@@ -25,7 +24,7 @@
     <br />
 
     <label for="adresse">Votre adresse </label> :
-    <input type="text" name="adresse" id="adresse" placeholder="21, rue des marguerittes, 75 001, PARIS"/>
+    <input type="text" name="adresse" id="adresse" placeholder="21, rue des marguerittes, 75 001, PARIS" size="35"/>
     <br />
 
     
