@@ -21,6 +21,5 @@ $req=$bdd->prepare('INSERT INTO piece(nom_piece) VALUES(:nom_piece)');
 $req->bindParam(':nom_piece',$_POST['nom_piece']);
 $req->execute();
 
-header('Location: http://localhost/project/Views/pieces');
+header('Location: http://localhost/project/public/index.php?p=pieces');
 //../Views/pieces.php');
-
