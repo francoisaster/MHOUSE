@@ -1,7 +1,17 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Aster
- * Date: 15/05/2017
- * Time: 14:21
- */
+<form action="../Controllers/connexion.php" method="post">
+        <p>
+            <label for="pseudo">Votre pseudo </label> :
+            <input type="text" name="pseudo" id="pseudo" placeholder="Maxime2326" autofocus=""/>
+            <br><br>
+            <label for="pass">Votre mot de passe </label> :
+            <input type="password" name="pass" id="pass" placeholder="*********"/>
+            <br><br>
+            <input type="submit" name="entering" value="Se connecter" />
+        </p>
+    </form>
+
+<!--
+    <p>Nom d'utilisateur ou mot de passe oublié ??</p>
+    <a class="menu">Cliquez ici</a>
+</div>
+-->

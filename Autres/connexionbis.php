@@ -1,8 +1,5 @@
 <?php
 
-
-if(isset($_POST['submit']));{
-   
     $email=htmlentities(trim($_POST['mail']));
     $mdp=sha1($_POST['mdp']);
     $mdp2=sha1($_POST['mdp2']);

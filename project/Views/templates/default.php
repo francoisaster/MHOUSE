@@ -18,7 +18,6 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>Mhouse</title>
-
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>

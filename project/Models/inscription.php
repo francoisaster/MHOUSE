@@ -1,12 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Aster
- * Date: 10/05/2017
- * Time: 14:16
+
+
+/*
+ *
  */
-
-
 function inscription() {
     try
     {
@@ -16,7 +13,17 @@ function inscription() {
     {
         die('Erreur : ' . $e->getMessage());
     }
-//A RAJOUTER LE HASHAGE
+
+    /*$pseudo=htmlspecialchars(trim($_POST['pseudo']));
+    $pass=sha1($_POST['pass']);
+    $pass2=sha1($_POST['pass2']);
+    $prenom=htmlspecialchars(trim($_POST['prenom']));
+    $nom=htmlspecialchars(trim($_POST['nom']));
+    $adresse=htmlspecialchars(trim($_POST['adresse']));
+    $civilite=htmlspecialchars(trim($_POST['civilite']));
+    $date_naissance=htmlspecialchars(trim($_POST['date_naissance']));
+    $email=htmlspecialchars(trim($_POST['email']));
+    $admin=htmlspecialchars(trim($_POST['admin']));*/
 
 // Insertion
     $req=$bdd->prepare('INSERT INTO utilisateur(pseudo, pass, prenom, nom, adresse, sexe, date_naissance, email, admin) VALUES(:pseudo,:pass,:prenom, :nom, :adresse, :sexe, :date_naissance, :email, :admin)');
@@ -33,4 +40,17 @@ function inscription() {
     $req->execute();
 // On prend le marqueur :pseudo et on lui attribue le POST pseudo qui vient du champ pseudo
 
+}
+
+function verifExistence($pseudo, $email, $pass){
+    try
+    {
+        $bdd = new PDO('mysql:host=localhost;dbname=mhouse_bdd;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    }
+    catch (Exception $e)
+    {
+        die('Erreur : ' . $e->getMessage());
+    }
+    $reponse = $bdd->query('SELECT pseudo,email, pass FROM utilisateur WHERE pseudo="'.$pseudo.'" && email="'.$email.'" && pass="'.$pass.'"');
+    return $reponse;
 }

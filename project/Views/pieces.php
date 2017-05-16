@@ -1,17 +1,14 @@
-<?php
-/*
- * <label for="choix_capteur">Choix du capteur :</label>
-<select name="choix_capteur" id="choix_capteur">
-    <option value="lumiere">Lumière</option>
-    <option value="temperature">Température</option>
-</select>
- */
-/**
- * Created by PhpStorm.
- * User: Aster
- * Date: 14/05/2017
- * Time: 21:15
- */?>
+
+<form action="../Controllers/pieces.php" method="post" >
+    <label for="choix_capteur">Choix du capteur :</label>
+    <select name="choix_capteur" id="choix_capteur">
+        <option value="lumiere">Lumière</option>
+        <option value="temperature">Température</option>
+    </select>
+</form>
+
+
+
 <form action="../Controllers/pieces.php" method="post" >
     <fieldset>
         <legend>Ajout d'une pièce</legend>

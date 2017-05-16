@@ -1,4 +1,4 @@
-<form action="../Models/inscription.php" method="post" >
+<form action="../Controllers/inscription.php" method="post" >
    <fieldset>
        <legend>Inscription</legend>
     <p>
@@ -10,10 +10,10 @@
        <label for="pass">Votre mot de passe </label> :
         <input type="password" name="pass" id="pass" placeholder="*********"/>
         <br />
-<!--
-       <label for="pass">Retapez votre mot de passe : </label>
-        <input type="password" name="verify_pass" id="pass" placeholder="*********"/>
-        <br /> -->
+
+       <label for="pass2">Retapez votre mot de passe : </label>
+        <input type="password" name="pass2" id="pass2" placeholder="*********"/>
+        <br />
 
     <label for="prenom">Votre prenom </label> :
     <input type="text" name="prenom" id="prenom" placeholder="Maxime"/>
@@ -57,15 +57,3 @@
     </p>
    </fieldset>
 </form>
-
-
-<?php
-/*
-// Récupération des utilisateurs
-$reponse = $bdd->query('SELECT pseudo FROM membres ORDER BY ID');
-while ($donnees = $reponse->fetch()){
-    echo $donnees['pseudo'];
-}
-$reponse->closeCursor();
-*/
-?>
