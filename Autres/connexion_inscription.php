@@ -28,9 +28,9 @@ if(isset($_POST['submit']));{
        
          if($mdp== $mdp2)
             {
-                /*pseudo="'.$pseudo.'" mdp="'.$mdp.'"*/
-                $reponse = $bdd->query('SELECT pseudo,email, mdp FROM utilisateur WHERE email="'.$email.'" '); // il reste un pb avec le WHERE ou j'arrive pas a faire plusieurs requetes simultaness, le AND ne marche pas !
-                if($reponse->rowcount()==0){
+                //cherche le mot de passe et le pseudo d'un utilisateur avec un mail dans la base de donnée.
+                $reponse = $bdd->query('SELECT id,pseudo,mdp FROM utilisateur WHERE email="'.$email.'" '); 
+                if($reponse ->rowcount()==0){
                 // l'utilisateur n'est pas dans la base de donnée
                     $insertmbr= $bdd->prepare("INSERT INTO utilisateur(compte,pseudo,email,mdp,sexe,nom,prenom,age,adresse) VALUES(?,?,?,?,?,?,?,?,?)");
                     $insertmbr->execute(array($compte,$pseudo,$email,$mdp,$civilite,$nom,$prenom,$age,$adresse));
