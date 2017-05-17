@@ -6,7 +6,7 @@
             <label for="pass">Votre mot de passe </label> :
             <input type="password" name="pass" id="pass" placeholder="*********"/>
             <br><br>
-            <input type="submit" name="entering" value="Se connecter" />
+            <input type="submit" name="submit" value="Se connecter" />
         </p>
     </form>
 
@@ -15,3 +15,4 @@
     <a class="menu">Cliquez ici</a>
 </div>
 -->
+

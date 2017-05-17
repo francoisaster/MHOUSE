@@ -6,9 +6,6 @@
         <p>
 
             <!-- RAJOUTER DES VALUES A CHAQUE CHAMPS GRACE A LA SESSION (lecture des données et insertion dans value, pour l'UPDATE -->
-
-
-
             <label for="pseudo">Nouveau pseudo </label> :
             <input type="text" name="pseudo" id="pseudo" placeholder="Maxime2326" autofocus=""/> <!-- Pour mettre un champ text avec le nom pseudo -->
             <!-- for et id avec le meme nom permettent de lier les zones de texte-->
@@ -31,7 +28,7 @@
             <br />
 
 
-            <label for="sexe">Civité :</label><br />
+            <label for="sexe">Civilité :</label><br />
             <select name="sexe" id="sexe">
                 <option value="homme">Homme</option>
                 <option value="femme">Femme</option>
