@@ -2,13 +2,11 @@
 /**
  * Created by PhpStorm.
  * User: Aster
- * Date: 16/05/2017
- * Time: 18:04
+ * Date: 17/05/2017
+ * Time: 19:36
  */
 
-require 'bdd.php';
-
-function getUser(){
+function bdd(){
     try
     {
         $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -17,7 +15,4 @@ function getUser(){
     {
         die('Erreur : ' . $e->getMessage());
     }
-
-    $requser2 = $bdd->query("SELECT * FROM utilisateur");
-    return $requser2;
 }

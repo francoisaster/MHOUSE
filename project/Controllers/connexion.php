@@ -5,6 +5,10 @@
  * Date: 16/05/2017
  * Time: 18:04
  */
+
+
+require '../Models/connexion.php';
+
 session_start();
 
 $erreur = '';
@@ -19,7 +23,7 @@ if(isset($_POST['submit']) AND !empty($_POST['pseudo'])AND !empty($_POST['pass']
     $pseudo = htmlspecialchars($_POST['pseudo']);
     $pass = ($_POST['pass']);
 
-    $requser = $bdd->query("SELECT * FROM utilisateur");
+    $requser = getUser();
 
     while ($donnees = $requser->fetch()) {
         if ($donnees['pseudo'] == $pseudo AND $donnees['pass'] == $pass) {
