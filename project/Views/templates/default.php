@@ -5,10 +5,11 @@
  * Date: 12/05/2017
  * Time: 20:52
  */?>
+session_start();
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> <!--mettre le java script dedans le head -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">

@@ -42,7 +42,7 @@ function inscription() {
 
 }
 
-function verifExistence($pseudo, $email, $pass){
+function verifExistence($pseudo, $email){
     try
     {
         $bdd = new PDO('mysql:host=localhost;dbname=mhouse_bdd;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -51,6 +51,6 @@ function verifExistence($pseudo, $email, $pass){
     {
         die('Erreur : ' . $e->getMessage());
     }
-    $reponse = $bdd->query('SELECT pseudo,email, pass FROM utilisateur WHERE pseudo="'.$pseudo.'" && email="'.$email.'" && pass="'.$pass.'"');
+    $reponse = $bdd->query('SELECT pseudo,email, pass FROM utilisateur WHERE pseudo="'.$pseudo.'" && email="'.$email.'" ');
     return $reponse;
 }

@@ -5,12 +5,7 @@
  * Date: 16/05/2017
  * Time: 18:04
  */
-
-
 require '../Models/connexion.php';
-
-session_start();
-
 $erreur = '';
 
 if(isset($_POST['submit']) AND !empty($_POST['pseudo'])AND !empty($_POST['pass'])) {
