@@ -6,12 +6,10 @@
  * Time: 18:04
  */
 
-require 'bdd.php';
-
 function getUser(){
     try
     {
-        $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        $bdd = new PDO('mysql:host=localhost;dbname=mhouse_bdd;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
     catch (Exception $e)
     {
@@ -21,3 +19,6 @@ function getUser(){
     $requser2 = $bdd->query("SELECT * FROM utilisateur");
     return $requser2;
 }
+
+
+//require '../Controllers/connexion.php';

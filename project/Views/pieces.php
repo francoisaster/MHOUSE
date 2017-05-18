@@ -1,10 +1,14 @@
 
-<form action="../Controllers/pieces.php" method="post" >
-    <label for="choix_capteur">Choix du capteur :</label>
-    <select name="choix_capteur" id="choix_capteur">
-        <option value="lumiere">Lumière</option>
-        <option value="temperature">Température</option>
-    </select>
+<form action="" method="post" >
+    <fieldset>
+        <label for="choix_piece">Choix du capteur :</label>
+        <select name="choix_piece" id="choix_piece">
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+            <option value="4"></option>
+        </select>
+    </fieldset>
 </form>
 
 

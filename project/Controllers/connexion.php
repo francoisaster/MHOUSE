@@ -6,14 +6,8 @@
  * Time: 18:04
  */
 require '../Models/connexion.php';
-$erreur = '';
 
 if(isset($_POST['submit']) AND !empty($_POST['pseudo'])AND !empty($_POST['pass'])) {
-    try {
-        $bdd = new PDO('mysql:host=localhost;dbname=mhouse_bdd;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-    } catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
-    }
 
     $pseudo = htmlspecialchars($_POST['pseudo']);
     $pass = ($_POST['pass']);
@@ -27,13 +21,15 @@ if(isset($_POST['submit']) AND !empty($_POST['pseudo'])AND !empty($_POST['pass']
                 $_SESSION['admin']='true';
             }
             header('Location: http://localhost/project/public/index.php?p=home');
+            exit();
         }
-
     }
-    $erreur='MDP ou pseudo faux';
+    echo 'MDP ou pseudo faux';
+    //MDP ou pseudo faux
     header('Location: http://localhost/project/public/index.php?p=connexion');
 }else{
-    $erreur='Veuillez inserer les champs';
+    echo 'Veuillez inserer les champs';
+    //Veuillez inserer les champs
     header('Location: http://localhost/project/public/index.php?p=connexion');
 }
 

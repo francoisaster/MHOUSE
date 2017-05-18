@@ -32,6 +32,7 @@ session_start();
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
+                <li><a href="http://localhost/project/public/index.php?p=connexion">Connexion</a></li>
                 <li><a href="http://localhost/project/public/index.php?p=inscription">Inscription</a></li>
                 <li><a href="http://localhost/project/public/index.php?p=pieces">Pièces</a></li>
                 <li><a href="http://localhost/project/public/index.php?p=contact">Contact</a></li>
@@ -44,6 +45,7 @@ session_start();
 <div class="container">
 
     <div class="starter-template" style="padding-top: 100px;">
+
         <?= $content; //affiche de la variable content qui contient le code html de la oage appelé par require dans l'index !?>
     </div>
 
