@@ -11,14 +11,6 @@
     </fieldset>
 </form>
 
-<fieldset>
-    <legend>Les différentes pièces :</legend>
-    <?/*php
-    echo $_SESSION['id_utilisateur'];
-    require '../Models/pieces.php';
-    affichePieces();*/?>
-</fieldset>
-
 
 <!-- CAPTEURS  -->
 
@@ -34,6 +26,7 @@
             <select name="type_capteur" id="type_capteur">
                 <option value="lumiere">Lumière</option>
                 <option value="temperature">Température</option>
+
             </select>
 
             <br />
@@ -51,9 +44,27 @@
     </fieldset>
 </form>
 
-<fieldset>
-    <legend>Les capteurs :</legend>
-    <?/*php
-    require '../Models/capteurs.php';
-    afficheCapteurs();*/?>
-</fieldset>
+<form action="../Controllers/afficheCapteur.php" method="post" >
+    <fieldset>
+        <legend>Voir les capteurs par piece</legend>
+        <p>
+            <br />
+
+            <label for="vue_capteur">Choix de piece :</label>
+            <select name="vue_capteur" id="vue_capteur">
+                <?php
+                affichePiecesMenu(); ?>
+            </select>
+
+            <br/>
+            <input type="submit" value="Rechercher" />
+        </p>
+    </fieldset>
+</form>
+
+<?php
+if(isset($_SESSION['id_piece'])){
+require'../Models/afficheCapteur.php';
+afficheCapteurs($_SESSION['id_utilisateur'],$_SESSION['id_piece']);
+}
+?>

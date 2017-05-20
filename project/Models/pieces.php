@@ -46,8 +46,33 @@ function affichePiecesMenu()
     }
     $req = $bdd->prepare('SELECT * FROM piece WHERE id_utilisateur = :id_utilisateur ');
     $req->execute(array('id_utilisateur' => $_SESSION['id_utilisateur']));
-    while ($donnees = $req->fetch()) {
-        echo '<option value="'.htmlspecialchars($donnees['id_piece']) . '">'.htmlspecialchars($donnees['nom_piece']) .'</option>';
+    $req2 = $bdd->prepare('SELECT * FROM piece WHERE id_utilisateur = :id_utilisateur ');
+    $req2->execute(array('id_utilisateur' => $_SESSION['id_utilisateur']));
+
+    if(!isset($_SESSION['id_piece'])) {
+
+
+        while ($donnees = $req->fetch()) {
+
+
+            echo '<option value="' . htmlspecialchars($donnees['id_piece']) . '">' . htmlspecialchars($donnees['nom_piece']) . '</option>';
+
+        }
+    }else{
+        while ($donnees = $req->fetch()) {
+            if($_SESSION['id_piece']==$donnees['id_piece']){
+                echo '<option value="' . htmlspecialchars($donnees['id_piece']) . '">' . htmlspecialchars($donnees['nom_piece']) . '</option>';
+            }
+        }
+        while ($donnee = $req2->fetch()) {
+            if(($_SESSION['id_piece']!=$donnee['id_piece'])){
+                echo '<option value="' . htmlspecialchars($donnee['id_piece']) . '">' . htmlspecialchars($donnee['nom_piece']) . '</option>';
+            }
+        }
+
     }
+
+
+
     $req->closeCursor();
 }
