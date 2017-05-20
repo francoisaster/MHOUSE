@@ -5,6 +5,9 @@
  * Date: 16/05/2017
  * Time: 18:04
  */
+
+session_start();
+
 require '../Models/connexion.php';
 
 if(isset($_POST['submit']) AND !empty($_POST['pseudo'])AND !empty($_POST['pass'])) {
@@ -19,18 +22,22 @@ if(isset($_POST['submit']) AND !empty($_POST['pseudo'])AND !empty($_POST['pass']
             $_SESSION['pseudo'] = $pseudo;
             if(($donnees['admin'])=='true'){
                 $_SESSION['admin']='true';
+                header('Location:../public/index.php?p=homeAdmin');
+                exit();
             }
-            header('Location: http://localhost/project/public/index.php?p=home');
+            header('Location:../public/index.php?p=homeAdmin');
             exit();
         }
     }
     echo 'MDP ou pseudo faux';
     //MDP ou pseudo faux
-    header('Location: http://localhost/project/public/index.php?p=connexion');
+    header('Location:../public/index.php?p=connexion');
+
 }else{
     echo 'Veuillez inserer les champs';
     //Veuillez inserer les champs
-    header('Location: http://localhost/project/public/index.php?p=connexion');
+    header('Location:../public/index.php?p=connexion');
+
 }
 
 

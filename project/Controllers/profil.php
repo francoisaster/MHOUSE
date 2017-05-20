@@ -8,4 +8,4 @@
 
 require '../Models/profil.php';
 updateProfil();
-header('Location: http://localhost/project/public/index.php?p=pieces');
+header('Location:../public/index.php?p=profil');

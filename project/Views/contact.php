@@ -20,7 +20,6 @@ if ($admin == true) {   /*Test si c'est un administrateur ou non et affiche 2 pa
 
 <?php }
 else {
-
     ?>
 
     <div class="envoyer_message">           <!-- Identité et message du client -->

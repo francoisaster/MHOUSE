@@ -5,7 +5,6 @@ session_start();
 require '../app/Autoloader.php'; //Apporte les Class nécessaires
 Autoloader::register();
 */
-
 if(isset($_GET['p'])){
     $p = $_GET['p'];
 } else{
@@ -29,8 +28,9 @@ if($p === 'home'){ //3 = c'est pour vérifier la value et le type
     require '../Views/connexion.php';
 }elseif ($p =='leave'){
     require '../Views/leave.php';
+}elseif ($p =='homeAdmin'){
+    require '../Views/homeAdmin.php';
 }
-
 // plutot que d'afficher les requires, ils seront stockés dans la variable $content.
     $content = ob_get_clean();
 

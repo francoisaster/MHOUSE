@@ -17,6 +17,5 @@ class Autoloader
     static function autoload($class_name)
     {
         require __DIR__ . '/' . $class_name . '.php';
-
     }
 }
