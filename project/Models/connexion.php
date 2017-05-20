@@ -20,5 +20,4 @@ function getUser(){
     return $requser2;
 }
 
-
 //require '../Controllers/connexion.php';

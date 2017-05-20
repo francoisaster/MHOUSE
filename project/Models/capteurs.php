@@ -4,17 +4,19 @@
 function creationCapteurs(){
     try
     {
-        $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        $bdd = new PDO('mysql:host=localhost;dbname=mhouse_bdd;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
     catch (Exception $e)
     {
         die('Erreur : ' . $e->getMessage());
     }
 
-    $req=$bdd->prepare('INSERT INTO capteurs(nom_capteur, type_capteur, date_d_ajout) VALUES(:nom_capteur, :type_capteur, NOW())');
+    $req=$bdd->prepare('INSERT INTO capteurs(nom_capteur, type_capteur, date_d_ajout, id_utilisateur,id_piece) VALUES(:nom_capteur, :type_capteur, NOW(),:id_utilisateur,:id_piece)');
 // $req->execute(array($_POST['pseudo'], $_POST['pass'], $_POST['email']));
     $req->bindParam(':nom_capteur',$_POST['nom_capteur']);
     $req->bindParam(':type_capteur',$_POST['type_capteur']);
+    $req->bindParam(':id_utilisateur',$_SESSION['id_utilisateur']);
+    $req->bindParam(':id_piece',$_POST['choix_piece_capteur']);
     $req->execute();
 
 }
@@ -23,7 +25,7 @@ function afficheCapteurs(){
 
     try
     {
-        $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8', 'root', '');
+        $bdd = new PDO('mysql:host=localhost;dbname=mhouse_bdd;charset=utf8', 'root', '');
     }
     catch(Exception $e)
     {

@@ -1,18 +1,3 @@
-
-<form action="" method="post" >
-    <fieldset>
-        <label for="choix_piece">Choix du capteur :</label>
-        <select name="choix_piece" id="choix_piece">
-            <option value="1"></option>
-            <option value="2"></option>
-            <option value="3"></option>
-            <option value="4"></option>
-        </select>
-    </fieldset>
-</form>
-
-
-
 <form action="../Controllers/pieces.php" method="post" >
     <fieldset>
         <legend>Ajout d'une pièce</legend>
@@ -28,9 +13,10 @@
 
 <fieldset>
     <legend>Les différentes pièces :</legend>
-    <?php
+    <?/*php
+    echo $_SESSION['id_utilisateur'];
     require '../Models/pieces.php';
-    affichePieces();?>
+    affichePieces();*/?>
 </fieldset>
 
 
@@ -41,7 +27,7 @@
         <legend>Ajout de capteurs</legend>
         <p>
             <label for="nom_capteur">Le nom du capteur :</label>
-            <input type="text" name="nom_capteur" id="nom_capteur" placeholder="capteur1" autofocus="" />
+            <input type="text" name="nom_capteur" id="nom_capteur" placeholder="capteur1" />
             <br />
 
             <label for="type_capteur">Type de capteurs :</label>
@@ -49,12 +35,17 @@
                 <option value="lumiere">Lumière</option>
                 <option value="temperature">Température</option>
             </select>
-            <br />
-            <!--
-                   <label for="pass">Retapez votre mot de passe : </label>
-                    <input type="password" name="verify_pass" id="pass" placeholder="*********"/>
-                    <br /> -->
 
+            <br />
+
+            <label for="choix_piece_capteur">Choix de piece :</label>
+            <select name="choix_piece_capteur" id="choix_piece_capteur">
+
+                <?php require'../Models/pieces.php';
+                affichePiecesMenu(); ?>
+            </select>
+
+            <br/>
             <input type="submit" value="Envoyer" />
         </p>
     </fieldset>
@@ -62,7 +53,7 @@
 
 <fieldset>
     <legend>Les capteurs :</legend>
-    <?php
+    <?/*php
     require '../Models/capteurs.php';
-    afficheCapteurs();?>
+    afficheCapteurs();*/?>
 </fieldset>
