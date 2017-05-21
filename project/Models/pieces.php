@@ -73,3 +73,20 @@ function affichePiecesMenu()
 
     $req->closeCursor();
 }
+
+function isUniquePiece($_nomPiece){
+    try {
+        $bdd = new PDO('mysql:host=localhost;dbname=mhouse_bdd;charset=utf8', 'root', '');
+    } catch (Exception $e) {
+        die('Erreur : ' . $e->getMessage());
+    }
+    $req = $bdd->prepare('SELECT * FROM piece WHERE id_utilisateur = :id_utilisateur ');
+    $req->execute(array('id_utilisateur' => $_SESSION['id_utilisateur']));
+    while ($donnees = $req->fetch()) {
+        if($_nomPiece==$donnees['nom_piece']) {
+            return false;
+        }
+    }
+    return true;
+
+}
