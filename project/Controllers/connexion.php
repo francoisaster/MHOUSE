@@ -15,7 +15,7 @@ if(isset($_POST['submit']) AND !empty($_POST['pseudo'])AND !empty($_POST['pass']
     $pseudo = htmlspecialchars($_POST['pseudo']);
     $pass = ($_POST['pass']);
 
-    $requser = getUser();
+    $requser = getUser(); // Le reqUser contient requser2 qui a la querry bdd
 
     while ($donnees = $requser->fetch()) {
         if ($donnees['pseudo'] == $pseudo AND $donnees['pass'] == $pass) {
