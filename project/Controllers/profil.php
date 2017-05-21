@@ -7,6 +7,6 @@
  */
 
 require '../Models/profil.php';
-require '..Models/connexion.php'; //pour avoir getUser
+require '../Models/connexion.php'; //pour avoir getUser
 updateProfil();
 header('Location:../public/index.php?p=profil');

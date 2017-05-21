@@ -22,7 +22,11 @@ if($p === 'home'){ //3 = c'est pour vérifier la value et le type
 }elseif ($p =='pieces'){
     require '../Views/pieces.php';
 }elseif ($p =='contact'){
-    require '../Views/contact.php';
+    if(isset($_SESSION['admin']) and $_SESSION['admin']=='true'){
+        require '../Views/contactAdmin.php';
+    }else {
+        require '../Views/contact.php';
+    }
 }elseif ($p =='profil'){
     require '../Views/profil.php';
 }elseif ($p =='connexion'){
