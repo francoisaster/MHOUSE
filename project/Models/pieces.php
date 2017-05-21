@@ -44,19 +44,17 @@ function affichePiecesMenu()
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
+
     $req = $bdd->prepare('SELECT * FROM piece WHERE id_utilisateur = :id_utilisateur ');
     $req->execute(array('id_utilisateur' => $_SESSION['id_utilisateur']));
     $req2 = $bdd->prepare('SELECT * FROM piece WHERE id_utilisateur = :id_utilisateur ');
     $req2->execute(array('id_utilisateur' => $_SESSION['id_utilisateur']));
-
-    if(!isset($_SESSION['id_piece'])) {
-
-
+/*
+ * Il y a 2 requetes car le fecth retire les lignes une fois qu'il les parcourt.
+ */
+    if(!isset($_SESSION['id_piece'])) { // si il n'a jamais cliqué sur une piece, alors affiche toutes les pieces dans l'ordre
         while ($donnees = $req->fetch()) {
-
-
             echo '<option value="' . htmlspecialchars($donnees['id_piece']) . '">' . htmlspecialchars($donnees['nom_piece']) . '</option>';
-
         }
     }else{
         while ($donnees = $req->fetch()) {
@@ -69,7 +67,6 @@ function affichePiecesMenu()
                 echo '<option value="' . htmlspecialchars($donnee['id_piece']) . '">' . htmlspecialchars($donnee['nom_piece']) . '</option>';
             }
         }
-
     }
 
 

@@ -62,7 +62,7 @@
     </fieldset>
 </form>
 
-<?php
+<?php // A METTRE DANS CONTROLLERS
 if(isset($_SESSION['id_piece'])){
 require'../Models/afficheCapteur.php';
 afficheCapteurs($_SESSION['id_utilisateur'],$_SESSION['id_piece']);

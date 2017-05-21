@@ -14,10 +14,10 @@ function afficheProfil(){
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
-    $req = $bdd->prepare('SELECT pseudo, prenom, nom, adresse, sexe, date_naissance, email FROM utilisateur 
+    $req = $bdd->prepare('SELECT pseudo, prenom, nom, adresse, sexe, date_naissance, email FROM utilisateur
 WHERE id_utilisateur= ? ');
     $req=execute(array(
-        $_GET['id_utilisateur']
+        $_POST['id_utilisateur']
     ));
     while ($donnees = $req->fetch()) {
         echo '<p>' . htmlspecialchars($donnees['pseudo']) . htmlspecialchars($donnees['prenom']) . htmlspecialchars($donnees['nom']) .

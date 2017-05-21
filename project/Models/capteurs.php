@@ -21,7 +21,7 @@ function creationCapteurs(){
 
 }
 
-function afficheCapteurs(){
+function afficheCapteurs(){ //Maintenant elle
 
     try
     {
@@ -39,4 +39,4 @@ function afficheCapteurs(){
     }
     $reponse->closeCursor();
 
-}
+} //Maintenant la fonction est useless

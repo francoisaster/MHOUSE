@@ -23,4 +23,4 @@ function afficheCapteurs($id_utilisateur,$id_piece){
     }
     $reponse->closeCursor();
 
-}
+} //Fonction pour afficher les capteurs par piece

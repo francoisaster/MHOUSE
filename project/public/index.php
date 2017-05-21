@@ -39,7 +39,6 @@ if(isset($_SESSION['co'])){
     ob_start();
     require '../Views/templates/menuCo.php';
     $menu = ob_get_clean();
-
 }else{
     ob_start();
     require '../Views/templates/menuDeco.php';

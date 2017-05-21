@@ -19,7 +19,16 @@ if(isset($_POST['submit']) AND !empty($_POST['pseudo'])AND !empty($_POST['pass']
 
     while ($donnees = $requser->fetch()) {
         if ($donnees['pseudo'] == $pseudo AND $donnees['pass'] == $pass) {
+
             $_SESSION['pseudo'] = $pseudo;
+            $_SESSION['nom']=$donnees['nom'];
+            $_SESSION['prenom']=$donnees['prenom'];
+            $_SESSION['adresse']=$donnees['adresse'];
+            $_SESSION['email']=$donnees['email'];
+            $_SESSION['sexe']=$donnees['sexe'];
+            $_SESSION['pass']=$donnees['pass'];
+
+
             $_SESSION['co']='true';
             $_SESSION['id_utilisateur']=$donnees['id_utilisateur'];
             if(($donnees['admin'])=='true'){
