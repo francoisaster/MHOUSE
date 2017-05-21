@@ -1,6 +1,6 @@
 <?php
 
-
+require'connexionBdd.php';
 function creationCapteurs(){
 
     $bdd=connexionBdd();
