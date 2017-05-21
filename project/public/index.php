@@ -32,9 +32,22 @@ if($p === 'home'){ //3 = c'est pour vérifier la value et le type
     require '../Views/homeAdmin.php';
 }
 // plutot que d'afficher les requires, ils seront stockés dans la variable $content.
-    $content = ob_get_clean();
+$content = ob_get_clean();
 
-    require '../Views/templates/default.php';
+
+if(isset($_SESSION['co'])){
+    ob_start();
+    require '../Views/templates/menuCo.php';
+    $menu = ob_get_clean();
+
+}else{
+    ob_start();
+    require '../Views/templates/menuDeco.php';
+    $menu = ob_get_clean();
+}
+
+
+require '../Views/templates/default.php';
 
 
 

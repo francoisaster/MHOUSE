@@ -19,8 +19,8 @@ if(isset($_POST['submit']) AND !empty($_POST['pseudo'])AND !empty($_POST['pass']
 
     while ($donnees = $requser->fetch()) {
         if ($donnees['pseudo'] == $pseudo AND $donnees['pass'] == $pass) {
-
             $_SESSION['pseudo'] = $pseudo;
+            $_SESSION['co']='true';
             $_SESSION['id_utilisateur']=$donnees['id_utilisateur'];
             if(($donnees['admin'])=='true'){
                 $_SESSION['admin']='true';

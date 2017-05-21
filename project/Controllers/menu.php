@@ -7,6 +7,6 @@
  */
 
 if(isset($_SESSION['pseudo'])){
-    require '../Views/templates/menu.php';
+    require '../Views/templates/menuCo.php';
 }
 

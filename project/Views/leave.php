@@ -2,5 +2,6 @@
 
 <?php
 require '../Controllers/leave.php';
+unset($_SESSION['co']);
 ?>
 
