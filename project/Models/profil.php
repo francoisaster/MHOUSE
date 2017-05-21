@@ -7,13 +7,10 @@
  */
 
 
-
+require'../Models/connexionBdd.php';
 function afficheProfil(){
-    try {
-        $bdd = new PDO('mysql:host=localhost;dbname=mhouse_bdd;charset=utf8', 'root', '');
-    } catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
-    }
+
+    $bdd=connexionBdd();
     $req = $bdd->prepare('SELECT pseudo, prenom, nom, adresse, sexe, date_naissance, email FROM utilisateur
 WHERE id_utilisateur= ? ');
     $req=execute(array(
@@ -31,11 +28,8 @@ WHERE id_utilisateur= ? ');
 
 function updateProfil()
 {
-    try {
-        $bdd = new PDO('mysql:host=localhost;dbname=mhouse_bdd;charset=utf8', 'root', '');
-    } catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
-    }
+
+    $bdd=connexionBdd();
     $req = $bdd->prepare('UPDATE utilisateur SET pseudo = :nv_pseudo, prenom=:nv_prenom, nom=:nv_nom, adresse=:nv_adresse, sexe=:nv_sexe, date_naissance=:date_naissance, email=:nv_email WHERE id_utilisateur=:id_utilisateur');
     $req = execute(array(
         'nv_pseudo' => $_POST['pseudo'],

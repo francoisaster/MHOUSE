@@ -4,15 +4,10 @@
 /*
  *
  */
+require'../Models/connexionBdd.php';
 function inscription() {
-    try
-    {
-        $bdd = new PDO('mysql:host=localhost;dbname=mhouse_bdd;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-    }
-    catch (Exception $e)
-    {
-        die('Erreur : ' . $e->getMessage());
-    }
+
+    $bdd=connexionBdd();
 
     /*$pseudo=htmlspecialchars(trim($_POST['pseudo']));
     $pass=sha1($_POST['pass']);
@@ -43,14 +38,8 @@ function inscription() {
 }
 
 function verifExistence($pseudo, $email){
-    try
-    {
-        $bdd = new PDO('mysql:host=localhost;dbname=mhouse_bdd;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-    }
-    catch (Exception $e)
-    {
-        die('Erreur : ' . $e->getMessage());
-    }
+
+    $bdd=connexionBdd();
     $reponse = $bdd->query('SELECT pseudo,email, pass FROM utilisateur WHERE pseudo="'.$pseudo.'" && email="'.$email.'" ');
     return $reponse;
 }

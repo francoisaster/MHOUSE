@@ -7,12 +7,10 @@
  */
 
 
+
 function creationPieces(){
-    try {
-        $bdd = new PDO('mysql:host=localhost;dbname=mhouse_bdd;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-    } catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
-    }
+
+    $bdd=connexionBdd();
 // Insertion
     $req = $bdd->prepare('INSERT INTO piece(nom_piece,id_utilisateur) VALUES(:nom_piece,:id_utilisateur)');
     $req->bindParam(':nom_piece', $_POST['nom_piece']);
@@ -20,15 +18,12 @@ function creationPieces(){
     $req->execute();
 }
 //../Views/pieces.php');
-
+require'connexionBdd.php';
 
 function affichePieces()
 {
-    try {
-        $bdd = new PDO('mysql:host=localhost;dbname=mhouse_bdd;charset=utf8', 'root', '');
-    } catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
-    }
+
+    $bdd=connexionBdd();
     $reponse = $bdd->query('SELECT nom_piece FROM piece ORDER BY ID');
     // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
     while ($donnees = $reponse->fetch()) {
@@ -39,11 +34,8 @@ function affichePieces()
 
 function affichePiecesMenu()
 {
-    try {
-        $bdd = new PDO('mysql:host=localhost;dbname=mhouse_bdd;charset=utf8', 'root', '');
-    } catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
-    }
+
+    $bdd=connexionBdd();
 
     $req = $bdd->prepare('SELECT * FROM piece WHERE id_utilisateur = :id_utilisateur ');
     $req->execute(array('id_utilisateur' => $_SESSION['id_utilisateur']));
@@ -75,11 +67,8 @@ function affichePiecesMenu()
 }
 
 function isUniquePiece($_nomPiece){
-    try {
-        $bdd = new PDO('mysql:host=localhost;dbname=mhouse_bdd;charset=utf8', 'root', '');
-    } catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
-    }
+
+    $bdd=connexionBdd();
     $req = $bdd->prepare('SELECT * FROM piece WHERE id_utilisateur = :id_utilisateur ');
     $req->execute(array('id_utilisateur' => $_SESSION['id_utilisateur']));
     while ($donnees = $req->fetch()) {

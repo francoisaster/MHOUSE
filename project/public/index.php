@@ -12,6 +12,7 @@ if(isset($_GET['p'])){
 }
 
 ob_start(); //TOUT ce qui sera affiché sera stocké dans une variable
+
 if($p === 'home'){ //3 = c'est pour vérifier la value et le type
     require '../Views/home.php';
 }elseif ($p =='inscription'){
