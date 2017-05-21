@@ -27,6 +27,8 @@ if(isset($_POST['submit']) AND !empty($_POST['pseudo'])AND !empty($_POST['pass']
             $_SESSION['email']=$donnees['email'];
             $_SESSION['sexe']=$donnees['sexe'];
             $_SESSION['pass']=$donnees['pass'];
+            $_SESSION['numero_tel']=$donnees['numero_tel'];
+            $_SESSION['date_naissance']=$donnees['date_naissance'];
 
 
             $_SESSION['co']='true';
