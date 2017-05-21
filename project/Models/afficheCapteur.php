@@ -9,7 +9,6 @@
 
 function afficheCapteurs($id_utilisateur,$id_piece){
 
-
     $bdd=connexionBdd();
     // Récupération des 20 derniers messages
     $reponse = $bdd->query("SELECT *FROM capteurs WHERE id_piece=$id_piece and id_utilisateur=$id_utilisateur");
