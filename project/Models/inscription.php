@@ -21,7 +21,7 @@ function inscription() {
     $admin=htmlspecialchars(trim($_POST['admin']));*/
 
 // Insertion
-    $req=$bdd->prepare('INSERT INTO utilisateur(pseudo, pass, prenom, nom, adresse, sexe, date_naissance, email, admin) VALUES(:pseudo,:pass,:prenom, :nom, :adresse, :sexe, :date_naissance, :email, :admin)');
+    $req=$bdd->prepare('INSERT INTO utilisateur(pseudo, pass, prenom, nom, adresse, sexe, date_naissance, email, admin, numero_tel) VALUES(:pseudo,:pass,:prenom, :nom, :adresse, :sexe, :date_naissance, :email, :admin, :numero_tel)');
 // $req->execute(array($_POST['pseudo'], $_POST['pass'], $_POST['email']));
     $req->bindParam(':pseudo',$_POST['pseudo']);
     $req->bindParam(':pass',$_POST['pass']);
@@ -32,6 +32,7 @@ function inscription() {
     $req->bindParam(':date_naissance',$_POST['date_naissance']);
     $req->bindParam(':email',$_POST['email']);
     $req->bindParam(':admin',$_POST['admin']);
+    $req->bindParam(':numero_tel',$_POST['numero_tel']);
     $req->execute();
 // On prend le marqueur :pseudo et on lui attribue le POST pseudo qui vient du champ pseudo
 

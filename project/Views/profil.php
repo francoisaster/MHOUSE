@@ -10,16 +10,8 @@
             <!-- placeholder permet de mettre une indication dans le champ-->
             <br />
 
-            <label for="pass">Mot de passe actuel</label> :
-            <input type="password" name="pass" id="pass" value="<?php echo $_SESSION['pass']?>"/>
-            <br />
-
-            <label for="pass2">Nouveau mot de passe : </label>
-            <input type="password" name="pass2" id="pass2" placeholder="*********"/>
-            <br />
-
-            <label for="nom">Votre nouveau prenom </label> :
-            <input type="text" name="nom" id="nom" value="<?php echo $_SESSION['prenom']?>"/>
+            <label for="prenom">Votre nouveau prenom </label> :
+            <input type="text" name="prenom" id="prenom" value="<?php echo $_SESSION['prenom']?>"/>
             <br />
 
             <label for="nom">Votre nouveau nom </label> :
@@ -38,8 +30,16 @@
             </select>
             <br />
 
+            <label for="date_naissance">Votre date de naissance </label> :
+            <input type="date" name="date_naissance" id="date_naissance" value="<?php echo $_SESSION['date_naissance']?>"/>
+            <br />
+
             <label for="email">Votre email </label> :
             <input type="email" name="email" id="email" value="<?php echo $_SESSION['email']?>"/>
+            <br />
+
+            <label for="numero_tel">Votre numéro de téléphone </label> :
+            <input type="text" name="numero_tel" id="numero_tel" value="<?php echo $_SESSION['numero_tel']?>"/>
             <br />
 
             <input type="submit" value="Envoyer" />
@@ -48,6 +48,16 @@
 </form>
 
 
+<!--
+<label for="pass">Mot de passe actuel</label> :
+            <input type="password" name="pass" id="pass" value="<?php echo $_SESSION['pass']?>"/>
+            <br />
+
+            <label for="pass2">Nouveau mot de passe : </label>
+            <input type="password" name="pass2" id="pass2" placeholder="*********"/>
+            <br />
+
+            -->
 
 
 

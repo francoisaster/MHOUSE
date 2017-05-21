@@ -19,7 +19,7 @@ $date_naissance=htmlspecialchars(trim($_POST['date_naissance']));
 $email=$_POST['email'];
 $admin=htmlspecialchars(trim($_POST['admin']));
 
-if(!empty($_POST['pseudo']) && !empty($_POST['pass']) && !empty($_POST['pass2']) && !empty($_POST['prenom']) && !empty($_POST['nom']) && !empty($_POST['adresse']) && !empty($_POST['sexe']) && !empty($_POST['date_naissance']) && !empty($_POST['admin']))
+if(!empty($_POST['pseudo']) && !empty($_POST['pass']) && !empty($_POST['pass2']) && !empty($_POST['prenom']) && !empty($_POST['nom']) && !empty($_POST['adresse']) && !empty($_POST['sexe']) && !empty($_POST['date_naissance']) && !empty($_POST['admin']) && !empty($_POST['numero_tel']))
 {
     if($pass==$pass2){
         $reponse = verifExistence($pseudo, $email);

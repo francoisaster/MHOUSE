@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 /*
 require '../app/Autoloader.php'; //Apporte les Class nécessaires
