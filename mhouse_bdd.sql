@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 19 Mai 2017 à 14:41
--- Version du serveur :  5.7.14
--- Version de PHP :  5.6.25
+-- Généré le :  Dim 21 Mai 2017 à 22:21
+-- Version du serveur :  10.1.21-MariaDB
+-- Version de PHP :  5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -41,7 +41,9 @@ CREATE TABLE `capteurs` (
 
 INSERT INTO `capteurs` (`id_capteur`, `nom_capteur`, `type_capteur`, `date_d_ajout`, `id_utilisateur`, `id_piece`) VALUES
 (1, 'Capteur1', 'Lumiere', '2017-05-17', 2, '1'),
-(2, 'Capteur2', 'Temperature', '2017-05-02', 2, '2');
+(2, 'Capteur2', 'Temperature', '2017-05-02', 2, '2'),
+(16, 'dernieressaiaprescmort', 'temperature', '2017-05-20', 2, '2'),
+(17, 'salledebain', 'lumiere', '2017-05-20', 2, '1');
 
 -- --------------------------------------------------------
 
@@ -62,18 +64,10 @@ CREATE TABLE `commentaire` (
 
 INSERT INTO `commentaire` (`id`, `mail`, `commentaire`, `nom`) VALUES
 (1, 'email@email', 'azdazdazda', 'truc'),
-(2, 'vincent@bestSchoolEver', 'Hello world !', 'vincent');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `email`
---
-
-CREATE TABLE `email` (
-  `email` varchar(255) NOT NULL,
-  `id_utilisateur` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+(2, 'vincent@bestSchoolEver', 'Hello world !', 'vincent'),
+(3, 'kk@kk', 'yea', 'jean'),
+(4, 'qsdsqd@qsd', 'sqdd', 'sd'),
+(5, 'dsqdf@dssqd', 'dfqsq', 'dsfds');
 
 -- --------------------------------------------------------
 
@@ -108,18 +102,10 @@ CREATE TABLE `piece` (
 
 INSERT INTO `piece` (`id_piece`, `nom_piece`, `id_utilisateur`) VALUES
 (1, 'Salle de Bain', 2),
-(2, 'Salon', 2);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `telephone`
---
-
-CREATE TABLE `telephone` (
-  `numero_telephone` int(11) NOT NULL,
-  `id_utilisateur` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+(2, 'Salon', 2),
+(3, 'sdfsdf', 2),
+(6, 'salon', 2),
+(5, 'Couloir', 2);
 
 -- --------------------------------------------------------
 
@@ -137,16 +123,17 @@ CREATE TABLE `utilisateur` (
   `sexe` varchar(255) NOT NULL,
   `date_naissance` date NOT NULL,
   `email` varchar(255) NOT NULL,
-  `admin` varchar(5) NOT NULL
+  `admin` varchar(5) NOT NULL,
+  `numero_tel` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id_utilisateur`, `pseudo`, `pass`, `prenom`, `nom`, `adresse`, `sexe`, `date_naissance`, `email`, `admin`) VALUES
-(2, 'jean', 'pass', 'jean', 'jean', 'rue des marguerites', 'Homme', '2001-01-01', 'jean@jean.fr', 'false'),
-(1, 'admin', 'admin', 'admin', 'admin', 'admin', 'homme', '2000-01-01', 'admin@admin.fr', 'true');
+INSERT INTO `utilisateur` (`id_utilisateur`, `pseudo`, `pass`, `prenom`, `nom`, `adresse`, `sexe`, `date_naissance`, `email`, `admin`, `numero_tel`) VALUES
+(2, 'jean', 'pass', 'jean', 'jean', 'rue des marguerites', 'Homme', '2001-01-01', 'jean@jean.fr', 'false', '0154545454'),
+(1, 'admin', 'admin', 'admin', 'admin', 'admin', 'homme', '2000-01-01', 'admin@admin.fr', 'true', '0158585858');
 
 -- --------------------------------------------------------
 
@@ -180,13 +167,6 @@ ALTER TABLE `commentaire`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `email`
---
-ALTER TABLE `email`
-  ADD PRIMARY KEY (`email`),
-  ADD KEY `id_utilisateur` (`id_utilisateur`);
-
---
 -- Index pour la table `historique_des_modifications`
 --
 ALTER TABLE `historique_des_modifications`
@@ -199,13 +179,6 @@ ALTER TABLE `historique_des_modifications`
 --
 ALTER TABLE `piece`
   ADD PRIMARY KEY (`id_piece`),
-  ADD KEY `id_utilisateur` (`id_utilisateur`);
-
---
--- Index pour la table `telephone`
---
-ALTER TABLE `telephone`
-  ADD PRIMARY KEY (`numero_telephone`),
   ADD KEY `id_utilisateur` (`id_utilisateur`);
 
 --
@@ -230,12 +203,12 @@ ALTER TABLE `valeurs_capteur`
 -- AUTO_INCREMENT pour la table `capteurs`
 --
 ALTER TABLE `capteurs`
-  MODIFY `id_capteur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_capteur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT pour la table `commentaire`
 --
 ALTER TABLE `commentaire`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `historique_des_modifications`
 --
@@ -245,7 +218,7 @@ ALTER TABLE `historique_des_modifications`
 -- AUTO_INCREMENT pour la table `piece`
 --
 ALTER TABLE `piece`
-  MODIFY `id_piece` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_piece` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
