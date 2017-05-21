@@ -7,7 +7,7 @@
  */
 session_start();
 require '../Models/pieces.php';
-if(isset($_POST['nom_piece']) && isset($_SESSION['id_utilisateur'])) {
+if(isset($_POST['nom_piece']) && isset($_SESSION['id_utilisateur']) and isUniquePiece($_POST['nom_piece'])) {
     creationPieces();
     header('Location:../public/index.php?p=pieces');
     exit();
