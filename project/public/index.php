@@ -60,7 +60,6 @@ if(isset($_SESSION['co'])){
     $menu = ob_get_clean();
 }
 
-
 require '../Views/templates/default.php';
 
 

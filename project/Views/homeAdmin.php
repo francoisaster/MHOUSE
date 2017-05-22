@@ -2,7 +2,7 @@
 
 
 
-echo '<p>'.'bonjour '.$_SESSION['pseudo'].'<p>';
+echo '<p>'.'Bonjour '.$_SESSION['pseudo'].'<p>';
 
 ?>
 <form action="" method="post">

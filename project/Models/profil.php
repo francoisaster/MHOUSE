@@ -23,7 +23,7 @@ WHERE id_utilisateur= ? ');
     $req->closeCursor();
 }
 
-/*
+
 function updateProfil()
 {
     $bdd=connexionBdd();
@@ -43,7 +43,7 @@ WHERE id_utilisateur = :id_utilisateur ');
         'numero_tel' => $_POST['numero_tel'],
         'id_utilisateur' => $_SESSION['id_utilisateur'],
         ));
-}*/
+}
 
 function upContact(){
     $bdd=connexionBdd();
