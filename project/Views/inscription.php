@@ -51,6 +51,9 @@
     </select>
       <br />
 
+        <label for="numero_tel">Votre numéro de téléphone </label> :
+        <input type="text" name="numero_tel" id="numero_tel""/>
+        <br />
 
     <input type="submit" value="Envoyer" />
 
