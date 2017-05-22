@@ -27,7 +27,7 @@ if(!empty($_POST['pseudo']) && !empty($_POST['pass']) && !empty($_POST['pass2'])
             // l'utilisateur est unique, tout ses champs sont libres, il peut continuer
             inscription();
             //echo 'Inscrit !';
-            header('Location: ../Views/inscriptionSuccessfull.php');
+            header('Location: ../public/index.php?p=inscriptionSuccessfull');
         }else{
             //Un utilisateur a deja pris un des champs requis
             //$erreur="Un des chammps existe deja, veuillez changer vos champs";
