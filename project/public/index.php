@@ -11,6 +11,12 @@ if(isset($_GET['p'])){
     $p = 'connexion';
 }
 
+/*
+ *
+ * METTRE DES SWITCH A MA PLACE DE ELSEIF
+ *
+ */
+
 ob_start(); //TOUT ce qui sera affiché sera stocké dans une variable
 
 if($p === 'home'){ //3 = c'est pour vérifier la value et le type
