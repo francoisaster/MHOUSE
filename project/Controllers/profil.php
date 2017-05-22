@@ -25,5 +25,6 @@ $donnees = $requser->fetch();
     $_SESSION['sexe'] = $donnees['sexe'];
     $_SESSION['pass'] = $donnees['pass'];
     $_SESSION['date_naissance'] = $donnees['date_naissance'];
+
 header('Location:../public/index.php?p=profil');
 
