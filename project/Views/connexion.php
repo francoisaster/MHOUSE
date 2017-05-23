@@ -1,4 +1,4 @@
-<form action="../Controllers/connexion.php" method="post" id="one_block">
+<form action="../Controllers/connexion.php" method="post" class="block">
         <p>
             <label for="pseudo">Votre pseudo </label> :
             <input type="text" name="pseudo" id="pseudo" placeholder="Maxime2326" autofocus=""/>

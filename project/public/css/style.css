@@ -2,8 +2,9 @@ html, body{
     margin: 0;
     padding: 0;
     font-family: Microsoft Tai Le;
-    color: black;
-    background-image: url('../images/maison.jpg');
+    color: white;
+    /*background-image: url('../images/maison.jpg');*/
+    background-image: url('../images/batiment_ISEP.jpg');
     background-size: 100%;
 
 }
@@ -73,8 +74,13 @@ header {
     background-color: #0057e6;
 }
 
-#one_block{
+
+.block{
     margin: auto;
-    background-color: white;
+    background-color: black;
     width : 30%;
+    opacity: 0.8;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-radius: 10%;
 }
