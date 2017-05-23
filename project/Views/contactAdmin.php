@@ -47,7 +47,7 @@ $donnees=contactAdmin();
             <input type="email" name="nv_mail" id="nv_mail" value="<?php echo $donnees['email']?>"/>
             <br />
 
-            <input type="submit" value="Envoyer" />
+            <input type="submit" value="Envoyer" class="submit" />
         </p>
     </fieldset>
 </form>

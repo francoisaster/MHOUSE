@@ -6,7 +6,7 @@
             <input type="text" name="nom_piece" id="nom_piece" placeholder="Salle à manger" autofocus="" />
             <br />
 
-            <input type="submit" value="Envoyer" />
+            <input type="submit" value="Envoyer" class="submit"/>
         </p>
     </fieldset>
 </form>
@@ -39,7 +39,7 @@
             </select>
 
             <br/>
-            <input type="submit" value="Envoyer" />
+            <input type="submit" value="Envoyer" class="submit"/>
         </p>
     </fieldset>
 </form>
@@ -57,7 +57,7 @@
             </select>
 
             <br/>
-            <input type="submit" value="Rechercher" />
+            <input type="submit" value="Rechercher" class="submit"/>
         </p>
     </fieldset>
 </form>

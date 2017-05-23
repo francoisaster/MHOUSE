@@ -4,22 +4,17 @@
     <meta charset="utf-8">
     <link rel="icon" href="../../logo.ico">
     <title>Mhouse</title>
-    <link href="../../public/css/style.css" rel="stylesheet">
+    <link href="../public/css/style.css" rel="stylesheet" type="text/css" >
 </head>
 
 <body>
-
-<nav class="menu">
-    <div class="container">
+    <header>
         <?= $menu; ?>
-    </div>
-</nav>
+    </header>>
 
-<div class="container">
     <div class="content">
         <?= $content; //affiche de la variable content qui contient le code html de la oage appelé par require dans l'index !?>
     </div>
-</div><!-- /.container -->
 
 </body>
 </html>

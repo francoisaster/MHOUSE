@@ -55,7 +55,7 @@
         <input type="text" name="numero_tel" id="numero_tel""/>
         <br />
 
-    <input type="submit" value="Envoyer" />
+    <input type="submit" value="Envoyer" class="submit"/>
 
     </p>
    </fieldset>

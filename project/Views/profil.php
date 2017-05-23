@@ -42,7 +42,7 @@
             <input type="text" name="numero_tel" id="numero_tel" value="<?php echo $_SESSION['numero_tel']?>"/>
             <br />
 
-            <input type="submit" value="Envoyer" />
+            <input type="submit" value="Envoyer" class="submit"/>
         </p>
     </fieldset>
 </form>
