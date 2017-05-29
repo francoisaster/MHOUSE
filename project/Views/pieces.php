@@ -3,9 +3,9 @@
         <legend>Ajout d'une pièce</legend>
         <p>
             <label for="nom_piece">Le nom d'une pièce :</label>
-            <input type="text" name="nom_piece" id="nom_piece" placeholder="Salle à manger" autofocus="" />
+            <input type="text" name="nom_piece" id="nom_piece" autofocus="" />
             <br />
-
+            <br/>
             <input type="submit" value="Envoyer" class="submit"/>
         </p>
     </fieldset>
@@ -19,7 +19,7 @@
         <legend>Ajout de capteurs</legend>
         <p>
             <label for="nom_capteur">Le nom du capteur :</label>
-            <input type="text" name="nom_capteur" id="nom_capteur" placeholder="capteur1" />
+            <input type="text" name="nom_capteur" id="nom_capteur" />
             <br />
 
             <label for="type_capteur">Type de capteurs :</label>
@@ -39,6 +39,7 @@
             </select>
 
             <br/>
+            <br/>
             <input type="submit" value="Envoyer" class="submit"/>
         </p>
     </fieldset>
@@ -56,6 +57,7 @@
                 affichePiecesMenu(); ?>
             </select>
 
+            <br/>
             <br/>
             <input type="submit" value="Rechercher" class="submit"/>
         </p>
