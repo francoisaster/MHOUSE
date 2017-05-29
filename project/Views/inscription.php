@@ -24,7 +24,7 @@
     <br /><br />
 
     <label for="adresse">Votre adresse :</label>
-    <input type="text" name="adresse" id="adresse" size="35"/>
+    <input type="text" name="adresse" id="adresse"/>
     <br /><br />
 
     
