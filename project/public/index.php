@@ -41,6 +41,8 @@ if($p === 'home'){ //3 = c'est pour vérifier la value et le type
     require '../Views/profil.php';
 }elseif ($p =='connexion'){
     require '../Views/connexion.php';
+}elseif ($p == 'maison') {
+    require '../Views/maison.php';
 }elseif ($p =='leave'){
     require '../Views/leave.php';
 }elseif ($p =='homeAdmin'){
