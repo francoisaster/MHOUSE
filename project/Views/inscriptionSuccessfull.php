@@ -1,6 +1,6 @@
 
 
-<fieldset>
+<fieldset class="block">>
     <legend>Félicitation, vous êtes inscrit !</legend>
 <p>
 

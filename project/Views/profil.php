@@ -1,4 +1,4 @@
-<form action="../Controllers/profil.php" method="post" >
+<form action="../Controllers/profil.php" method="post" class="block">
     <fieldset>
         <legend>Modifier le profil existant :</legend>
         <p>

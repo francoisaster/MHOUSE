@@ -1,4 +1,4 @@
-<form action="../Controllers/inscription.php" method="post" >
+<form action="../Controllers/inscription.php" method="post" class="block">
    <fieldset>
        <legend>Inscription</legend>
     <p>

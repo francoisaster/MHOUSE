@@ -1,4 +1,4 @@
-<form action="../Controllers/pieces.php" method="post" >
+<form action="../Controllers/pieces.php" method="post" class="block">
     <fieldset>
         <legend>Ajout d'une pièce</legend>
         <p>
@@ -14,7 +14,7 @@
 
 <!-- CAPTEURS  -->
 
-<form action="../Controllers/capteurs.php" method="post" >
+<form action="../Controllers/capteurs.php" method="post" class="block">
     <fieldset>
         <legend>Ajout de capteurs</legend>
         <p>
@@ -44,7 +44,7 @@
     </fieldset>
 </form>
 
-<form action="../Controllers/afficheCapteur.php" method="post" >
+<form action="../Controllers/afficheCapteur.php" method="post" class="block">
     <fieldset>
         <legend>Voir les capteurs par piece</legend>
         <p>

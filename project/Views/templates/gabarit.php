@@ -10,7 +10,7 @@
 <body>
     <header>
         <?= $menu; ?>
-    </header>>
+    </header>
 
     <div class="content">
         <?= $content; //affiche de la variable content qui contient le code html de la oage appelé par require dans l'index !?>

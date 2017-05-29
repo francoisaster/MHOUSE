@@ -3,12 +3,13 @@ html, body{
     padding: 0;
     font-family: Microsoft Tai Le;
     color: white;
-    /*background-image: url('../images/maison.jpg');*/
-    background-image: url('../images/batiment_ISEP.jpg');
-    background-size: 100%;
+   /* background: url('../images/maison.jpg') center no-repeat;*/
+    background: url('../images/batiment_ISEP.jpg') fixed no-repeat;
+    background-size: 100%;;
+
 
 }
-
+/*
 li {
     list-style-type: none;
     display: inline-block;
@@ -34,6 +35,37 @@ li {
     color: white;
     text-decoration: none;
 }
+*/
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+    opacity: 0.7;
+}
+li {
+    float: left;
+    opacity : 1;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    opacity : 1;
+    padding: 20px 30px; /* hauteur puis espacement */
+    text-decoration: none;
+}
+a:hover:not(.active) {
+    background-color: #111;
+}
+.active {
+    background-color:#4CAF50;
+}
+
+
+/* BOUTON */
 
 .submit {
     background-color: #4285f4;
@@ -43,13 +75,18 @@ li {
     border-radius: 2px;
     border: none;
 }
+.submit:hover {
+    background-color: #0057e6;
+}
+
 
 header {
     display: flex;
-    padding-top: 7px;
-    padding-bottom: 7px;
+   /* padding-top: 7px;
+    padding-bottom: 7px;*/
     justify-content: space-between;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: black;
+    opacity: 0.7;
 }
 
 .connexion {
@@ -64,14 +101,14 @@ header {
 
 }
 
+
+
 .content {
     padding-top: 80px;
     text-align: center;
-
-}
-
-.submit:hover {
-    background-color: #0057e6;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 
@@ -83,4 +120,7 @@ header {
     padding-top: 5%;
     padding-bottom: 5%;
     border-radius: 10%;
+
+    border: 2px solid darkblue;
+
 }
