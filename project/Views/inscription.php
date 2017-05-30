@@ -28,7 +28,7 @@
     <br /><br />
 
     
-    <label for="sexe">Civité :</label>
+    <label for="sexe">Civilité :</label>
       <select name="sexe" id="sexe">
         <option value="homme">Homme</option>
         <option value="femme">Femme</option>

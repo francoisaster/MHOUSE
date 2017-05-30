@@ -2,7 +2,7 @@ html, body{
     margin: 0;
     padding: 0;
     font-family: Microsoft Tai Le;
-    color: white;
+    color: black;
    /* background: url('../images/maison.jpg') center no-repeat;*/
     background: url('../images/batiment_ISEP.jpg') fixed no-repeat;
     background-size: 100%;;
@@ -47,13 +47,13 @@ ul {
 }
 li {
     float: left;
-    opacity : 1;
+
 }
 li a {
     display: block;
     color: white;
     text-align: center;
-    opacity : 1;
+
     padding: 20px 30px; /* hauteur puis espacement */
     text-decoration: none;
 }
@@ -114,14 +114,14 @@ header {
 
 .block{
     margin: auto;
-    background-color: black;
+    background-color: white;
 
-    opacity: 0.9;
+    opacity: 1;
     padding : 20px;
 
 
-    border-radius: 10px;
-    border: 2px solid darkblue;
+    border-radius: 2px;
+    border: 2px solid black;
 
 }
 

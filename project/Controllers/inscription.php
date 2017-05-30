@@ -19,30 +19,34 @@ $date_naissance=htmlspecialchars(trim($_POST['date_naissance']));
 $email=$_POST['email'];
 $admin=htmlspecialchars(trim($_POST['admin']));
 
-if(!empty($_POST['pseudo']) && !empty($_POST['pass']) && !empty($_POST['pass2']) && !empty($_POST['prenom']) && !empty($_POST['nom']) && !empty($_POST['adresse']) && !empty($_POST['sexe']) && !empty($_POST['date_naissance']) && !empty($_POST['admin']))
-{
-    if($pass==$pass2){
-        $reponse = verifExistence($pseudo, $email);
-        if($reponse->rowcount()==0){
-            // l'utilisateur est unique, tout ses champs sont libres, il peut continuer
-            inscription();
-            //echo 'Inscrit !';
-            header('Location: ../public/index.php?p=inscriptionSuccessfull');
-        }else{
-            //Un utilisateur a deja pris un des champs requis
-            //$erreur="Un des chammps existe deja, veuillez changer vos champs";
-            //header('Location: http://localhost/project/public/index.php?p=inscription');
-            echo 'Un champ est déjà pris';
+$longueur = strlen($pass);
+if ($longueur < 8) {
+    echo "Mot de passe trop court !";
+}else {
+
+    if (!empty($_POST['pseudo']) && !empty($_POST['pass']) && !empty($_POST['pass2']) && !empty($_POST['prenom']) && !empty($_POST['nom']) && !empty($_POST['adresse']) && !empty($_POST['sexe']) && !empty($_POST['date_naissance']) && !empty($_POST['admin'])) {
+        if ($pass == $pass2) {
+            $reponse = verifExistence($pseudo, $email);
+            if ($reponse->rowcount() == 0) {
+                // l'utilisateur est unique, tout ses champs sont libres, il peut continuer
+                inscription();
+                //echo 'Inscrit !';
+                header('Location: ../public/index.php?p=inscriptionSuccessfull');
+            } else {
+                //Un utilisateur a deja pris un des champs requis
+                //$erreur="Un des chammps existe deja, veuillez changer vos champs";
+                //header('Location: http://localhost/project/public/index.php?p=inscription');
+                echo 'Un champ est déjà pris';
+            }
+        } else {
+            echo 'Vos mots de passe ne dont pas identiques';
         }
-    }else{
-        echo'Vos mots de passe ne dont pas identiques';
+
+    } else {
+        echo 'Remplissez TOUS les champs';
     }
 
-}else{
-    echo 'Remplissez TOUS les champs';
 }
-
-
 /*
 
 if(!empty($_POST['email']) AND !empty($_POST['pass']) AND !empty($_POST['pass2'] ))

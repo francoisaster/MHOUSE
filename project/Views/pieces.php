@@ -20,7 +20,7 @@
         <p>
             <label for="nom_capteur">Le nom du capteur :</label>
             <input type="text" name="nom_capteur" id="nom_capteur" />
-            <br />
+            <br /><br/>
 
             <label for="type_capteur">Type de capteurs :</label>
             <select name="type_capteur" id="type_capteur">
@@ -29,7 +29,7 @@
 
             </select>
 
-            <br />
+            <br /><br/>
 
             <label for="choix_piece_capteur">Choix de piece :</label>
             <select name="choix_piece_capteur" id="choix_piece_capteur">
