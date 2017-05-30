@@ -5,38 +5,21 @@ html, body{
     color: black;
    /* background: url('../images/maison.jpg') center no-repeat;*/
     background: url('../images/batiment_ISEP.jpg') fixed no-repeat;
-    background-size: 100%;;
-
-
+    background-size: 100%;
+    height: 100%;
 }
-/*
-li {
-    list-style-type: none;
-    display: inline-block;
-    margin-right: 50px;
+#superglobal {
+    position : relative;
+    min-height: 100%;
 }
 
-.navbar:visited {
-    color: #9e9e9e;
-    text-decoration: none;
+#global{
+    position: relative;
+    min-height: 100%;
+    margin: 0 auto;
+    padding-bottom: 70px;
+    width: 600px;
 }
-
-.navbar:hover {
-    color: white;
-    text-decoration: none;
-}
-
-.navbar2:visited {
-    color: #9e9e9e;
-    text-decoration: none;
-}
-
-.navbar2:hover {
-    color: white;
-    text-decoration: none;
-}
-*/
-
 ul {
     list-style-type: none;
     margin: 0;
@@ -47,8 +30,8 @@ ul {
 }
 li {
     float: left;
-
 }
+
 li a {
     display: block;
     color: white;
@@ -62,6 +45,21 @@ a:hover:not(.active) {
 }
 .active {
     background-color:#4CAF50;
+}
+.navbar-left{
+    position: fixed;
+    left:60px;
+}
+.image{
+
+    padding-right:10px;
+    margin-right: 10px;
+    padding-left:20px;
+
+    margin-top:-15px;
+    width : 40px;
+    position: fixed;
+    left:0;
 }
 
 
@@ -93,13 +91,6 @@ header {
     color: white;
 }
 
-.image2 {
-    width: 40px;
-    margin-left: 20px;
-    margin-bottom: -15px;
-    padding-right: 20px;
-
-}
 
 
 
@@ -130,4 +121,27 @@ label
     display: block;
     width: 300px;
     float: left;
+}
+
+
+
+footer{
+    position: absolute;
+    bottom: 0px;
+    height: 50px;
+    width: 100%;
+    color :white;
+    opacity: 0.8;
+    background: black;
+    display:flex;
+}
+
+
+
+#faq{
+    width:30%;
+}
+
+#reseaux_sociaux{
+    width:30%;
 }

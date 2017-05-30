@@ -8,14 +8,29 @@
 </head>
 
 <body>
+<div id="superglobal">
     <header>
         <?= $menu; ?>
     </header>
 
-    <div class="content">
-        <?= $content; //affiche de la variable content qui contient le code html de la oage appelé par require dans l'index !?>
-    </div>
 
+    <div id="global">
+        <div class="content">
+            <?= $content; //affiche de la variable content qui contient le code html de la oage appelé par require dans l'index !?>
+        </div>
+
+    </div> <!-- fin global -->
+
+    <footer>
+        <div id="faq">
+            <span>FAQ</span>
+        </div>
+        <div id="reseaux_sociaux">
+            <span>Suivez nous sur les réseaux sociaux :</span>
+        </div>
+    </footer>
+
+</div> <!-- fin superglobale -->
 </body>
 </html>
 
