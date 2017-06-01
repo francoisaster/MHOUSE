@@ -1,8 +1,144 @@
-.menu
+html, body{
+    margin: 0;
+    padding: 0;
+    font-family: Microsoft Tai Le;
+    color: black;
+   /* background: url('../images/maison.jpg') center no-repeat;*/
+    background: url('../images/batiment_ISEP.jpg') fixed no-repeat;
+    background-size: 100%;
+    height: 100%;
+}
+#superglobal {
+    position : relative;
+    min-height: 100%;
+}
+
+#global{
+    position: relative;
+    min-height: 100%;
+    margin: 0 auto;
+    padding-bottom: 70px;
+    width: 600px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+    opacity: 0.7;
+}
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+
+    padding: 20px 30px; /* hauteur puis espacement */
+    text-decoration: none;
+}
+a:hover:not(.active) {
+    background-color: #111;
+}
+.active {
+    background-color:#4CAF50;
+}
+.image{
+
+    padding-right:10px;
+    margin-left: 10px;
+    margin-top:0px;
+    width : 50px;
+    position: absolute;
+    left:0px;
+}
+
+
+/* BOUTON */
+
+.submit {
+    background-color: #4285f4;
+    color: white;
+    padding: 12px 35px;
+    text-decoration: none;
+    border-radius: 2px;
+    border: none;
+}
+.submit:hover {
+    background-color: #0057e6;
+}
+
+
+header {
+    display: flex;
+   /* padding-top: 7px;
+    padding-bottom: 7px;*/
+    justify-content: space-between;
+    background-color: black;
+    opacity: 0.7;
+    margin-bottom:20px;
+
+}
+
+.connexion {
+    color: white;
+}
+
+
+
+.block{
+    background-color: white;
+    opacity: 1;
+    padding : 20px;
+    border-radius: 2px;
+    border: 2px solid black;
+    margin-bottom: 20px;
+
+}
+
+label
 {
-
+    display: block;
+    width: 300px;
+    float: left;
 }
 
-div{
 
+
+footer{
+    position: absolute;
+    bottom: 0px;
+    height: 50px;
+    width: 100%;
+    color :white;
+    opacity: 0.8;
+    background: black;
+    display:flex;
 }
+
+
+
+#faq{
+    width:30%;
+}
+
+#reseaux_sociaux{
+    width:30%;
+}
+
+#erreur{
+    display:none;
+}
+
+#pseudo, #pass{
+    border-color: lightgray;
+    color : black;
+}
+
+p{
+    color :green;
+}
+

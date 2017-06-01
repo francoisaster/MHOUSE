@@ -1,7 +1,6 @@
-
-
-<fieldset>
-    <legend>Félicitation, vous êtes inscrit !</legend>
+<div class="block">
+<fieldset >
+    <legend>Félicitations, vous êtes inscrit !</legend>
 <p>
 
 <br />
@@ -10,3 +9,4 @@ Veuillez cliquer ici pour aller vous connecter :
     <a href="../public/index.php?p=connexion"> Sign up</a>
 </p>
 </fieldset>
+</div>

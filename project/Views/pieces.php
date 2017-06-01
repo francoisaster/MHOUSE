@@ -1,12 +1,12 @@
-<form action="../Controllers/pieces.php" method="post" >
+<form action="../Controllers/pieces.php" method="post" class="block">
     <fieldset>
         <legend>Ajout d'une pièce</legend>
         <p>
             <label for="nom_piece">Le nom d'une pièce :</label>
-            <input type="text" name="nom_piece" id="nom_piece" placeholder="Salle à manger" autofocus="" />
+            <input type="text" name="nom_piece" id="nom_piece" autofocus="" />
             <br />
-
-            <input type="submit" value="Envoyer" />
+            <br/>
+            <input type="submit" value="Ajouter pièce" class="submit"/>
         </p>
     </fieldset>
 </form>
@@ -14,13 +14,13 @@
 
 <!-- CAPTEURS  -->
 
-<form action="../Controllers/capteurs.php" method="post" >
+<form action="../Controllers/capteurs.php" method="post" class="block">
     <fieldset>
         <legend>Ajout de capteurs</legend>
         <p>
             <label for="nom_capteur">Le nom du capteur :</label>
-            <input type="text" name="nom_capteur" id="nom_capteur" placeholder="capteur1" />
-            <br />
+            <input type="text" name="nom_capteur" id="nom_capteur" />
+            <br /><br/>
 
             <label for="type_capteur">Type de capteurs :</label>
             <select name="type_capteur" id="type_capteur">
@@ -29,7 +29,7 @@
 
             </select>
 
-            <br />
+            <br /><br/>
 
             <label for="choix_piece_capteur">Choix de piece :</label>
             <select name="choix_piece_capteur" id="choix_piece_capteur">
@@ -39,12 +39,13 @@
             </select>
 
             <br/>
-            <input type="submit" value="Envoyer" />
+            <br/>
+            <input type="submit" value="Ajouter" class="submit"/>
         </p>
     </fieldset>
 </form>
 
-<form action="../Controllers/afficheCapteur.php" method="post" >
+<form action="../Controllers/afficheCapteur.php" method="post" class="block">
     <fieldset>
         <legend>Voir les capteurs par piece</legend>
         <p>
@@ -57,7 +58,8 @@
             </select>
 
             <br/>
-            <input type="submit" value="Rechercher" />
+            <br/>
+            <input type="submit" value="Rechercher" class="submit"/>
         </p>
     </fieldset>
 </form>
