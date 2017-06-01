@@ -45,6 +45,7 @@
     </fieldset>
 </form>
 
+<<<<<<< HEAD
 <form action="../Controllers/afficheCapteur.php" method="post" class="block">
     <fieldset>
         <legend>Voir les capteurs par piece</legend>
@@ -64,6 +65,8 @@
     </fieldset>
 </form>
 
+=======
+>>>>>>> 65a1e0c181f608b825640348f681455e7b7d09d8
 <?php // A METTRE DANS CONTROLLERS
 if(isset($_SESSION['id_piece'])){
 require'../Models/afficheCapteur.php';
