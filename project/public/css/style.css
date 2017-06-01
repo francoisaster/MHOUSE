@@ -131,10 +131,17 @@ footer{
 
 #erreur{
     display:none;
+
+    background-color: black;
+    color: white;
+    padding : 20px;
+    border-radius: 2px;
+    border: 2px solid black;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-#pseudo, #pass{
+#pseudo, #pass, #pass2, #email, #numero_tel, #adresse, #nom, #prenom{
     border-color: lightgray;
     color : black;
 }
-

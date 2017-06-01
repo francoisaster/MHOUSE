@@ -3,21 +3,22 @@
 <div class="block">
     <h1>Home</h1>
 
-    <p>Les notifications seront bientôt disponibles !</p>
+    <fieldset class="notif">Les notifications seront bientôt disponibles !</fieldset>
+    <br />
+    <fieldset class="notif">Voici une notification, si tu l'as lu, clic dessus pour la faire disparaitre !</fieldset>
 </div>
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 
-    //$("p").css("background-color", "yellow");
-    /*
+    //$(".notif").css("background-color", "yellow");
+
     $(document).ready(function(){
-        $("p").click(function(){
+        $(".notif").click(function(){
             $(this).hide();
         });
-    });*/ //PARFAIT POUR FAIRE LES SUPPRESSIONS DE notifications
+    });   //PARFAIT POUR FAIRE LES SUPPRESSIONS DE notifications
 
     </script>
 
