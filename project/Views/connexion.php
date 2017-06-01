@@ -1,6 +1,6 @@
-<div id="erreur">
+<!--<div id="erreur">
     <p>Vous n'avez pas rempli correctement les champs du formulaire !</p>
-</div>
+</div>-->
 
 <form action="../Controllers/connexion.php" method="post" class="block">
         <p>
@@ -20,40 +20,24 @@
 </div>
 -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
 <script>
-
-
-
-
-    $(document).ready(function(){
-        $('p').css("color", "red"); // ma méthode modifiera la propriété "color" et la définira à "red"
-    }
-
-        /*
-    }
-        var $pseudo = $('#pseudo'),
-            $mdp = $('#pass'),
-            $erreur = $('#erreur'),
-            $champ = $('.champ');
-
-        $pass.keyup(function(){
-            if($(this).val().length < 8){ // si la chaîne de caractères est inférieure à 5
+    $(document).ready(function() {
+        var $pass = $('#pass');
+        $pass.keyup(function () {
+            if ($(this).val().length < 8) { // si la chaîne de caractères est inférieure à 8
                 $(this).css({ // on rend le champ rouge
-                    borderColor : 'red',
-                    color : 'red'
+                    borderColor: 'red',
+                    color: 'red'
                 });
             }
-            else{
+            else {
                 $(this).css({ // si tout est bon, on le rend vert
-                    borderColor : 'green',
-                    color : 'green'
+                    borderColor: 'green',
+                    color: 'green'
                 });
-            }*/
+            }
+        });
+
     });
-
-
-
-
 </script>

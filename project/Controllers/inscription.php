@@ -23,10 +23,7 @@ $longueur = strlen($pass);
 if ($longueur < 8) {
     echo "Mot de passe trop court !";
 }
-
-
 else {
-
     if (!empty($_POST['pseudo']) && !empty($_POST['pass']) && !empty($_POST['pass2']) && !empty($_POST['prenom']) && !empty($_POST['nom']) && !empty($_POST['adresse']) && !empty($_POST['sexe']) && !empty($_POST['date_naissance']) && !empty($_POST['admin'])) {
         if ($pass == $pass2) {
             $reponse = verifExistence($pseudo, $email);

@@ -68,12 +68,25 @@
 </form>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script>
-    $(document).ready(function(){
-        // notre code ici
+
+    // VERIFICATION DE LA LONGUEUR MOT DE PASSE
+    $(document).ready(function() {
+        var $pass = $('#pass');
+        $pass.keyup(function () {
+            if ($(this).val().length < 8) { // si la chaîne de caractères est inférieure à 8
+                $(this).css({ // on rend le champ rouge
+                    borderColor: 'red',
+                    color: 'red'
+                });
+            }
+            else {
+                $(this).css({ // si tout est bon, on le rend vert
+                    borderColor: 'green',
+                    color: 'green'
+                });
+            }
+        });
+
     });
-
-
-
 </script>

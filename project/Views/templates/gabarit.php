@@ -5,7 +5,8 @@
     <link rel="icon" href="../../logo.ico">
     <title>Mhouse</title>
     <link href="../public/css/style.css" rel="stylesheet" type="text/css" >
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.validate.min.js"></script>
 </head>
 
 <body>
@@ -34,13 +35,6 @@
 </div> <!-- fin superglobale -->
 </body>
 
-<script>
-/*
-    $(document).ready(function(){ // le $ remplace jQuerry()
-
-    });
-    */
-</script>
 
 
 </html>

@@ -11,7 +11,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 
-    $("p").css("background-color", "yellow");
+    //$("p").css("background-color", "yellow");
     /*
     $(document).ready(function(){
         $("p").click(function(){
@@ -20,3 +20,4 @@
     });*/ //PARFAIT POUR FAIRE LES SUPPRESSIONS DE notifications
 
     </script>
+
