@@ -39,6 +39,8 @@ if($p === 'home'){ //3 = c'est pour vérifier la value et le type
     }
 }elseif ($p =='profil'){
     require '../Views/profil.php';
+}elseif ($p =='maison') {
+    require '../Views/maison.php';
 }elseif ($p =='connexion'){
     require '../Views/connexion.php';
 }elseif ($p =='leave'){
