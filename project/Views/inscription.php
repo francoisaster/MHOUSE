@@ -52,8 +52,13 @@
         <br />
       <label for="admin">Admin :</label>
       <select name="admin" id="admin">
-        <option value="true">Oui</option>
-        <option value="false">Non</option> <!-- A mettre en boolean... Dans la DB il est en VARCHAR-->
+        <option value="admin">Admin</option>
+        <option value="spectateur">Spectateur</option>
+        <option value="client">Client</option>
+        <option value="attente">Attente</option>
+
+
+          <!-- A mettre en boolean... Dans la DB il est en VARCHAR-->
     </select>
       <br /><br />
 

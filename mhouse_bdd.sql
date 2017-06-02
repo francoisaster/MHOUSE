@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 21 Mai 2017 à 22:21
--- Version du serveur :  10.1.21-MariaDB
--- Version de PHP :  5.6.30
+-- Généré le :  Ven 02 Juin 2017 à 13:26
+-- Version du serveur :  5.7.14
+-- Version de PHP :  5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -32,57 +32,40 @@ CREATE TABLE `capteurs` (
   `type_capteur` varchar(255) CHARACTER SET utf8 NOT NULL,
   `date_d_ajout` date NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
-  `id_piece` varchar(255) CHARACTER SET utf8 NOT NULL
+  `id_piece` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `marque` varchar(20) NOT NULL,
+  `numero_serie` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `capteurs`
 --
 
-INSERT INTO `capteurs` (`id_capteur`, `nom_capteur`, `type_capteur`, `date_d_ajout`, `id_utilisateur`, `id_piece`) VALUES
-(1, 'Capteur1', 'Lumiere', '2017-05-17', 2, '1'),
-(2, 'Capteur2', 'Temperature', '2017-05-02', 2, '2'),
-(16, 'dernieressaiaprescmort', 'temperature', '2017-05-20', 2, '2'),
-(17, 'salledebain', 'lumiere', '2017-05-20', 2, '1');
+INSERT INTO `capteurs` (`id_capteur`, `nom_capteur`, `type_capteur`, `date_d_ajout`, `id_utilisateur`, `id_piece`, `marque`, `numero_serie`) VALUES
+(1, 'Capteur1', 'Lumiere', '2017-05-17', 2, '1', '', 0),
+(2, 'Capteur2', 'Temperature', '2017-05-02', 2, '2', '', 0),
+(16, 'dernieressaiaprescmort', 'temperature', '2017-05-20', 2, '2', '', 0),
+(17, 'salledebain', 'lumiere', '2017-05-20', 2, '1', '', 0);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `commentaire`
+-- Structure de la table `maison`
 --
 
-CREATE TABLE `commentaire` (
-  `id` int(11) NOT NULL,
-  `mail` varchar(255) NOT NULL,
-  `commentaire` text NOT NULL,
-  `nom` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
-
---
--- Contenu de la table `commentaire`
---
-
-INSERT INTO `commentaire` (`id`, `mail`, `commentaire`, `nom`) VALUES
-(1, 'email@email', 'azdazdazda', 'truc'),
-(2, 'vincent@bestSchoolEver', 'Hello world !', 'vincent'),
-(3, 'kk@kk', 'yea', 'jean'),
-(4, 'qsdsqd@qsd', 'sqdd', 'sd'),
-(5, 'dsqdf@dssqd', 'dfqsq', 'dsfds');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `historique_des_modifications`
---
-
-CREATE TABLE `historique_des_modifications` (
-  `id_historique` int(11) NOT NULL,
-  `date_installation` varchar(255) NOT NULL,
-  `duree_de_vie` varchar(255) NOT NULL,
-  `durée_garantie` varchar(255) NOT NULL,
-  `id_capteur` int(11) NOT NULL,
+CREATE TABLE `maison` (
+  `id_maison` int(11) NOT NULL,
+  `nom` varchar(20) NOT NULL,
   `id_utilisateur` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `maison`
+--
+
+INSERT INTO `maison` (`id_maison`, `nom`, `id_utilisateur`) VALUES
+(1, 'maisonJean', 2),
+(2, 'maisonJean2', 2);
 
 -- --------------------------------------------------------
 
@@ -93,19 +76,21 @@ CREATE TABLE `historique_des_modifications` (
 CREATE TABLE `piece` (
   `id_piece` int(11) NOT NULL,
   `nom_piece` varchar(255) NOT NULL,
-  `id_utilisateur` int(11) NOT NULL
+  `id_utilisateur` int(11) NOT NULL,
+  `id_maison` int(11) NOT NULL,
+  `superficie` float NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `piece`
 --
 
-INSERT INTO `piece` (`id_piece`, `nom_piece`, `id_utilisateur`) VALUES
-(1, 'Salle de Bain', 2),
-(2, 'Salon', 2),
-(3, 'sdfsdf', 2),
-(6, 'salon', 2),
-(5, 'Couloir', 2);
+INSERT INTO `piece` (`id_piece`, `nom_piece`, `id_utilisateur`, `id_maison`, `superficie`) VALUES
+(1, 'Salle de Bain', 2, 1, 0),
+(2, 'Salon', 2, 1, 0),
+(3, 'sdfsdf', 2, 1, 0),
+(6, 'salon', 2, 1, 0),
+(5, 'Couloir', 2, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -123,17 +108,19 @@ CREATE TABLE `utilisateur` (
   `sexe` varchar(255) NOT NULL,
   `date_naissance` date NOT NULL,
   `email` varchar(255) NOT NULL,
-  `admin` varchar(5) NOT NULL,
-  `numero_tel` varchar(255) NOT NULL
+  `statut` varchar(11) NOT NULL,
+  `numero_tel` varchar(255) NOT NULL,
+  `id_parent` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id_utilisateur`, `pseudo`, `pass`, `prenom`, `nom`, `adresse`, `sexe`, `date_naissance`, `email`, `admin`, `numero_tel`) VALUES
-(2, 'jean', 'pass', 'jean', 'jean', 'rue des marguerites', 'Homme', '2001-01-01', 'jean@jean.fr', 'false', '0154545454'),
-(1, 'admin', 'admin', 'admin', 'admin', 'admin', 'homme', '2000-01-01', 'admin@admin.fr', 'true', '0158585858');
+INSERT INTO `utilisateur` (`id_utilisateur`, `pseudo`, `pass`, `prenom`, `nom`, `adresse`, `sexe`, `date_naissance`, `email`, `statut`, `numero_tel`, `id_parent`) VALUES
+(2, 'jean', 'pass', 'jean', 'jean', 'rue des marguerites', 'Homme', '2001-01-01', 'jean@jean.fr', 'client', '0154545454', 0),
+(1, 'admin', 'admin', 'admin', 'admin', 'admin', 'homme', '2000-01-01', 'admin@admin.fr', 'admin', '0158585858', 0),
+(3, 'junior', 'pass', 'Junior', 'Giraud', '21 Avenue Voltaire Juvisy sur orge', 'homme', '2017-06-13', 'jean.junior@test.fr', 'spectateur', '0164585858', 0);
 
 -- --------------------------------------------------------
 
@@ -144,9 +131,16 @@ INSERT INTO `utilisateur` (`id_utilisateur`, `pseudo`, `pass`, `prenom`, `nom`, 
 CREATE TABLE `valeurs_capteur` (
   `id_valeur` int(11) NOT NULL,
   `valeur` int(11) NOT NULL,
-  `date_mesure` date NOT NULL,
+  `date_mesure` datetime NOT NULL,
   `id_capteur` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `valeurs_capteur`
+--
+
+INSERT INTO `valeurs_capteur` (`id_valeur`, `valeur`, `date_mesure`, `id_capteur`) VALUES
+(1, 20, '2017-06-02 14:18:00', 1);
 
 --
 -- Index pour les tables exportées
@@ -161,18 +155,10 @@ ALTER TABLE `capteurs`
   ADD KEY `id_piece` (`id_piece`);
 
 --
--- Index pour la table `commentaire`
+-- Index pour la table `maison`
 --
-ALTER TABLE `commentaire`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `historique_des_modifications`
---
-ALTER TABLE `historique_des_modifications`
-  ADD PRIMARY KEY (`id_historique`),
-  ADD KEY `id_capteur` (`id_capteur`),
-  ADD KEY `id_utilisateur` (`id_utilisateur`);
+ALTER TABLE `maison`
+  ADD PRIMARY KEY (`id_maison`);
 
 --
 -- Index pour la table `piece`
@@ -205,15 +191,10 @@ ALTER TABLE `valeurs_capteur`
 ALTER TABLE `capteurs`
   MODIFY `id_capteur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
--- AUTO_INCREMENT pour la table `commentaire`
+-- AUTO_INCREMENT pour la table `maison`
 --
-ALTER TABLE `commentaire`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT pour la table `historique_des_modifications`
---
-ALTER TABLE `historique_des_modifications`
-  MODIFY `id_historique` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `maison`
+  MODIFY `id_maison` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `piece`
 --
@@ -228,7 +209,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `valeurs_capteur`
 --
 ALTER TABLE `valeurs_capteur`
-  MODIFY `id_valeur` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_valeur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -20,7 +20,7 @@ if(isset($_GET['p'])){
 ob_start(); //TOUT ce qui sera affiché sera stocké dans une variable
 
 if($p === 'home'){ //3 = c'est pour vérifier la value et le type
-    if(isset($_SESSION['admin']) and $_SESSION['admin']=='true'){
+    if(isset($_SESSION['statut']) and $_SESSION['statut']=='admin'){
         require '../Views/homeAdmin.php';
     }else {
         require '../Views/home.php';
@@ -32,7 +32,7 @@ if($p === 'home'){ //3 = c'est pour vérifier la value et le type
 }elseif ($p =='pieces'){
     require '../Views/pieces.php';
 }elseif ($p =='contact'){
-    if(isset($_SESSION['admin']) and $_SESSION['admin']=='true'){
+    if(isset($_SESSION['statut']) and $_SESSION['statut']=='admin'){
         require '../Views/contactAdmin.php';
     }else {
         require '../Views/contact.php';

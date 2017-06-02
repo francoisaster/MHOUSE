@@ -33,8 +33,8 @@ if(isset($_POST['submit']) AND !empty($_POST['pseudo'])AND !empty($_POST['pass']
 
             $_SESSION['co']='true';
             $_SESSION['id_utilisateur']=$donnees['id_utilisateur'];
-            if(($donnees['admin'])=='true'){
-                $_SESSION['admin']='true';
+            if(($donnees['statut'])=='admin'){
+                $_SESSION['statut']='admin';
                 header('Location:../public/index.php?p=homeAdmin');
                 exit();
             }

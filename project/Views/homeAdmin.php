@@ -1,11 +1,4 @@
-<?php
-
-
-
-echo '<p>'.'Bonjour '.$_SESSION['pseudo'].'<p>';
-
-?>
-<form action="" method="post">
+<form action="" method="post" class="block">
     <p>
         <label for="id_utilisateur">id : </label>
         <input type="text" name="id_utilisateur" id="id_utilisateur"  autofocus=""/>
