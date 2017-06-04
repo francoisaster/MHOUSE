@@ -10,5 +10,5 @@ require '../Models/capteurs.php';
 if(isset($_POST['nom_capteur']) && isset($_POST['type_capteur']) AND isset($_POST['choix_piece_capteur']) ){
     creationCapteurs();
 // header('Location: ../public/index.php');
-    header('Location:../public/index.php?p=pieces');
+    header('Location:../public/index.php?p=capteur');
 }

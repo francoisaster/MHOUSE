@@ -1,24 +1,20 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Aster
- * Date: 14/05/2017
- * Time: 21:16
- */
 
 
 
+require'connexionBdd.php';
 function creationPieces(){
 
     $bdd=connexionBdd();
 // Insertion
-    $req = $bdd->prepare('INSERT INTO piece(nom_piece,id_utilisateur) VALUES(:nom_piece,:id_utilisateur)');
+    $req = $bdd->prepare('INSERT INTO piece(nom_piece,id_utilisateur,id_maison,superficie) VALUES(:nom_piece,:id_utilisateur,:id_maison,:superficie)');
     $req->bindParam(':nom_piece', $_POST['nom_piece']);
     $req->bindParam(':id_utilisateur', $_SESSION['id_utilisateur']);
+    $req->bindParam(':id_maison', $_POST['id_maison_piece']);
+    $req->bindParam(':superficie', $_POST['superficie']);
     $req->execute();
 }
 //../Views/pieces.php');
-require'connexionBdd.php';
 
 function affichePieces()
 {
@@ -37,10 +33,14 @@ function affichePiecesMenu()
 
     $bdd=connexionBdd();
 
-    $req = $bdd->prepare('SELECT * FROM piece WHERE id_utilisateur = :id_utilisateur ');
-    $req->execute(array('id_utilisateur' => $_SESSION['id_utilisateur']));
-    $req2 = $bdd->prepare('SELECT * FROM piece WHERE id_utilisateur = :id_utilisateur ');
-    $req2->execute(array('id_utilisateur' => $_SESSION['id_utilisateur']));
+    $req = $bdd->prepare('SELECT * FROM piece WHERE id_utilisateur = :id_utilisateur and id_maison=:id_maison');
+    $req->bindParam(':id_utilisateur',$_SESSION['id_utilisateur']);
+    $req->bindParam(':id_maison',$_SESSION['id_maison']);
+    $req->execute();
+    $req2 = $bdd->prepare('SELECT * FROM piece WHERE id_utilisateur = :id_utilisateur and id_maison=:id_maison');
+    $req2->bindParam(':id_utilisateur',$_SESSION['id_utilisateur']);
+    $req2->bindParam(':id_maison',$_SESSION['id_maison']);
+    $req2->execute();
 /*
  * Il y a 2 requetes car le fecth retire les lignes une fois qu'il les parcourt.
  */

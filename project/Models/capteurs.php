@@ -1,16 +1,19 @@
 <?php
 
 require'connexionBdd.php';
+
 function creationCapteurs(){
 
     $bdd=connexionBdd();
 
-    $req=$bdd->prepare('INSERT INTO capteurs(nom_capteur, type_capteur, date_d_ajout, id_utilisateur,id_piece) VALUES(:nom_capteur, :type_capteur, NOW(),:id_utilisateur,:id_piece)');
+    $req=$bdd->prepare('INSERT INTO capteurs(nom_capteur, type_capteur, date_d_ajout, id_utilisateur,id_piece,marque,numero_serie) VALUES(:nom_capteur, :type_capteur, NOW(),:id_utilisateur,:id_piece,:marque,:numero_serie)');
 // $req->execute(array($_POST['pseudo'], $_POST['pass'], $_POST['email']));
     $req->bindParam(':nom_capteur',$_POST['nom_capteur']);
     $req->bindParam(':type_capteur',$_POST['type_capteur']);
     $req->bindParam(':id_utilisateur',$_SESSION['id_utilisateur']);
     $req->bindParam(':id_piece',$_POST['choix_piece_capteur']);
+    $req->bindParam(':marque',$_POST['marque']);
+    $req->bindParam(':numero_serie',$_POST['numero_serie']);
     $req->execute();
 
 }

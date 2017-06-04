@@ -27,7 +27,16 @@ if($p === 'home'){ //3 = c'est pour vérifier la value et le type
     }
 }elseif ($p =='inscription'){
     require '../Views/inscription.php';
-}elseif ($p =='inscriptionSuccessfull'){
+}
+elseif ($p =='capteur'){
+    if(isset($_SESSION['id_maison'])){
+        require '../Views/ajout_capteur.php';
+    }else{
+        require '../Views/ajout_capteur_maison.php';
+    }
+
+}
+elseif ($p =='inscriptionSuccessfull'){
     require '../Views/inscriptionSuccessfull.php';
 }elseif ($p =='pieces'){
     require '../Views/pieces.php';

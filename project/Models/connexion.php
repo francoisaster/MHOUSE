@@ -15,3 +15,4 @@ function getUser(){
 }
 
 //require '../Controllers/connexion.php';
+?>
