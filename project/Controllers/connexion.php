@@ -13,7 +13,7 @@ require '../Models/connexion.php';
 if(isset($_POST['submit']) AND !empty($_POST['pseudo'])AND !empty($_POST['pass'])) {
 
     $pseudo = htmlspecialchars($_POST['pseudo']);
-    $pass = ($_POST['pass']);
+    $pass = htmlspecialchars($_POST['pass']);
 
     $requser = getUser(); // Le reqUser contient requser2 qui a la querry bdd
 
@@ -21,18 +21,18 @@ if(isset($_POST['submit']) AND !empty($_POST['pseudo'])AND !empty($_POST['pass']
         if ($donnees['pseudo'] == $pseudo AND $donnees['pass'] == $pass) {
 
             $_SESSION['pseudo'] = $pseudo;
-            $_SESSION['nom']=$donnees['nom'];
-            $_SESSION['prenom']=$donnees['prenom'];
-            $_SESSION['adresse']=$donnees['adresse'];
-            $_SESSION['email']=$donnees['email'];
-            $_SESSION['sexe']=$donnees['sexe'];
-            $_SESSION['pass']=$donnees['pass'];
-            $_SESSION['numero_tel']=$donnees['numero_tel'];
-            $_SESSION['date_naissance']=$donnees['date_naissance'];
+            $_SESSION['nom']=htmlspecialchars($donnees['nom']);
+            $_SESSION['prenom']=htmlspecialchars($donnees['prenom']);
+            $_SESSION['adresse']=htmlspecialchars($donnees['adresse']);
+            $_SESSION['email']=htmlspecialchars($donnees['email']);
+            $_SESSION['sexe']=htmlspecialchars($donnees['sexe']);
+            $_SESSION['pass']=htmlspecialchars($donnees['pass']);
+            $_SESSION['numero_tel']=htmlspecialchars($donnees['numero_tel']);
+            $_SESSION['date_naissance']=htmlspecialchars($donnees['date_naissance']);
 
 
             $_SESSION['co']='true';
-            $_SESSION['id_utilisateur']=$donnees['id_utilisateur'];
+            $_SESSION['id_utilisateur']=htmlspecialchars($donnees['id_utilisateur']);
             if(($donnees['statut'])=='admin'){
                 $_SESSION['statut']='admin';
                 header('Location:../public/index.php?p=homeAdmin');

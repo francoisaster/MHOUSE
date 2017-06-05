@@ -8,15 +8,15 @@
 
 require '../Models/inscription.php';
 
-$pseudo=$_POST['pseudo'];
-$pass=$_POST['pass'];
-$pass2=$_POST['pass2'];
+$pseudo=htmlspecialchars($_POST['pseudo']);
+$pass=htmlspecialchars($_POST['pass']);
+$pass2=htmlspecialchars($_POST['pass2']);
 $prenom=htmlspecialchars(trim($_POST['prenom']));
 $nom=htmlspecialchars(trim($_POST['nom']));
 $adresse=htmlspecialchars(trim($_POST['adresse']));
 $civilite=htmlspecialchars(trim($_POST['sexe']));
 $date_naissance=htmlspecialchars(trim($_POST['date_naissance']));
-$email=$_POST['email'];
+$email=htmlspecialchars($_POST['email']);
 $admin=htmlspecialchars(trim($_POST['statut']));
 
     if (strlen($pass) >= 8 && strlen($pass) < 35 && preg_match('/(?=.*[0-9])[A-Z]|(?=.*[A-Z])[0-9]/', $pass)) { //Si le mot de passe est alphanumérique et que sa longueur est plus que 8 caractères

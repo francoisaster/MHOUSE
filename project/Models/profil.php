@@ -33,15 +33,15 @@ SET pseudo = :nv_pseudo, prenom = :nv_prenom, nom = :nv_nom, adresse = :nv_adres
 date_naissance = :date_naissance, email = :nv_email, numero_tel = :numero_tel
 WHERE id_utilisateur = :id_utilisateur ');
     $requpdate->execute(array(
-        'nv_pseudo' => $_POST['pseudo'],
-        'nv_prenom' => $_POST['prenom'],
-        'nv_nom' => $_POST['nom'],
-        'nv_adresse' => $_POST['adresse'],
-        'nv_sexe' => $_POST['sexe'],
-        'date_naissance' => $_POST['date_naissance'],
-        'nv_email' => $_POST['email'],
-        'numero_tel' => $_POST['numero_tel'],
-        'id_utilisateur' => $_SESSION['id_utilisateur'],
+        'nv_pseudo' => htmlspecialchars($_POST['pseudo']),
+        'nv_prenom' => htmlspecialchars($_POST['prenom']),
+        'nv_nom' => htmlspecialchars($_POST['nom']),
+        'nv_adresse' => htmlspecialchars($_POST['adresse']),
+        'nv_sexe' => htmlspecialchars($_POST['sexe']),
+        'date_naissance' => htmlspecialchars($_POST['date_naissance']),
+        'nv_email' => htmlspecialchars($_POST['email']),
+        'numero_tel' => htmlspecialchars($_POST['numero_tel']),
+        'id_utilisateur' => htmlspecialchars($_SESSION['id_utilisateur']),
         ));
 }
 
@@ -49,9 +49,9 @@ function upContact(){
     $bdd=connexionBdd();
     $req = $bdd->prepare('UPDATE utilisateur SET adresse = :nv_adresse, email = :nv_mail, numero_tel = :nv_tel WHERE id_utilisateur = :id_utilisateur');
     $req->execute(array(
-        'nv_adresse' => $_POST['adresse'],
-        'nv_mail' => $_POST['email'],
-        'nv_tel' => $_POST['numero_tel'],
+        'nv_adresse' => htmlspecialchars($_POST['adresse']),
+        'nv_mail' => htmlspecialchars($_POST['email']),
+        'nv_tel' => htmlspecialchars($_POST['numero_tel']),
         'id_utilisateur' => $_SESSION['id_utilisateur'],
     ));
 

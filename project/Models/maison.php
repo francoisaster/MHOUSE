@@ -12,7 +12,7 @@ function creationMaison(){
     $bdd=connexionBdd();
 // Insertion
     $req = $bdd->prepare('INSERT INTO maison(nom,id_utilisateur) VALUES(:nom,:id_utilisateur)');
-    $req->bindParam(':nom', $_POST['nom_maison']);
+    $req->bindParam(':nom', htmlspecialchars($_POST['nom_maison']));
     $req->bindParam(':id_utilisateur', $_SESSION['id_utilisateur']);
     $req->execute();
 }
