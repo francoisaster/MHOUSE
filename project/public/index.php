@@ -11,8 +11,6 @@ if(isset($_GET['p'])){ // AND preg_match("#^(a-zA-Z0-9)+$#",$_GET['p']) ?? Ne ma
     $p = 'connexion';
 }
 
-
-
 /*
  *
  * METTRE DES SWITCH A MA PLACE DE ELSEIF

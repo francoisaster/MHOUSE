@@ -17,9 +17,9 @@ function upContact(){
 $bdd=connexionBdd();
     $req = $bdd->prepare('UPDATE utilisateur SET adresse = :nv_adresse, email = :nv_mail, numero_tel = :nv_tel WHERE id_utilisateur = :one');
     $req->execute(array(
-        'nv_adresse' => htmlspecialchars($_POST['nv_adresse']),
-        'nv_mail' => htmlspecialchars($_POST['nv_mail']),
-        'nv_tel' => htmlspecialchars($_POST['nv_tel']),
+        'nv_adresse' => $_POST['nv_adresse'],
+        'nv_mail' => $_POST['nv_mail'],
+        'nv_tel' => $_POST['nv_tel'],
         'one' =>1,
     ));
 

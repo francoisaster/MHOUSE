@@ -27,6 +27,7 @@ $_SESSION['email'] = htmlspecialchars($donnees['email']);
 $_SESSION['sexe'] = htmlspecialchars($donnees['sexe']);
 $_SESSION['pass'] = htmlspecialchars($donnees['pass']);
 $_SESSION['date_naissance'] = htmlspecialchars($donnees['date_naissance']);
+$_SESSION['numero_tel'] = htmlspecialchars($donnees['numero_tel']);
 
 
 header('Location:../public/index.php?p=profil');

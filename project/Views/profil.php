@@ -50,6 +50,31 @@
 </form>
 
 
+
+
+<div class= "block">
+    <fieldset>
+        <form action="../Controllers/enfant.php" method="post" >
+            <legend>Rajouter un compte pour votre enfant :</legend>
+            <p>
+
+                <!-- RAJOUTER DES VALUES A CHAQUE CHAMPS GRACE A LA SESSION (lecture des données et insertion dans value, pour l'UPDATE -->
+                <label for="pseudoEnfant">Pseudo :</label>
+                <input type="text" name="pseudoEnfant" id="pseudo" /> <!-- Pour mettre un champ text avec le nom pseudo -->
+                <!-- for et id avec le meme nom permettent de lier les zones de texte-->
+                <!-- placeholder permet de mettre une indication dans le champ-->
+                <br /><br />
+
+                <label for="mdp">Votre mot de passe :</label>
+                <input type="password" name="mdp" id="mdp" "/>
+                <br /><br />
+
+                <input type="submit" value="Creer" class="submit"/>
+
+            </p>
+        </form>
+    </fieldset>
+</div>
 <!--
 <label for="pass">Mot de passe actuel</label> :
             <input type="password" name="pass" id="pass" value="<?php echo $_SESSION['pass']?>"/>

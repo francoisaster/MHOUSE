@@ -33,17 +33,59 @@ SET pseudo = :nv_pseudo, prenom = :nv_prenom, nom = :nv_nom, adresse = :nv_adres
 date_naissance = :date_naissance, email = :nv_email, numero_tel = :numero_tel
 WHERE id_utilisateur = :id_utilisateur ');
     $requpdate->execute(array(
-        'nv_pseudo' => htmlspecialchars($_POST['pseudo']),
-        'nv_prenom' => htmlspecialchars($_POST['prenom']),
-        'nv_nom' => htmlspecialchars($_POST['nom']),
-        'nv_adresse' => htmlspecialchars($_POST['adresse']),
-        'nv_sexe' => htmlspecialchars($_POST['sexe']),
-        'date_naissance' => htmlspecialchars($_POST['date_naissance']),
-        'nv_email' => htmlspecialchars($_POST['email']),
-        'numero_tel' => htmlspecialchars($_POST['numero_tel']),
-        'id_utilisateur' => htmlspecialchars($_SESSION['id_utilisateur']),
+        'nv_pseudo' => $_POST['pseudo'],
+        'nv_prenom' => $_POST['prenom'],
+        'nv_nom' => $_POST['nom'],
+        'nv_adresse' => $_POST['adresse'],
+        'nv_sexe' => $_POST['sexe'],
+        'date_naissance' => $_POST['date_naissance'],
+        'nv_email' => $_POST['email'],
+        'numero_tel' => $_POST['numero_tel'],
+        'id_utilisateur' => $_SESSION['id_utilisateur'],
         ));
 }
+
+function childaccount(){
+    /*
+    $bdd=connexionBdd();
+    $req=$bdd->prepare('
+INSERT INTO utilisateur(pseudo,pass,prenom,nom,adresse,sexe,date_naissance,email,numero_tel)
+VALUES(:pseudo,:pass,:prenom,:nom,:adresse,:sexe,:date_naissance,:email,:numero_tel)');
+    $req->execute(array(
+        'pseudo' => $_POST['pseudoEnfant'],
+        'pass' => $_POST['mdp'],
+        'prenom' => $_SESSION['prenom'],
+        'nom' => $_SESSION['nom'],
+        'adresse' => $_SESSION['adresse'],
+        'sexe' => $_SESSION['sexe'],
+        'date_naissance' => $_SESSION['date_naissance'],
+        'email' => $_SESSION['email'],
+        'numero_tel' => $_SESSION['numero_tel']));
+*/
+
+    $spectateur = 'spectateur';
+    $bdd=connexionBdd();
+    $req=$bdd->prepare('
+INSERT INTO utilisateur(pseudo, pass, prenom, nom, adresse, sexe, date_naissance, email, statut, numero_tel) 
+VALUES(:pseudo,:pass,:prenom, :nom, :adresse, :sexe, :date_naissance, :email, :spectateur, :numero_tel)');
+// $req->execute(array($_POST['pseudo'], $_POST['pass'], $_POST['email']));
+    $req->bindParam(':pseudo',$_POST['pseudoEnfant']);
+    $req->bindParam(':pass',$_POST['mdp']);
+    $req->bindParam(':prenom',$_SESSION['prenom']);
+    $req->bindParam(':nom',$_SESSION['nom']);
+    $req->bindParam(':adresse',$_SESSION['adresse']);
+    $req->bindParam(':sexe',$_SESSION['sexe']);
+    $req->bindParam(':date_naissance',$_SESSION['date_naissance']);
+    $req->bindParam(':email',$_SESSION['email']);
+    $req->bindParam(':spectateur',$spectateur);
+    $req->bindParam(':numero_tel',$_SESSION['numero_tel']);
+    $req->execute();
+
+
+
+}
+
+
 
 function upContact(){
     $bdd=connexionBdd();

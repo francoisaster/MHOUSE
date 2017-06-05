@@ -8,16 +8,16 @@
 
 require '../Models/inscription.php';
 
-$pseudo=htmlspecialchars($_POST['pseudo']);
-$pass=htmlspecialchars($_POST['pass']);
-$pass2=htmlspecialchars($_POST['pass2']);
+$pseudo=htmlspecialchars(trim($_POST['pseudo']));
+$pass=htmlspecialchars(trim($_POST['pass']));
+$pass2=htmlspecialchars(trim($_POST['pass2']));
 $prenom=htmlspecialchars(trim($_POST['prenom']));
 $nom=htmlspecialchars(trim($_POST['nom']));
 $adresse=htmlspecialchars(trim($_POST['adresse']));
 $civilite=htmlspecialchars(trim($_POST['sexe']));
 $date_naissance=htmlspecialchars(trim($_POST['date_naissance']));
-$email=htmlspecialchars($_POST['email']);
-$admin=htmlspecialchars(trim($_POST['statut']));
+$email=htmlspecialchars(trim($_POST['email']));
+$admin=htmlspecialchars(trim($_POST['statut'])); // TRIM : enlève les espaces
 
     if (strlen($pass) >= 8 && strlen($pass) < 35 && preg_match('/(?=.*[0-9])[A-Z]|(?=.*[A-Z])[0-9]/', $pass)) { //Si le mot de passe est alphanumérique et que sa longueur est plus que 8 caractères
         if (!empty($_POST['pseudo']) && !empty($_POST['pass']) && !empty($_POST['pass2']) && !empty($_POST['prenom']) && !empty($_POST['nom']) && !empty($_POST['adresse']) && !empty($_POST['sexe']) && !empty($_POST['date_naissance']) && !empty($_POST['statut'])) {
