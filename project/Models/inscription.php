@@ -39,7 +39,6 @@ function inscription() {
 }
 
 function verifExistence($pseudo, $email){
-
     $bdd=connexionBdd();
     $reponse = $bdd->prepare('SELECT pseudo,email, pass FROM utilisateur WHERE pseudo= ? && email= ? ');
     $reponse->execute(array($pseudo, $email));

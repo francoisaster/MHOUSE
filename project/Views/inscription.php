@@ -96,6 +96,7 @@
         else
             champ.style.backgroundColor = "";
     }
+
     function verifPass(champ)
     {
         var regex = /(?=.*[0-9])[A-Z]|(?=.*[A-Z])[0-9]/;

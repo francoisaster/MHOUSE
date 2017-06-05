@@ -60,13 +60,22 @@
 
                 <!-- RAJOUTER DES VALUES A CHAQUE CHAMPS GRACE A LA SESSION (lecture des données et insertion dans value, pour l'UPDATE -->
                 <label for="pseudoEnfant">Pseudo :</label>
-                <input type="text" name="pseudoEnfant" id="pseudo" /> <!-- Pour mettre un champ text avec le nom pseudo -->
+                <input type="text" name="pseudoEnfant" id="pseudoEnfant" onblur="verifPseudo(this)"/> <!-- Pour mettre un champ text avec le nom pseudo -->
                 <!-- for et id avec le meme nom permettent de lier les zones de texte-->
                 <!-- placeholder permet de mettre une indication dans le champ-->
-                <br /><br />
+                <br />
+                <span class="annotation">Votre pseudo doit avoir au moins 5 caractères.</span>
+                <br />
+                <br />
 
                 <label for="mdp">Votre mot de passe :</label>
-                <input type="password" name="mdp" id="mdp" "/>
+                <input type="password" name="mdp" id="mdp" onblur="verifPass(this)"/>
+                <br /><span class="annotation">Le mot de passe doit comprendre au moins 1 lettre 1 chiffre dans les 8 caractères.</span>
+                <br />
+                <br />
+
+                <label for="mdp2">Confirmez le mot de passe :</label>
+                <input type="password" name="mdp2" id="mdp2"/>
                 <br /><br />
 
                 <input type="submit" value="Creer" class="submit"/>
@@ -75,16 +84,65 @@
         </form>
     </fieldset>
 </div>
-<!--
-<label for="pass">Mot de passe actuel</label> :
-            <input type="password" name="pass" id="pass" value="<?php echo $_SESSION['pass']?>"/>
-            <br />
 
-            <label for="pass2">Nouveau mot de passe : </label>
-            <input type="password" name="pass2" id="pass2" placeholder="*********"/>
-            <br />
 
-            -->
 
+<script>
+
+    //JS BASIQUE
+    function surligne(champ, erreur)
+    {
+        if(erreur)
+            champ.style.backgroundColor = "#fba";
+        else
+            champ.style.backgroundColor = "";
+    }
+    function verifPseudo(champ)
+    {
+        if(champ.value.length < 5 || champ.value.length > 25)
+        {
+            surligne(champ, true);
+            return false;
+        }
+        else
+        {
+            surligne(champ, false);
+            return true;
+        }
+    }
+    function verifPass(champ)
+    {
+        var regex = /(?=.*[0-9])[A-Z]|(?=.*[A-Z])[0-9]/;
+        if(!regex.test(champ.value))
+        {
+            surligne(champ, true);
+            return false;
+        }
+        else
+        {
+            surligne(champ, false);
+            return true;
+        }
+    }
+/*
+    //jQuery
+    $(document).ready(function() {
+        var $pseudoEnfant = $('#pseudoEnfant');
+        $pseudoEnfant.keyup(function () {
+            if ($(this).val().length < 5) { // si la chaîne de caractères est inférieure à 5
+                $(this).css({ // on rend le champ rouge
+                    borderColor: 'red',
+                    color: 'red'
+                });
+            }
+            else {
+                $(this).css({ // si tout est bon, on le rend vert
+                    borderColor: 'green',
+                    color: 'green'
+                });
+            }
+        });
+    }*/
+</script>
 
 

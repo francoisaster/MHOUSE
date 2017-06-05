@@ -80,9 +80,13 @@ VALUES(:pseudo,:pass,:prenom, :nom, :adresse, :sexe, :date_naissance, :email, :s
     $req->bindParam(':spectateur',$spectateur);
     $req->bindParam(':numero_tel',$_SESSION['numero_tel']);
     $req->execute();
+}
 
-
-
+function verifExistence($pseudo){
+    $bdd=connexionBdd();
+    $reponse = $bdd->prepare('SELECT pseudo, pass FROM utilisateur WHERE pseudo= ?');
+    $reponse->execute(array($pseudo));
+    return $reponse;
 }
 
 
