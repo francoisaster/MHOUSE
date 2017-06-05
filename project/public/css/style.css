@@ -150,3 +150,8 @@ footer{
 fieldset{
     border-radius: 6px;
 }
+
+.annotation{
+    font-size: x-small;
+    font-style: italic;
+}

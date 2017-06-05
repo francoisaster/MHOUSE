@@ -11,10 +11,16 @@
     <input type="text" name="pseudo" id="pseudo" class="champ" autofocus=""/> <!-- Pour mettre un champ text avec le nom pseudo -->
        <!-- for et id avec le meme nom permettent de lier les zones de texte-->
        <!-- placeholder permet de mettre une indication dans le champ-->
-    <br /><br />
+    <br />
+        <span class="annotation">Le mot de passe doit faire plus de 5 caractères.</span>
+        <br />
+        <br />
        <label for="pass">Votre mot de passe : *</label>
         <input type="password" name="pass" id="pass" class="champ" onblur="verifPass(this)"/>
-        <br /><br />
+        <br />
+        <span class="annotation">Votre mot de passe doit être alphanumérique et doit comprendre au moins 8 caractères.</span>
+        <br />
+        <br />
 
        <label for="pass2">Retapez votre mot de passe : *</label>
         <input type="password" name="pass2" id="pass2" class="champ"/>
@@ -30,7 +36,10 @@
 
     <label for="adresse">Votre adresse : *</label>
     <input type="text" name="adresse" id="adresse" class="champ"/>
-    <br /><br />
+    <br />
+        <span class="annotation">N'oubliez pas de préciser dans votre adresse : Le numéro, la rue, le code postal ainsi que la ville.</span>
+        <br />
+        <br />
 
     
     <label for="sexe">Civilité :</label>
@@ -63,7 +72,7 @@
       <br /><br />
 
         <label for="numero_tel">Votre numéro de téléphone : *</label>
-        <input type="text" name="numero_tel" id="numero_tel" class="champ"/>
+        <input type="text" name="numero_tel" id="numero_tel" class="champ" onblur="verifTel(this)"/>
         <br /><br />
 
         <p><em> Les champs possèdant une * sont obligatoires.</em><p>
@@ -103,8 +112,24 @@
         }
     }
 
+    function verifTel(champ)
+    {
+        var regex = /^0[1-9]([-. ]?[0-9]{2}){4}$/;
+        if(!regex.test(champ.value))
+        {
+            surligne(champ, true);
+            alert("Le numéro de téléphone n'est pas un numéro valide en France. Pour rappel, il doit comporter 10 chiffres et commencer un chiffre allant de 01 à 09.");
+            return false;
+        }
+        else
+        {
+            surligne(champ, false);
+            return true;
+        }
+    }
 
 
+// jQUERY
     $(document).ready(function() {
 
         var $pass = $('#pass'),
