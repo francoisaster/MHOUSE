@@ -11,15 +11,14 @@ function afficheCapteurs($id_utilisateur,$id_piece){
 
     $bdd=connexionBdd();
     // Récupération des 20 derniers messages
-    $reponse = $bdd->query("SELECT *FROM capteurs WHERE id_piece=$id_piece and id_utilisateur=$id_utilisateur");
+    $reponse = $bdd->prepare("SELECT *FROM capteurs WHERE id_piece = ? and id_utilisateur= ?");
+    $reponse->execute(array($id_piece, $id_utilisateur));
     ?>
     <div class="block">
         <?php
     while ($donnees = $reponse->fetch())
     {
-
         echo '<p><strong>' . htmlspecialchars($donnees['nom_capteur']) . '</strong> : ' . htmlspecialchars($donnees['type_capteur']) . '</p>';
-
     }
     ?>
     </div>

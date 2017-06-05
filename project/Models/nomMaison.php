@@ -9,7 +9,9 @@ require 'connexionBdd2.php';
 function nomMaison($id_maison){
 
     $bdd=connexionBdd2();
-    $req = $bdd->query("SELECT nom FROM maison where id_maison=$id_maison");
+    $req = $bdd->prepare("SELECT nom FROM maison where id_maison= ?");
+    $req->execute(array($id_maison));
+
     $donnees = $req->fetch();
     return $donnees['nom'];
 }

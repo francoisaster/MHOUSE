@@ -7,12 +7,13 @@ function afficheCapteurClient($id_utilisateur){
 
     $bdd=connexionBdd();
 
-    $requser = $bdd->query("
+    $requser = $bdd->prepare("
 SELECT piece.nom_piece,capteurs.nom_capteur,capteurs.type_capteur,utilisateur.id_utilisateur,utilisateur.prenom,utilisateur.nom 
 FROM capteurs 
 INNER JOIN utilisateur ON utilisateur.id_utilisateur=capteurs.id_utilisateur 
 INNER JOIN piece ON piece.id_piece=capteurs.id_piece 
-WHERE utilisateur.id_utilisateur=$id_utilisateur");
+WHERE utilisateur.id_utilisateur= ?");
+    $requser->execute(array($id_utilisateur));
     return $requser;
 
 }

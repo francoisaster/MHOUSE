@@ -5,11 +5,13 @@ session_start();
 require '../app/Autoloader.php'; //Apporte les Class nécessaires
 Autoloader::register();
 */
-if(isset($_GET['p'])){
+if(isset($_GET['p'])){ // AND preg_match("#^(a-zA-Z0-9)+$#",$_GET['p']) ?? Ne marche pas...
     $p = $_GET['p'];
 } else{
     $p = 'connexion';
 }
+
+
 
 /*
  *

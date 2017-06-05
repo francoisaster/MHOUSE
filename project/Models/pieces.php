@@ -88,12 +88,12 @@ function afficheMaison()
     $req = $bdd->prepare('SELECT * FROM piece WHERE id_utilisateur = :id_utilisateur ');
     $req->execute(array('id_utilisateur' => $_SESSION['id_utilisateur']));
 
-
     while ($donnees = $req->fetch()) {
         echo '<option value="' . htmlspecialchars($donnees['id_piece']) . '">' . htmlspecialchars($donnees['nom_piece']) . '</option>';
         $id_piece = $donnees['id_piece'];
         $id_utilisateur = $_SESSION['id_utilisateur'];
-        $reponse2 = $bdd->query("SELECT *FROM capteurs WHERE id_piece=$id_piece and id_utilisateur=$id_utilisateur");
+        $reponse2 = $bdd->prepare("SELECT *FROM capteurs WHERE id_piece= ? and id_utilisateur= ?");
+        $reponse2->execute(array($id_piece, $id_utilisateur));
         while ($donnees2 = $reponse2->fetch())
         {
             echo '<p class="rrre">' . htmlspecialchars($donnees2['nom_capteur']) . htmlspecialchars($donnees2['type_capteur']) . '</p>';
