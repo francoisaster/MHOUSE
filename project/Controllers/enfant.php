@@ -2,6 +2,7 @@
 require '../Models/profil.php';
 session_start();
 
+
 $pseudo=htmlspecialchars(trim($_POST['pseudoEnfant']));
 $mdp=htmlspecialchars(trim($_POST['mdp']));
 $mdp2=htmlspecialchars(trim($_POST['mdp2']));

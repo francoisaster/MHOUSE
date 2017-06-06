@@ -16,6 +16,7 @@ if(isset($_POST['submit']) AND !empty($_POST['pseudo'])AND !empty($_POST['pass']
     $pass = htmlspecialchars($_POST['pass']);
 
     $requser = getUser(); // Le reqUser contient requser2 qui a la querry bdd
+
     $tour = 0;
     $pass = $_POST['pass'];
     while($tour<50){

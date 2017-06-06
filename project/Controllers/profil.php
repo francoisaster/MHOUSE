@@ -9,6 +9,8 @@
 require '../Models/profil.php';
 
 session_start();
+
+
 updateProfil();
 
 

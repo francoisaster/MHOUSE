@@ -59,8 +59,8 @@
         <input type="email" name="email" id="email" class="champ">
         <br />
         <br />
-      <label for="admin">Admin :</label>
-      <select name="admin" id="admin">
+      <label for="statut">Admin :</label>
+      <select name="statut" id="statut">
         <option value="admin">Admin</option>
         <option value="spectateur">Spectateur</option>
         <option value="client">Client</option>
@@ -209,6 +209,8 @@
             verifier($adresse);
             verifier($email);
             verifier($numero_tel);
+
+            document.getElementById('formulaire_inscription').submit();
         });
 
 //ON VA ENELEVER LE MESSAGE D ERREUR EN CLIQUANt SUr lE bOUTON. PAR CONTRE, LA PROPRIETE GRISE NE SE REMET PAS...
