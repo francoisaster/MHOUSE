@@ -8,7 +8,6 @@ require'../Models/connexionBdd.php';
 function inscription() {
 
     $bdd=connexionBdd();
-
     /*$pseudo=htmlspecialchars(trim($_POST['pseudo']));
     $pass=sha1($_POST['pass']);
     $pass2=sha1($_POST['pass2']);
@@ -20,6 +19,12 @@ function inscription() {
     $email=htmlspecialchars(trim($_POST['email']));
     $admin=htmlspecialchars(trim($_POST['admin']));*/
 
+    $tour = 0;
+    $password = $_POST['pass'];
+    while($tour<50){
+        $password = hash('SHA256', $password);
+        $tour=$tour+1;
+    }
 // Insertion
     $req=$bdd->prepare('INSERT INTO utilisateur(pseudo, pass, prenom, nom, adresse, sexe, date_naissance, email, admin, numero_tel) VALUES(:pseudo,:pass,:prenom, :nom, :adresse, :sexe, :date_naissance, :email, :admin, :numero_tel)');
 // $req->execute(array($_POST['pseudo'], $_POST['pass'], $_POST['email']));
