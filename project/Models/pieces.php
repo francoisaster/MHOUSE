@@ -66,13 +66,11 @@ function affichePiecesMenu()
     $req->closeCursor();
 }
 
-function isUniquePiece($_nomPiece,$id_maison_piece){
+function isUniquePiece($_nomPiece){
 
     $bdd=connexionBdd();
-    $req = $bdd->prepare('SELECT * FROM piece WHERE id_utilisateur = :id_utilisateur and id_maison=:id_maison_piece ');
-    $req->bindParam(':id_utilisateur',$_SESSION['id_utilisateur']);
-    $req->bindParam(':id_maison_piece',$id_maison_piece);
-    $req->execute();
+    $req = $bdd->prepare('SELECT * FROM piece WHERE id_utilisateur = :id_utilisateur ');
+    $req->execute(array('id_utilisateur' => $_SESSION['id_utilisateur']));
     while ($donnees = $req->fetch()) {
         if($_nomPiece==$donnees['nom_piece']) {
             return false;
