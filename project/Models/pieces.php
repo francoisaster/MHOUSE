@@ -66,11 +66,60 @@ function affichePiecesMenu()
     $req->closeCursor();
 }
 
-function isUniquePiece($_nomPiece){
+function changementMdp($pass, $newpass, $newpass2) {
+
+    $bdd = connexionBdd();
+
+    if(isset($_POST['modifier'])) {
+        if (($pass != '') && ($newpass != '') && ($newpass2 != '')) {
+            $tour=0;
+            while($tour<50){
+                $newpass = hash('SHA256', $newpass);
+                $tour=$tour+1;
+            }
+            $tour2=0;
+            while($tour2<50){
+                $newpass2 = hash('SHA256', $newpass2);
+                $tour2=$tour2+1;
+            }
+            $tour3=0;
+            while($tour3<50){
+                $pass = hash('SHA256', $pass);
+                $tour3=$tour3+1;
+            }
+            if ($pass == $_SESSION['pass']) {
+                if ($newpass == $newpass2) {
+                    $req = $bdd->prepare('UPDATE utilisateur SET pass = :newpass WHERE id_utilisateur = :id_utilisateur');
+                    $req->execute(array(
+                        'newpass' => $newpass,
+                        'id_utilisateur' => $_SESSION['id_utilisateur'],
+                    ));
+
+                    // $req->execute(array('$newpass' => $_SESSION['$newpass']));
+                    $text = 'La modification de votre mot de passe à réussie';
+                    $_SESSION['pass'] = $newpass;
+                } else {
+                    $text = 'Erreur, vos deux nouveaux mot de passe ne correspondent pas';
+                }
+            } else {
+                $text = 'Le mot de passe actuel n\'est pas valide';
+            }
+        } else {
+            $text = 'Veuillez remplir tout les champs';
+        }
+    } else{
+        $text = 'Page de modification de mot passe administrateur'; }
+
+    return $text;
+}
+
+function isUniquePiece($_nomPiece,$id_maison_piece){
 
     $bdd=connexionBdd();
-    $req = $bdd->prepare('SELECT * FROM piece WHERE id_utilisateur = :id_utilisateur ');
-    $req->execute(array('id_utilisateur' => $_SESSION['id_utilisateur']));
+    $req = $bdd->prepare('SELECT * FROM piece WHERE id_utilisateur = :id_utilisateur and id_maison=:id_maison_piece ');
+    $req->bindParam(':id_utilisateur',$_SESSION['id_utilisateur']);
+    $req->bindParam(':id_maison_piece',$id_maison_piece);
+    $req->execute();
     while ($donnees = $req->fetch()) {
         if($_nomPiece==$donnees['nom_piece']) {
             return false;
