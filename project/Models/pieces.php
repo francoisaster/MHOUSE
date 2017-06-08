@@ -84,23 +84,51 @@ function afficheMaison()
 {
 
     $bdd=connexionBdd();
+        $req2 = $bdd->prepare('SELECT * FROM piece WHERE id_utilisateur = :id_utilisateur and id_maison= :id_maison');
+        $req2->execute(array('id_utilisateur' => $_SESSION['id_utilisateur'],
+            'id_maison' => $_SESSION['id_maison']));
 
-    $req = $bdd->prepare('SELECT * FROM piece WHERE id_utilisateur = :id_utilisateur ');
-    $req->execute(array('id_utilisateur' => $_SESSION['id_utilisateur']));
-
-    while ($donnees = $req->fetch()) {
-        echo '<option value="' . htmlspecialchars($donnees['id_piece']) . '">' . htmlspecialchars($donnees['nom_piece']) . '</option>';
-        $id_piece = $donnees['id_piece'];
-        $id_utilisateur = $_SESSION['id_utilisateur'];
-        $reponse2 = $bdd->prepare("SELECT *FROM capteurs WHERE id_piece= ? and id_utilisateur= ?");
-        $reponse2->execute(array($id_piece, $id_utilisateur));
-        while ($donnees2 = $reponse2->fetch())
-        {
-            echo '<p class="rrre">' . htmlspecialchars($donnees2['nom_capteur']) . htmlspecialchars($donnees2['type_capteur']) . '</p>';
+        while ($donnees2 = $req2->fetch()) {
+            $id_piece = $donnees2['id_piece'];
+            $id_utilisateur = $_SESSION['id_utilisateur'];
+            $req3 = $bdd->query("SELECT * FROM capteurs WHERE id_piece=$id_piece and id_utilisateur=$id_utilisateur");
+            
+            while ($donnees3 = $req3->fetch())
+            {
+                echo '<tr>' . '<td class="menu2">' . htmlspecialchars($donnees2['nom_piece']) . '</td>';
+                echo '<td class="menu3">' . htmlspecialchars($donnees3['nom_capteur']) .'</td>'; 
+                echo '<td class="menu4">' . htmlspecialchars($donnees3['type_capteur']) . '</td>';
+                echo '<td class="menu5">' . htmlspecialchars($donnees3['numero_serie']) . '</td>' . '</tr>';
+            }
         }
+
+
+        $req3->closeCursor();
+        $req2->closeCursor();
+
+    
+}
+
+function choisirMaison()
+{
+    $bdd=connexionBdd();
+     
+    $req1 = $bdd->prepare('SELECT * FROM maison WHERE id_utilisateur = :id_utilisateur');
+    $req1->execute(array('id_utilisateur' => $_SESSION['id_utilisateur']));
+    while ($donnees1 = $req1->fetch()) {
+         echo '<option value="' . htmlspecialchars($donnees1['id_maison']) . '">' . htmlspecialchars($donnees1['nom']) . '</option>';
     }
+    $req1->closeCursor();
+}
 
+function Maisonchoisi()
+{
+    $bdd=connexionBdd();
+    $id_maison = $_SESSION['id_maison'];
+    $id_utilisateur = $_SESSION['id_utilisateur'];
+    $req4 = $bdd->query("SELECT * FROM maison WHERE id_maison=$id_maison and id_utilisateur=$id_utilisateur");    
+    $donnees4 = $req4->fetch();
+    echo $donnees4['nom'];
+    $req4->closeCursor();
 
-
-    $req->closeCursor();
 }
