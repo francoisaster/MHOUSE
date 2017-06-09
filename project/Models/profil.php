@@ -62,15 +62,21 @@ VALUES(:pseudo,:pass,:prenom,:nom,:adresse,:sexe,:date_naissance,:email,:numero_
         'email' => $_SESSION['email'],
         'numero_tel' => $_SESSION['numero_tel']));
 */
-
+    
+    $tour = 0;
+    $passCript = $_POST['mdp'];
+    while($tour<50){
+        $passCript = hash('SHA256', $passCript);
+        $tour=$tour+1;
+    }
     $spectateur = 'spectateur';
     $bdd=connexionBdd();
     $req=$bdd->prepare('
-INSERT INTO utilisateur(pseudo, pass, prenom, nom, adresse, sexe, date_naissance, email, statut, numero_tel) 
-VALUES(:pseudo,:pass,:prenom, :nom, :adresse, :sexe, :date_naissance, :email, :spectateur, :numero_tel)');
+INSERT INTO utilisateur(pseudo, pass, prenom, nom, adresse, sexe, date_naissance, email, statut, numero_tel, id_parent) 
+VALUES(:pseudo,:pass,:prenom, :nom, :adresse, :sexe, :date_naissance, :email, :spectateur, :numero_tel,:id_parent)');
 // $req->execute(array($_POST['pseudo'], $_POST['pass'], $_POST['email']));
     $req->bindParam(':pseudo',$_POST['pseudoEnfant']);
-    $req->bindParam(':pass',$_POST['mdp']);
+    $req->bindParam(':pass',$passCript);
     $req->bindParam(':prenom',$_SESSION['prenom']);
     $req->bindParam(':nom',$_SESSION['nom']);
     $req->bindParam(':adresse',$_SESSION['adresse']);
@@ -79,6 +85,7 @@ VALUES(:pseudo,:pass,:prenom, :nom, :adresse, :sexe, :date_naissance, :email, :s
     $req->bindParam(':email',$_SESSION['email']);
     $req->bindParam(':spectateur',$spectateur);
     $req->bindParam(':numero_tel',$_SESSION['numero_tel']);
+    $req->bindParam(':id_parent',$_SESSION['id_utilisateur']);
     $req->execute();
 }
 

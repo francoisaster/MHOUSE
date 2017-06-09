@@ -35,10 +35,15 @@ if(isset($_POST['submit']) AND !empty($_POST['pseudo'])AND !empty($_POST['pass']
             $_SESSION['pass']=htmlspecialchars($donnees['pass']);
             $_SESSION['numero_tel']=htmlspecialchars($donnees['numero_tel']);
             $_SESSION['date_naissance']=htmlspecialchars($donnees['date_naissance']);
-
+            $_SESSION['statut']=htmlspecialchars($donnees['statut']);
 
             $_SESSION['co']='true';
-            $_SESSION['id_utilisateur']=htmlspecialchars($donnees['id_utilisateur']);
+            if($donnes['statut']=='spectateur'){
+               $_SESSION['id_utilisateur']=htmlspecialchars($donnees['id_parent']);
+            }else{
+               $_SESSION['id_utilisateur']=htmlspecialchars($donnees['id_utilisateur']); 
+            }
+            
             if(($donnees['statut'])=='admin'){
                 $_SESSION['statut']='admin';
                 header('Location:../public/index.php?p=homeAdmin');

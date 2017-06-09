@@ -29,17 +29,26 @@ if($p === 'home'){ //3 = c'est pour vérifier la value et le type
     require '../Views/inscription.php';
 }
 elseif ($p =='capteur'){
-    if(isset($_SESSION['id_maison'])){
-        require '../Views/ajout_capteur.php';
+    if(isset($_SESSION['statut']) and $_SESSION['statut']=='spectateur'){
+        require'../Views/interdit.php';
     }else{
-        require '../Views/ajout_capteur_maison.php';
+        if(isset($_SESSION['id_maison'])){
+            require '../Views/ajout_capteur.php';
+        }else{
+            require '../Views/ajout_capteur_maison.php';
+        }
     }
 
-}
-elseif ($p =='inscriptionSuccessfull'){
+}elseif ($p =='inscriptionSuccessfull'){
     require '../Views/inscriptionSuccessfull.php';
 }elseif ($p =='pieces'){
+    if(isset($_SESSION['statut']) and $_SESSION['statut']=='spectateur'){
+        require'../Views/interdit.php';
+    }else{
+
+
     require '../Views/pieces.php';
+}
 }elseif ($p =='contact'){
     if(isset($_SESSION['statut']) and $_SESSION['statut']=='admin'){
         require '../Views/contactAdmin.php';
@@ -47,7 +56,11 @@ elseif ($p =='inscriptionSuccessfull'){
         require '../Views/contact.php';
     }
 }elseif ($p =='profil'){
+    if(isset($_SESSION['statut']) and $_SESSION['statut']=='spectateur'){
+        require'../Views/interdit.php';
+    }else{
     require '../Views/profil.php';
+}
 }elseif ($p =='maison') {
     require '../Views/maison.php';
 }elseif ($p =='connexion'){
@@ -61,10 +74,16 @@ elseif ($p =='inscriptionSuccessfull'){
 $content = ob_get_clean();
 
 
-if(isset($_SESSION['co'])){
+if(isset($_SESSION['co'])and(isset($_SESSION['statut']) and $_SESSION['statut']=='client')){
     ob_start();
     require '../Views/templates/menuCo.php';
     $menu = ob_get_clean();
+    
+}elseif(isset($_SESSION['co']) and isset($_SESSION['statut']) and $_SESSION['statut']=='spectateur'){
+    ob_start();
+    require '../Views/templates/menuSpec.php';
+    $menu = ob_get_clean();
+
 }else{
     ob_start();
     require '../Views/templates/menuDeco.php';

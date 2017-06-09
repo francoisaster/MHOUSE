@@ -14,23 +14,24 @@ if (strlen($mdp) >= 8 && strlen($mdp) < 35 && preg_match('/(?=.*[0-9])[A-Z]|(?=.
             if ($reponse->rowcount() == 0) {
                 // l'utilisateur est unique, tout ses champs sont libres, il peut continuer
                 childaccount();
+                $_SESSION['text']='Le compte a bien été crée';
                 /*header('Location: ../public/index.php?p=inscriptionSuccessfull');*/
             } else {
                 //Un utilisateur a deja pris un des champs requis
                 //$erreur="Un des chammps existe deja, veuillez changer vos champs";
                 //header('Location: http://localhost/project/public/index.php?p=inscription');
-                echo 'Ce pseudo est déjà pris';
+                $_SESSION['text']='Ce pseudo est déjà pris';
             }
         } else {
-            echo 'Vos mots de passe ne dont pas identiques';
+            $_SESSION['text']= 'Vos mots de passe ne dont pas identiques';
         }
 
     } else {
-        echo 'Remplissez TOUS les champs';
+        $_SESSION['text']= 'Remplissez TOUS les champs';
     }
 
 }else {
-    echo 'Le mot de passe doit être alphanumérique, et compris entre 8 et 35 caractères !';
+    $_SESSION['text']= 'Le mot de passe doit être alphanumérique, et compris entre 8 et 35 caractères !';
 }
 
 
