@@ -10,6 +10,26 @@
             <!-- placeholder permet de mettre une indication dans le champ-->
             <br /><br />
 
+        <label for="pass">Ancien mot de passe :</label>
+            <input type="password" name="pass" id="pass" class="champ" onblur="verifPass(this)"/>
+            <br /><br />
+        <label for="newpass">Nouveau mot de passe :</label>
+            <input type="password" name="newpass" id="newpass" class="champ" onblur="verifPass(this)"/>
+            <br /><br />
+
+        <label for="newpass2">Confirmation mot de passe :</label>
+            <input type="password" name="newpass2" id="newpass2" class="champ" onblur="verifPass(this)"/>
+            <br/>
+            <br/>
+        
+            <?php
+            if (isset ($_SESSION['text'])){
+                echo $_SESSION['text'];
+            }
+            ?>
+            <br/>
+            <br/>
+
             <label for="prenom">Votre nouveau prenom :</label>
             <input type="text" name="prenom" id="prenom" value="<?php echo $_SESSION['prenom']?>"/>
             <br /><br />
@@ -44,7 +64,7 @@
             <br />
             <br />
 
-            <input type="submit" value="Envoyer" class="submit"/>
+            <input type="submit" name="modifier" value="Modifier" class="submit"/>
         </p>
     </fieldset>
 </form>
