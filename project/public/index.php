@@ -62,7 +62,11 @@ elseif ($p =='capteur'){
     require '../Views/profil.php';
 }
 }elseif ($p =='maison') {
-    require '../Views/maison.php';
+    if(isset($_SESSION['id_maison'])){
+            require '../Views/maison.php';
+        }else{
+            require '../Views/maisonChoix.php';
+        }
 }elseif ($p =='connexion'){
     require '../Views/connexion.php';
 }elseif ($p =='leave'){

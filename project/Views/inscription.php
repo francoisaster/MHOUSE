@@ -18,7 +18,7 @@
        <label for="pass">Votre mot de passe : *</label>
         <input type="password" name="pass" id="pass" class="champ" onblur="verifPass(this)"/>
         <br />
-        <span class="annotation">Votre mot de passe doit être alphanumérique et doit comprendre au moins 8 caractères dont une Majuscule.</span>
+        <span class="annotation">Votre mot de passe doit être alphanumérique et doit comprendre au moins 8 caractères.</span>
         <br />
         <br />
 
@@ -59,7 +59,7 @@
         <input type="email" name="email" id="email" class="champ">
         <br />
         <br />
-      <label for="statut">Statut :</label>
+      <label for="statut">Admin :</label>
       <select name="statut" id="statut">
         <option value="admin">Admin</option>
         <option value="spectateur">Spectateur</option>
