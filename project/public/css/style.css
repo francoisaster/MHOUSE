@@ -72,6 +72,18 @@ a:hover:not(.active) {
     background-color: #0057e6;
 }
 
+.submit2 {
+    background-color: #4285f4;
+    color: white;
+    padding: 12px 35px;
+    text-decoration: none;
+    border-radius: 2px;
+    border: none;
+}
+.submit2:hover {
+    background-color: #0057e6;
+}
+
 
 header {
     display: flex;
@@ -93,11 +105,41 @@ header {
 .block{
     background-color: white;
     opacity: 1;
-    padding : 20px;
-    border-radius: 6px;
+    padding : 25px;
+    border-radius: 2px;
  /*   border: 2px solid black;*/
     margin-bottom: 20px;
 
+}
+
+
+fieldset {
+    border: none;
+}
+
+.notifications {
+    display: none;
+    color: white;
+    background-color: #0057e6;
+    padding : 15px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+
+}
+
+.notifications2 {
+    display: none;
+    color: white;
+    background-color: #0057e6;
+    padding : 15px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+
+}
+
+.check {
+    width: 20px;
+    margin-right: 20px;
 }
 
 label

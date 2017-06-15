@@ -1,5 +1,15 @@
+<div class="notifications">
+    <img src="http://localhost/Project/Views/valider.jpg" class="check">
+    <a>La maison a bien été enregistré </a>            
+</div>
 
-<form action="../Controllers/ajout_maison.php" method="post" class="block">
+<div class="notifications2">
+    <img src="http://localhost/Project/Views/valider.jpg" class="check">
+    <a>La piece a bien été ajouté </a>            
+</div>
+
+
+<form action="../Controllers/ajout_maison.php" method="post" class="block test">
     <fieldset>
         <legend>Ajout d'une maison</legend>
         <p>
@@ -7,12 +17,12 @@
             <input type="text" name="nom_maison" id="nom_maison" autofocus="" />
             <br />
             <br/>
-            <input type="submit" value="Ajouter maison" class="submit"/>
+            <input type="button" value="Ajouter maison" class="submit" id="test"/>
         </p>
     </fieldset>
 </form>
 
-<form action="../Controllers/pieces.php" method="post" class="block">
+<form action="../Controllers/pieces.php" method="post" class="block test2">
     <fieldset>
         <legend>Ajout d'une pièce</legend>
         <p>
@@ -32,63 +42,54 @@
 
             <br />
             <br/>
-            <input type="submit" value="Ajouter pièce" class="submit"/>
+            <input type="button" value="Ajouter pièce" class="submit2" id="test2"/>
         </p>
     </fieldset>
 </form>
 
 
-<!-- CAPTEURS  -->
 
 
-<form action="../Controllers/afficheCapteur.php" method="post" class="block">
-    <fieldset>
-        <legend>Voir les capteurs par piece</legend>
-        <p>
-            <br />
+<script>
+    $(document).ready(function() {
+        $(".submit").click( function(){
+            $('.notifications').fadeIn();
+            var temp = '.' + this.id;
+            setTimeout(function(){ 
+                $('.notifictaions').fadeOut();
+                $(temp).submit();
+            },1500);
+        });
 
-            <label for="vue_capteur">Choix de piece :</label>
-            <select name="vue_capteur" id="vue_capteur">
-                <?php require '../Models/pieces.php';
-                affichePiecesMenu(); ?>
-            </select>
+        $(".submit2").click( function(){
+            $('.notifications2').fadeIn();
+            var temp = '.' + this.id;
+            setTimeout(function(){ 
+                $('.notifictaions2').fadeOut();
+                $(temp).submit();
+            },1500);
+        });
+    });
+</script>
 
-            <br/>
-            <br/>
-            <input type="submit" value="Rechercher" class="submit"/>
-        </p>
-    </fieldset>
-</form>
-<form action="../Controllers/changement_mdp.php" method="post" class="block">
-    <fieldset>
-        <legend>Modification mot de passe</legend>
-        <p>
-            <br />
-            <label for="pass">Ancien mot de passe :</label>
-            <input type="password" name="pass" id="pass" class="champ" onblur="verifPass(this)"/>
-            <br />
 
-            <label for="newpass">Nouveau mot de passe :</label>
-            <input type="password" name="newpass" id="newpass" class="champ" onblur="verifPass(this)"/>
-            <br />
 
-            <label for="newpass2">Confirmation mot de passe :</label>
-            <input type="password" name="newpass2" id="newpass2" class="champ" onblur="verifPass(this)"/>
-            <br/>
-            <br/>
-            <input type="submit" name="modifier" value="Modifier" class="submit"/>
-            <?php
-            if (isset ($_SESSION['text'])){
-                echo $_SESSION['text'];
-            }
-            ?>
-        </p>
-    </fieldset>
-</form>
+<!--
+<script>
 
-<?php // A METTRE DANS CONTROLLERS
-if(isset($_SESSION['id_piece'])){
-require'../Models/afficheCapteur.php';
-afficheCapteurs($_SESSION['id_utilisateur'],$_SESSION['id_piece']);
-}
-?>
+    $(document).ready(function(){
+        $(".submit").click(function(){
+            $(".notifications").show();
+            $notif = 333;
+            $.ajax({
+                type: "POST",
+                url: "",
+                data: "string",
+                success: function(){ console.log("success")},
+                dataType: "html"
+                });
+        })
+
+    })
+</script>
+-->

@@ -1,5 +1,9 @@
+<div class="notifications">
+    <img src="http://localhost/Project/Views/valider.jpg" class="check">
+    <a>Le capteur a bien été ajouté</a>            
+</div>
 
-<form action="../Controllers/capteurs.php" method="post" class="block">
+<form action="../Controllers/capteurs.php" method="post" class="block test">
     <fieldset>
         <legend>Ajout de capteurs dans <?php require'../Models/nomMaison.php'; echo nomMaison($_SESSION['id_maison']) ?></legend>
         <p>
@@ -32,7 +36,7 @@
 <br/>
 
 <br/>
-<input type="submit" value="Ajouter" class="submit"/>
+<input type="button" value="Ajouter" class="submit" id="test" />
 </p>
 </fieldset>
 </form>
@@ -55,3 +59,17 @@
         </p>
     </fieldset>
 </form>
+
+
+<script>
+    $(document).ready(function() {
+        $(".submit").click( function(){
+            $('.notifications').fadeIn();
+            var temp = '.' + this.id;
+            setTimeout(function(){ 
+                $('.notifictaions').fadeOut();
+                $(temp).submit();
+            },1500);
+        });
+    });
+</script>
