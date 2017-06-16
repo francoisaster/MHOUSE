@@ -5,6 +5,4 @@
         <input type="submit" name="submit" value="Se connecter" />
     </p>
 </form>
-<?php // A METTRE DANS CONTROLLERS
-    require'../Controllers/homeAdmin.php';
-?>
+

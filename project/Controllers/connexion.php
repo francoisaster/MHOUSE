@@ -9,7 +9,7 @@
 session_start();
 
 require '../Models/connexion.php';
-
+require '../Models/update.php';
 if(isset($_POST['submit']) AND !empty($_POST['pseudo'])AND !empty($_POST['pass'])) {
 
     $pseudo = htmlspecialchars($_POST['pseudo']);
@@ -38,12 +38,13 @@ if(isset($_POST['submit']) AND !empty($_POST['pseudo'])AND !empty($_POST['pass']
             $_SESSION['statut']=htmlspecialchars($donnees['statut']);
 
             $_SESSION['co']='true';
-            if($donnes['statut']=='spectateur'){
+
+            if($donnees['statut']=='spectateur'){
                $_SESSION['id_utilisateur']=htmlspecialchars($donnees['id_parent']);
             }else{
                $_SESSION['id_utilisateur']=htmlspecialchars($donnees['id_utilisateur']); 
             }
-            
+            update($_SESSION['id_utilisateur']);
             if(($donnees['statut'])=='admin'){
                 $_SESSION['statut']='admin';
                 header('Location:../public/index.php?p=homeAdmin');
