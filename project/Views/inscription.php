@@ -18,7 +18,7 @@
        <label for="pass">Votre mot de passe : *</label>
         <input type="password" name="pass" id="pass" class="champ" onblur="verifPass(this)"/>
         <br />
-        <span class="annotation">Votre mot de passe doit être alphanumérique et doit comprendre au moins 8 caractères.</span>
+        <span class="annotation">Votre mot de passe doit être alphanumérique et doit comprendre au moins 8 caractères dont une Majuscule.</span>
         <br />
         <br />
 

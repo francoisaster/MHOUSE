@@ -6,7 +6,7 @@
 <br />
 Veuillez cliquer ici pour aller vous connecter :
     <br />
-    <a href="../public/index.php?p=connexion"> Sign up</a>
+    <a href="../public/index.php?p=connexion"> Sign In</a>
 </p>
 </fieldset>
 </div>

@@ -10,6 +10,7 @@ require '../Models/profil.php';
 
 session_start();
 
+$_SESSION['text'] = changementMdp($_POST['pass'],$_POST['newpass'],$_POST['newpass2']);
 
 updateProfil();
 

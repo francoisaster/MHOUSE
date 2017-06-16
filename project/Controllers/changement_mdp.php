@@ -1,6 +1,6 @@
 <?php
 
-require '../Models/pieces.php';
+/*require '../Models/pieces.php';
 
 session_start();
 
