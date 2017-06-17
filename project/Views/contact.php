@@ -14,7 +14,6 @@ $donnees=contactAdmin();
 <div class="block">
     <div> <img src="../public/images/18678848_1664162940290601_2025009995_n.png" width="24" height="24"> <?php echo $donnees['adresse']?></div>
     <div> <img src="../public/images/18643553_1664162936957268_1022541758_n.png" width="24" height="24"> <?php echo $donnees['numero_tel']?></div>
-    <div> <img src="../public/images/18622995_1664162933623935_1982767871_n.png" width="24" height="24"> <?php echo $donnees['email']?></div>
 </div>
 <br />
 <div class="map">

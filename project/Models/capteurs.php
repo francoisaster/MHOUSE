@@ -3,9 +3,7 @@
 require'connexionBdd.php';
 
 function creationCapteurs(){
-
     $bdd=connexionBdd();
-
     $req=$bdd->prepare('INSERT INTO capteurs(nom_capteur, type_capteur, date_d_ajout, id_utilisateur,id_piece,marque,numero_serie) VALUES(:nom_capteur, :type_capteur, NOW(),:id_utilisateur,:id_piece,:marque,:numero_serie)');
 // $req->execute(array($_POST['pseudo'], $_POST['pass'], $_POST['email']));
     $req->bindParam(':nom_capteur',$_POST['nom_capteur']);
@@ -15,11 +13,8 @@ function creationCapteurs(){
     $req->bindParam(':marque',$_POST['marque']);
     $req->bindParam(':numero_serie',$_POST['numero_serie']);
     $req->execute();
-
 }
-
-function afficheCapteurs(){ //Maintenant elle
-
+function afficheCapteurs(){
     $bdd=connexionBdd();
     // Récupération des 20 derniers messages
     $reponse = $bdd->query('SELECT nom_capteur, type_capteur FROM capteurs ORDER BY id_capteur DESC LIMIT 0, 20');
@@ -28,5 +23,4 @@ function afficheCapteurs(){ //Maintenant elle
         echo '<p><strong>' . htmlspecialchars($donnees['nom_capteur']) . '</strong> : ' . htmlspecialchars($donnees['type_capteur']) . '</p>';
     }
     $reponse->closeCursor();
-
 } //Maintenant la fonction est useless

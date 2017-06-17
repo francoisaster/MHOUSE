@@ -1,41 +1,92 @@
-<div class="block">
-    <h1>Home</h1>
+<?php
+require '../Models/test2.php'; //necessaire pour avoir la fonction affichePieces
+try
+{
+    $bdd = new PDO('mysql:host=localhost;dbname=mhouse_bdd;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+}
+catch (Exception $e)
+{
+    die('Erreur : ' . $e->getMessage());
+}
+?>
+<?php
+/*
+$temperature = 'temperature';
+$_SESSION['id_utilisateur'] = 34;
+$req = $bdd -> prepare('SELECT nom_capteur FROM capteurs WHERE id_utilisateur = ? AND type_capteur = ?ORDER BY id_capteur');
+$req->execute(array($_SESSION['id_utilisateur'],$temperature));
+*/
+/*
+$requser = $bdd->prepare("
+SELECT valeurs_capteur.date_mesure, valeurs_capteur.valeur, capteurs.id_capteur, capteurs.nom_capteur
+FROM valeurs_capteur
+INNER JOIN capteurs
+ON valeurs_capteur.id_capteur = capteurs.id_capteur
+WHERE capteurs.id_utilisateur = ?
+ORDER BY valeurs_capteur.date_mesure
+");
+$requser->execute(array($_SESSION['id_utilisateur'],));
+*/
+/*
+if(isset($_SESSION['capteur_stats'])){
+    $capteur_choisi2 = $_SESSION['capteur_stats'];
+}*/
 
-    <fieldset class="notif">Les notifications seront bientôt disponibles !</fieldset>
-    <br />
-    <fieldset class="notif">Voici une notification, si tu l'as lu, clic dessus pour la faire disparaitre !</fieldset>
-</div>
-
-<script>
-    $(document).ready(function(){
-        $(".notif").click(function(){
-            $(this).hide();
-        });
-    });   //PARFAIT POUR FAIRE LES SUPPRESSIONS DE notifications
-    </script>
 
 
-<!-- NOTRE FUCK*NG BEAU GRAPHIQUE -->
+if(isset($_POST['capteur_choisi'])) {
+    $capteur_choisi = $_POST['capteur_choisi'];
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-    google.charts.load('current', {packages: ['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart() {
-        // Define the chart to be drawn.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Capteurs');
-        data.addColumn('number', 'Percentage');
-        data.addRows([
-            ['Lumière Salon', 0.5],
-            ['Lumière Chambre', 0.3],
-            ['Lumière extérieure', 0.2]
-        ]);
-        // Instantiate and draw the chart.
-        var chart = new google.visualization.PieChart(document.getElementById('myPieChart'));
-        chart.draw(data, null);
+    $test = $bdd->prepare('SELECT id_capteur FROM capteurs WHERE nom_capteur = ? AND id_utilisateur= ?'); // rajout d'heure
+    $test->execute(array($capteur_choisi, $_SESSION['id_utilisateur']));
+    while ($donneeTest = $test->fetch()) {
+        $idCapteur = htmlspecialchars($donneeTest['id_capteur']);
     }
-</script>
-<!-- Identify where the chart should be drawn. -->
-<div class ="block" id="myPieChart"/>
+
+    $result = $bdd->prepare('SELECT * FROM valeurs_capteur WHERE id_capteur= ?'); // rajout d'heure
+    $result->execute(array($idCapteur));
+}
+/*
+if(isset($_POST['capteur_choisi'])) {
+    $capteur_choisi = $_POST['capteur_choisi'];
+
+
+    $test = $bdd->prepare('SELECT id_capteur FROM capteurs WHERE nom_capteur = ? AND id_utilisateur= ?'); // rajout d'heure
+    $test->execute(array($capteur_choisi, $_SESSION['id_utilisateur']));
+    while ($donneeTest = $test->fetch()) {
+        $idCapteur = htmlspecialchars($donneeTest['id_capteur']);
+    }
+
+    $result = $bdd->prepare('SELECT * FROM valeurs_capteur WHERE id_capteur= ?'); // rajout d'heure
+    $result->execute(array($idCapteur));
+}*/
+?>
+<form action="" method="post" class="block">
+    <fieldset>
+        <legend>Voir les capteurs par piece</legend>
+        <p>
+            <br />
+
+            <label for="capteur_choisi">Choix de capteur :</label>
+            <select name="capteur_choisi" id="capteur_choisi">
+                <?php
+                affichePieces();
+                ?>
+            </select>
+
+            <br/>
+            <br/>
+            <input type="submit" value="Voir" class="submit"/>
+        </p>
+    </fieldset>
+</form>
+
+<?php
+if(isset($_POST['capteur_choisi'])) {
+    require '../Views/homeStats.php';
+}
+?>
+
+
+

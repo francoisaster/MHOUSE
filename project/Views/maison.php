@@ -11,6 +11,7 @@
                 choisirMaison(); ?>
             </select>
             <br/>
+            <br/>
             <input type="submit" value="Choisir" class="submit"/>
         </p>
     </fieldset>
