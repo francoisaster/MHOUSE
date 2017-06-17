@@ -59,17 +59,8 @@
         <input type="email" name="email" id="email" class="champ">
         <br />
         <br />
-      <label for="statut">Admin :</label>
-      <select name="statut" id="statut">
-        <option value="admin">Admin</option>
-        <option value="spectateur">Spectateur</option>
-        <option value="client">Client</option>
-        <option value="attente">Attente</option>
+        <input type="hidden" name="statut" value='attente'/>
 
-
-          <!-- A mettre en boolean... Dans la DB il est en VARCHAR-->
-    </select>
-      <br /><br />
 
         <label for="numero_tel">Votre numéro de téléphone : *</label>
         <input type="text" name="numero_tel" id="numero_tel" class="champ" onblur="verifTel(this)"/>

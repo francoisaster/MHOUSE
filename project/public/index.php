@@ -55,7 +55,33 @@ elseif ($p =='capteur'){
     }else {
         require '../Views/contact.php';
     }
-}elseif ($p =='profil'){
+
+}
+elseif ($p =='confirmation'){
+    if(isset($_SESSION['statut']) and $_SESSION['statut']=='admin'){
+        require '../Views/confirmation.php';
+    }else {
+        require '../Views/interdit.php';
+    }
+
+}
+elseif ($p =='utilisateur'){
+    if(isset($_SESSION['statut']) and $_SESSION['statut']=='admin'){
+        require '../Views/utilisateur.php';
+    }else {
+        require '../Views/interdit.php';
+    }
+
+}
+elseif ($p =='client'){
+    if(isset($_SESSION['statut']) and $_SESSION['statut']=='admin'){
+        require '../Views/client.php';
+    }else {
+        require '../Views/interdit.php';
+    }
+
+}
+elseif ($p =='profil'){
     if(isset($_SESSION['statut']) and $_SESSION['statut']=='spectateur'){
         require'../Views/interdit.php';
     }else{
@@ -88,7 +114,14 @@ if(isset($_SESSION['co'])and(isset($_SESSION['statut']) and $_SESSION['statut']=
     require '../Views/templates/menuSpec.php';
     $menu = ob_get_clean();
 
-}else{
+}elseif(isset($_SESSION['co']) and isset($_SESSION['statut']) and $_SESSION['statut']=='admin'){
+    ob_start();
+    require '../Views/templates/menuAdmin.php';
+    $menu = ob_get_clean();
+
+}
+
+else{
     ob_start();
     require '../Views/templates/menuDeco.php';
     $menu = ob_get_clean();
