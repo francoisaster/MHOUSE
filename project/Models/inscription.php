@@ -49,3 +49,14 @@ function verifExistence($pseudo, $email){
     $reponse->execute(array($pseudo, $email));
     return $reponse;
 }
+function isUniquePseudo($pseudo){
+    $bdd=connexionBdd();
+    $req = $bdd->prepare('SELECT * FROM utilisateur WHERE pseudo= ? ');
+    $req->execute(array($pseudo));
+    $nb=$req->rowCount();
+    if($nb==0){
+        return true;
+    }else{
+        return false;
+    }
+}

@@ -1,3 +1,4 @@
+<?php require'../Models/inscription.php'?>
 <div id="erreur">
     <p>Un ou plusieurs champs rouge(s) n'ont pas été rempli !</p>
 </div>
@@ -8,7 +9,7 @@
        <legend>Inscription</legend>
     <p>
     <label for="pseudo">Votre pseudo : *</label>
-    <input type="text" name="pseudo" id="pseudo" class="champ" autofocus=""/> <!-- Pour mettre un champ text avec le nom pseudo -->
+    <input type="text" name="pseudo" id="pseudo" class="champ" onblur="verifPseudo(this)" autofocus=""/> <!-- Pour mettre un champ text avec le nom pseudo -->
        <!-- for et id avec le meme nom permettent de lier les zones de texte-->
        <!-- placeholder permet de mettre une indication dans le champ-->
     <br />
@@ -78,7 +79,19 @@
 
 
 <script>
-
+    function verifPseudo(champ)
+    {
+        if(isUniquePseudo(champ.value))
+        {
+            surligne(champ,false);
+            return true;
+        }
+        else
+        {
+            surligne(champ, true);
+            return false;
+        }
+    }
     //JS BASIQUE
     function surligne(champ, erreur)
     {
