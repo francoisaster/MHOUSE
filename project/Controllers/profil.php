@@ -14,7 +14,6 @@ $_SESSION['text'] = changementMdp($_POST['pass'],$_POST['newpass'],$_POST['newpa
 
 updateProfil();
 
-
 /*
 upContact();
 */

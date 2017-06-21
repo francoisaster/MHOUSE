@@ -99,12 +99,7 @@
                 <br /><br />
 
                 <input type="submit" value="Creer" class="submit"/>
-
             </p>
-            <?php if(isset($_SESSION['text'])){
-                echo $_SESSION['text'];
-            }
-             ?>
         </form>
     </fieldset>
 </div>
