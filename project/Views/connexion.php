@@ -9,7 +9,17 @@
             <br><br>
             <label for="pass">Votre mot de passe :</label>
             <input type="password" name="pass" id="pass"/>
-            <br><br>
+            <br>
+            <p id="infoMDP1">Le mot de passe est trop court.</p>
+            <p id="infoMDP2">Le mot de passe est de la bonne longueur.</p>
+    <script>
+        $(document).ready(function() {
+            $("#infoMDP2").hide();
+            $("#infoMDP1").hide();
+        });
+
+    </script>
+            <br>
             <input type="submit" name="submit" value="Se connecter" class="submit"/>
         </p>
     </form>
@@ -30,12 +40,17 @@
                     borderColor: 'red',
                     color: 'red'
                 });
+                $("#infoMDP1").show();
+                $("#infoMDP2").hide();
+
             }
             else {
                 $(this).css({ // si tout est bon, on le rend vert
                     borderColor: 'green',
                     color: 'green'
                 });
+                $("#infoMDP2").show();
+                $("#infoMDP1").hide();
             }
         });
 

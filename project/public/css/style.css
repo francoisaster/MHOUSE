@@ -160,6 +160,11 @@ fieldset{
     font-size: x-small;
     font-style: italic;
 }
+#infoMDP1, #infoMDP2{
+    font-size: x-small;
+    font-style: italic;
+    text-align: center;
+}
 
 .notifications {
     display: none;
