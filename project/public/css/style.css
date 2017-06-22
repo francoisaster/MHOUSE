@@ -166,7 +166,7 @@ fieldset{
     text-align: center;
 }
 
-.notifications {
+.notifications, .notifications2, .notificationsSuppression {
     display: none;
     color: white;
     background-color: #0057e6;
@@ -175,7 +175,7 @@ fieldset{
     margin-bottom: 20px;
 
 }
-
+/*
 .notifications2 {
     display: none;
     color: white;
@@ -184,7 +184,7 @@ fieldset{
     border-radius: 2px;
     margin-bottom: 20px;
 
-}
+}*/
 
 .check {
     width: 20px;

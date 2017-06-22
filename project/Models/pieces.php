@@ -1,14 +1,10 @@
 <?php
-
-
-
 require'connexionBdd.php';
 function creationPieces(){
-
     $bdd=connexionBdd();
 // Insertion
     $req = $bdd->prepare('INSERT INTO piece(nom_piece,id_utilisateur,id_maison,superficie) VALUES(:nom_piece,:id_utilisateur,:id_maison,:superficie)');
-    $req->bindParam(':nom_piece', htmlspecialchars($_POST['nom_piece']));
+    $req->bindParam(':nom_piece', $_POST['nom_piece']);
     $req->bindParam(':id_utilisateur', htmlspecialchars($_SESSION['id_utilisateur']));
     $req->bindParam(':id_maison', htmlspecialchars($_POST['id_maison_piece']));
     $req->bindParam(':superficie', htmlspecialchars($_POST['superficie']));
