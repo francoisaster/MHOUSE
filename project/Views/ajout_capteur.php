@@ -1,6 +1,12 @@
 <div class="notifications">
-    <img src="http://localhost/Project/Views/valider.jpg" class="check"> <!-- A CHANGER EN RELATIF -->
-    <a>Le capteur a bien été ajouté</a>            
+    <img src="http://localhost/Project/Views/valider.jpg" class="check">
+    <!--a id="messagereussi">La maison <script>document.write(document.getElementById('nom_maison'))</script>a bien été enregistré </a-->
+    <a id="messagereussi"> </a>            
+</div>
+
+<div class="messageerreur">
+    <img src="http://localhost/Project/Views/info.png" class="check">
+    <a>Erreur : veuillez remplir le champ</a>            
 </div>
 
 <form action="../Controllers/capteurs.php" method="post" class="block test">
@@ -95,16 +101,27 @@
 
 
 <script>
-
-    $(document).ready(function() {
-        $("#testSubmit").click( function(){
-            $('.notifications').fadeIn();
-            var temp = '.' + this.id;
-            setTimeout(function(){ 
-                $('.notifications').fadeOut();
-                $(temp).submit();
-            },1500);
+    $(document).ready(function() {    
+        $(".submit").click( function(){
+            var a = document.getElementById('nom_capteur').value;
+            if (a === ""){
+                $('.messageerreur').fadeIn();
+                var temp = '.' + this.id;
+                setTimeout(function(){ 
+                    $('.messageerreur').fadeOut();
+                    $(temp).submit();
+                },5000);
+            } 
+            else {
+                $('.notifications').fadeIn();
+                var temp = '.' + this.id;
+                document.getElementById( "messagereussi" ).innerHTML = "Le capteur "+a+" a bien été enregistrée";
+                setTimeout(function(){ 
+                    $('.notifications').fadeOut();
+                    $(temp).submit();
+                },5000);
+            }
         });
-    });
 
+    });
 </script>

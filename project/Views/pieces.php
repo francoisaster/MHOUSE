@@ -1,13 +1,18 @@
 <div class="notifications">
     <img src="http://localhost/Project/Views/valider.jpg" class="check">
-    <a>La maison a bien été enregistré </a>            
+    <!--a id="messagereussi">La maison <script>document.write(document.getElementById('nom_maison'))</script>a bien été enregistré </a-->
+    <a id="messagereussi"> </a>            
+</div>
+
+<div class="messageerreur">
+    <img src="http://localhost/Project/Views/info.png" class="check">
+    <a>Erreur : veuillez remplir le champ</a>            
 </div>
 
 <div class="notifications2">
     <img src="http://localhost/Project/Views/valider.jpg" class="check">
-    <a>La piece a bien été ajouté </a>            
+    <a id="messagereussi2"></a>            
 </div>
-
 
 <form action="../Controllers/ajout_maison.php" method="post" class="block test">
     <fieldset>
@@ -49,25 +54,52 @@
 
 
 
-
 <script>
     $(document).ready(function() {
-        $(".submit").click( function(){
-            $('.notifications').fadeIn();
-            var temp = '.' + this.id;
-            setTimeout(function(){ 
-                $('.notifictaions').fadeOut();
-                $(temp).submit();
-            },1500);
-        });
+        
 
+        $(".submit").click( function(){
+            var a = document.getElementById('nom_maison').value;
+            if (a === ""){
+                $('.messageerreur').fadeIn();
+                var temp = '.' + this.id;
+                setTimeout(function(){ 
+                    $('.messageerreur').fadeOut();
+                    $(temp).submit();
+                },5000);
+            } 
+            else {
+                $('.notifications').fadeIn();
+                var temp = '.' + this.id;
+                document.getElementById( "messagereussi" ).innerHTML = "La maison "+a+" a bien été enregistrée";
+                setTimeout(function(){ 
+                    $('.notifications').fadeOut();
+                    $(temp).submit();
+                },5000);
+            }
+        });
+        
         $(".submit2").click( function(){
-            $('.notifications2').fadeIn();
-            var temp = '.' + this.id;
-            setTimeout(function(){ 
-                $('.notifictaions2').fadeOut();
-                $(temp).submit();
-            },1500);
+            var a = document.getElementById('nom_piece').value;
+            if (a === ""){
+                $('.messageerreur').fadeIn();
+                var temp = '.' + this.id;
+                setTimeout(function(){ 
+                    $('.messageerreur').fadeOut();
+                    $(temp).submit();
+                },3000);
+            } 
+            else {
+                $('.notifications2').fadeIn();
+                var temp = '.' + this.id;
+                document.getElementById( "messagereussi2" ).innerHTML = "La piece "+a+" a bien été enregistrée";
+                setTimeout(function(){ 
+                    $('.notifications2').fadeOut();
+                    $(temp).submit();
+                },3000);
+            }
+
+
         });
     });
 </script>

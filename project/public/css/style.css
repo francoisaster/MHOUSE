@@ -64,7 +64,7 @@ a:hover:not(.active) {
 
 
 
-.submit {
+.submit , .submit2 {
     background-color: #4285f4;
     color: white;
     padding: 12px 35px;
@@ -72,7 +72,7 @@ a:hover:not(.active) {
     border-radius: 2px;
     border: none;
 }
-.submit:hover {
+.submit:hover , .submit2 {
     background-color: #0057e6;
 }
 
@@ -175,6 +175,18 @@ fieldset{
     margin-bottom: 20px;
 
 }
+
+
+.messageerreur {
+    display: none;
+    color: white;
+    background-color: #34a853;
+    padding : 15px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+
+}
+
 /*
 .notifications2 {
     display: none;

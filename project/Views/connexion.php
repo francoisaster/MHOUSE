@@ -2,6 +2,11 @@
     <p>Vous n'avez pas rempli correctement les champs du formulaire !</p>
 </div>-->
 
+<div class="messageerreur">
+    <img src="http://localhost/Project/Views/info.png" class="check">
+    <a>Mot de passe ou pseudo est incorrect</a>            
+</div>
+
 <form action="../Controllers/connexion.php" method="post" class="block" id="photo">
         <p>
             <label for="pseudo">Votre pseudo :</label>
@@ -33,6 +38,16 @@
 
 <script>
     $(document).ready(function() {
+        var $echec = <?php echo $_SESSION['echec'];?>;
+        if($echec){
+
+            $('.messageerreur').fadeIn();
+            var temp = '.' + this.id;
+            setTimeout(function(){ 
+                $('.messageerreur').fadeOut();
+                $(temp).submit();
+            },2000);
+        }
         var $pass = $('#pass');
         $pass.keyup(function () {
             if ($(this).val().length < 8) { // si la chaîne de caractères est inférieure à 8
