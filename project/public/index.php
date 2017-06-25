@@ -84,6 +84,14 @@ elseif ($p =='client'){
     }
 
 }
+elseif ($p =='recherche'){
+    if(isset($_SESSION['statut']) and $_SESSION['statut']=='admin'){
+        require '../Views/recherche.php';
+    }else {
+        require '../Views/interdit.php';
+    }
+
+}
 elseif ($p =='profil'){
     if(isset($_SESSION['statut']) and $_SESSION['statut']=='spectateur'){
         require'../Views/interdit.php';
@@ -91,11 +99,9 @@ elseif ($p =='profil'){
     require '../Views/profil.php';
 }
 }elseif ($p =='maison') {
-    if(isset($_SESSION['id_maison'])){
+
             require '../Views/maison.php';
-        }else{
-            require '../Views/maisonChoix.php';
-        }
+
 }elseif ($p =='connexion'){
     require '../Views/connexion.php';
 }elseif ($p =='leave'){

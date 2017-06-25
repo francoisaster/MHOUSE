@@ -31,7 +31,7 @@ function supprimerCapteurs(){ // Fonction pour supprimer un capteur dans la bdd
     // Ici mettre WHERE sur juste le nom supprimera la ligne dans la bdd
     $req59=$bdd->prepare('
 DELETE FROM capteurs
-WHERE nom_capteur = :nomDuCapteur 
+WHERE nom_capteur = :nomDuCapteur
 ');
     $req59->bindParam(':nomDuCapteur',$_POST['nom_capteur']);
     $req59->execute();

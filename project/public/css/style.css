@@ -93,12 +93,25 @@ header {
 }
 
 .block{
+     background-color: white;
+     opacity: 1;
+     padding : 20px;
+     border-radius: 6px;
+     /*border: 2px solid black;*/
+     margin-bottom: 20px;
+ }
+.petitBlock{
     background-color: white;
     opacity: 1;
-    padding : 20px;
+    padding : 1px;
     border-radius: 6px;
     /*border: 2px solid black;*/
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    box-shadow: 5px 5px 5px;
+}
+.petitField{
+    border-width: 0;
+
 }
 
 label

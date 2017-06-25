@@ -1,4 +1,14 @@
 <?php
+function belongTo($id_utilisateur,$n){
+    $bdd=connexionBdd();
+    $req = $bdd->prepare("SELECT * FROM capteurs WHERE id_capteur=:n and id_utilisateur=:id_utilisateur");
+    $req->execute(array('n'=>$n,'id_utilisateur'=>$id_utilisateur));
+    $count=$req->rowCount();
+    if($count==0){
+        return false;
+    }
+    return true;
+}
 
 function update($id_utilisateur){
 
@@ -45,7 +55,7 @@ function update($id_utilisateur){
             $newDateTab["$n"]=$newDate;
         }
         $date=date_timestamp_get($date);
-        if($newDateTab["$n"]<$date and $v!=null and $date!=null and $n!=null){
+        if($newDateTab["$n"]<$date and $v!=null and $date!=null and $n!=null and belongTo($id_utilisateur,$n)){
 
             $req2=$bdd->prepare('INSERT INTO valeurs_capteur (valeur, date_mesure, id_capteur) VALUES(:valeur,:date_mesure,:id_capteur)');
             $req2->bindParam(':valeur',$v);

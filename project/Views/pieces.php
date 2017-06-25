@@ -1,3 +1,4 @@
+<?php require '../Models/affMenu.php';?>
 <div class="notifications">
     <img src="http://localhost/Project/Views/valider.jpg" class="check">
     <!--a id="messagereussi">La maison <script>document.write(document.getElementById('nom_maison'))</script>a bien été enregistré </a-->
@@ -26,19 +27,21 @@
         </p>
     </fieldset>
 </form>
-
+<?php
+if(afficheMaisonMenu2()!="") {
+    echo '
 <form action="../Controllers/pieces.php" method="post" class="block test2">
     <fieldset>
-        <legend>Ajout d'une pièce</legend>
+        <legend>Ajout d\'une pièce</legend>
         <p>
-            <label for="nom_piece">Le nom d'une pièce :</label>
+            <label for="nom_piece">Le nom d\'une pièce :</label>
             <input type="text" name="nom_piece" id="nom_piece" autofocus="" />
             <br />
             <br/>
             <label for="vue_capteur">Choix du domicile :</label>
             <select name="id_maison_piece" id="id_maison_piece">
-                <?php require '../Models/affMenu.php';
-                afficheMaisonMenu(); ?>
+                ' .
+        afficheMaisonMenu2() . '
             </select>
             <br />
             <br/>
@@ -50,7 +53,9 @@
             <input type="button" value="Ajouter pièce" class="submit2" id="test2"/>
         </p>
     </fieldset>
-</form>
+</form>';
+}
+?>
 
 
 

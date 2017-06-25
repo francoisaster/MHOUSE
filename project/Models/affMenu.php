@@ -18,6 +18,7 @@ function afficheMaisonMenu()
     /*
      * Il y a 2 requetes car le fecth retire les lignes une fois qu'il les parcourt.
      */
+
     if(!isset($_SESSION['id_maison'])) { // si il n'a jamais cliqué sur une piece, alors affiche toutes les pieces dans l'ordre
         while ($donnees = $req->fetch()) {
             echo '<option value="' . htmlspecialchars($donnees['id_maison']) . '">' . htmlspecialchars($donnees['nom']) . '</option>';
@@ -135,4 +136,70 @@ function afficheCapteur(){
         $text="Il n'y a pas de capteur dans cette pièce";
     }
     return $text;
+}
+function afficheCapteurMenu($id_piece_client){
+    $bdd = connexionBdd2();
+
+    $req = $bdd->prepare('SELECT * FROM capteurs WHERE id_utilisateur = :id_utilisateur and id_piece=:id_piece');
+    $req->bindParam(':id_utilisateur',$_SESSION['id_utilisateur']);
+    $req->bindParam(':id_piece',$id_piece_client);
+    $req->execute();
+    $req2 = $bdd->prepare('SELECT * FROM capteurs WHERE id_utilisateur = :id_utilisateur and id_piece=:id_piece');
+    $req2->bindParam(':id_utilisateur',$_SESSION['id_utilisateur']);
+    $req2->bindParam(':id_piece',$id_piece_client);
+    $req2->execute();
+    /*
+     * Il y a 2 requetes car le fecth retire les lignes une fois qu'il les parcourt, sinon utiliser un close cursor...
+     */
+    $text="";
+    if(!isset($_SESSION['id_capteur'])) { // si il n'a jamais cliqué sur une piece, alors affiche toutes les pieces dans l'ordre
+        while ($donnees = $req->fetch()) {
+            $text=$text.'<option value="'.htmlspecialchars($donnees['nom_capteur']).'">'.htmlspecialchars($donnees['nom_capteur']).'</option>';
+        }
+    }else{
+        while ($donnees = $req->fetch()) {
+            if($_SESSION['id_capteur']==$donnees['id_capteur']){
+                $text=$text.'<option value="'.htmlspecialchars($donnees['nom_capteur']).'">'.htmlspecialchars($donnees['nom_capteur']).'</option>';
+            }
+        }
+        while ($donnee = $req2->fetch()) {
+            if(($_SESSION['id_capteur']!=$donnee['id_capteur'])){
+                $text=$text.'<option value="'.htmlspecialchars($donnee['nom_capteur']).'">'.htmlspecialchars($donnee['nom_capteur']).'</option>';
+            }
+        }
+    }
+    $req->closeCursor();
+    return $text;
+
+}
+function afficheCapteurListe(){
+    $bdd=connexionBdd2();
+    $req = $bdd->prepare('SELECT * FROM capteurs WHERE id_utilisateur = :id_utilisateur and id_piece=:id_piece');
+    $req->bindParam(':id_utilisateur',$_SESSION['id_utilisateur']);
+    $req->bindParam(':id_piece',$id_piece_client);
+    $req->execute();
+    while($donnees=$req->fetch()){
+        $champ= '<form action="../Controllers/confirmation.php" method="post" class="block">
+    <fieldset>
+        <label for="pseudo"> : '.$donnees['pseudo'].'</label>
+        <label for="nom">nom : '.$donnees['nom'].'</label>
+        <label for="prenom">prenom : '.$donnees['prenom'].'</label>
+        <label for="statut">statut : '.$donnees['statut'].'</label>
+        <input type="hidden" name="id_utilisateur" value='.$donnees['id_utilisateur'].' />
+        <select name="choix">
+            <option value="'.$donnees['statut'].'">'.$donnees['statut'].'</option>';
+
+            $champ=$champ.'<option value="admin">admin</option>
+                <option value="attente">attente</option>
+                <option value="spectateur">spectateur</option>
+                <option value="delet">delet</option>
+            </select>
+            <input type="submit" name="submit" value="Modifier" />
+        </fieldset>
+    </form>';
+
+
+        echo $champ;
+    }
+
 }
