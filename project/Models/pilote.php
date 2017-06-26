@@ -11,7 +11,7 @@ function pilote($capteur_choisi,$a){
     curl_setopt(
         $ch,
         CURLOPT_URL,
-        "http://projets-tomcat.isep.fr:8080/appService?ACTION=COMMAND&TEAM=009E&TRAME=1009E2D011216000083");
+        "http://projets-tomcat.isep.fr:8080/appService?ACTION=COMMAND&TEAM=009E&TRAME=1009E2D01".$a."000000083");
     curl_setopt($ch, CURLOPT_HEADER, FALSE);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $data = curl_exec($ch);

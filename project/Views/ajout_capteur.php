@@ -1,7 +1,7 @@
 <div class="notifications">
     <img src="http://localhost/Project/Views/valider.jpg" class="check">
     <!--a id="messagereussi">La maison <script>document.write(document.getElementById('nom_maison'))</script>a bien été enregistré </a-->
-    <a id="messagereussi"> </a>            
+    <a id="messagereussi"> </a>
 </div>
 
 <div class="messageerreur">
@@ -44,7 +44,7 @@
             </select>
 <br/>
 <br/>
-    <input type="button" value="Ajouter" class="submit" id="testSubmit" /> <!-- METTRE UN SUBMIT A LA PLACE DE BUTTON-->
+    <input type="submit" value="Ajouter" class="submit" id="testSubmit" /> <!-- METTRE UN SUBMIT A LA PLACE DE BUTTON-->
         </p>
 </fieldset>
 </form>
@@ -162,19 +162,19 @@ Suppression des capteurs de la pièce qui a été choisi
             if (a === ""){
                 $('.messageerreur').fadeIn();
                 var temp = '.' + this.id;
-                setTimeout(function(){ 
+                setTimeout(function(){
                     $('.messageerreur').fadeOut();
                     $(temp).submit();
-                },5000);
-            } 
+                },1000);
+            }
             else {
                 $('.notifications').fadeIn();
                 var temp = '.' + this.id;
                 document.getElementById( "messagereussi" ).innerHTML = "Le capteur "+a+" a bien été enregistrée";
-                setTimeout(function(){ 
+                setTimeout(function(){
                     $('.notifications').fadeOut();
                     $(temp).submit();
-                },5000);
+                },1000);
             }
         });
 
@@ -183,37 +183,37 @@ Suppression des capteurs de la pièce qui a été choisi
 
         //LES CAPTEURS
         $("#suppressionToggle").hide(); // Pour cacher de base le gros formulaire
-        $("#suppressionFieldsetToggle").click(function(){
-            $("#suppressionToggle").toggle();
-        });
+    $("#suppressionFieldsetToggle").click(function(){
+        $("#suppressionToggle").toggle();
+    });
 
-        //LES PIECES
-        $("#suppressionToggle2").hide(); // Pour cacher de base le gros formulaire
-        $("#suppressionFieldset2Toggle").click(function(){
-            $("#suppressionToggle2").toggle();
-        });
+    //LES PIECES
+    $("#suppressionToggle2").hide(); // Pour cacher de base le gros formulaire
+    $("#suppressionFieldset2Toggle").click(function(){
+        $("#suppressionToggle2").toggle();
+    });
 
-        //LE DOMICILE
-        $("#suppressionToggle3").hide(); // Pour cacher de base le gros formulaire
-        $("#suppressionFieldset3Toggle").click(function(){
-            $("#suppressionToggle3").toggle();
-        });
+    //LE DOMICILE
+    $("#suppressionToggle3").hide(); // Pour cacher de base le gros formulaire
+    $("#suppressionFieldset3Toggle").click(function(){
+        $("#suppressionToggle3").toggle();
+    });
 
-//Metre en float le bloc changer de domicile, là le code permet de le réduire
+    //Metre en float le bloc changer de domicile, là le code permet de le réduire
 
 
-        $("#changerDomicileFloat").click(function(){
-            $("#changerDomicileFloatComplem").toggle();
-        });
-        /*$("#pinkButton").click(function(){
-            $("#changerDomicileFloat").toggle();
-            $("#pinkButton").hide();
+    $("#changerDomicileFloat").click(function(){
+        $("#changerDomicileFloatComplem").toggle();
+    });
+    /*$("#pinkButton").click(function(){
+     $("#changerDomicileFloat").toggle();
+     $("#pinkButton").hide();
 
-        });
-        $("#changerDomicileFloat").click(function(){
-            $("#changerDomicileFloat").toggle();
-            $("#pinkButton").show();
+     });
+     $("#changerDomicileFloat").click(function(){
+     $("#changerDomicileFloat").toggle();
+     $("#pinkButton").show();
 
-        });*/
+     });*/
     });
 </script>

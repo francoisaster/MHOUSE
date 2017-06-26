@@ -172,7 +172,7 @@ function afficheCapteur(){
     $req->execute();
     $text='';
     while($donnees=$req->fetch()) {
-        $text=$text.'<p><strong>' . htmlspecialchars($donnees['nom_capteur']) . '</strong> : ' . htmlspecialchars($donnees['type_capteur']) . '</p>';
+        $text=$text.'<p><strong>' . htmlspecialchars($donnees['nom_capteur']) . '</strong> : ' . htmlspecialchars($donnees['type_capteur']) . ' <strong> Marque : </strong> '.htmlspecialchars($donnees['marque']).'<strong> Numéro de série :</strong> '.htmlspecialchars($donnees['numero_serie']).'</p>';
     }
     if($text==''){
         $text="Il n'y a pas de capteur dans cette pièce";
