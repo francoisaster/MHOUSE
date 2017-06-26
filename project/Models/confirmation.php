@@ -7,8 +7,8 @@
  */
 require 'connexionBdd.php';
 function afficheAttente(){
+    $champ="";
     $bdd=connexionBdd();
-    // Récupération des 20 derniers messages
     $req = $bdd->query("SELECT *FROM utilisateur WHERE statut='attente'");
     while($donnees=$req->fetch()){
         $champ= '<form action="../Controllers/confirmation.php" method="post" class="petitBlock">
@@ -50,7 +50,7 @@ function afficheAttente(){
         </fieldset>
     </form>';
             }
-            elseif ($donnees['statut']=='spectateur'){
+            elseif($donnees['statut']=='spectateur'){
                 $champ=$champ.'<option value="client">client</option>
                 <option value="attente">attente</option>
                 <option value="admin">admin</option>
@@ -61,9 +61,13 @@ function afficheAttente(){
     </form>';
             }
 
-    echo $champ;
-    }
 
+    }
+    if($champ==""){
+        echo "<div class='block'>" .  "Aucun compte en attente" . "</div>";
+    }else{
+        echo $champ;
+    }
 }
 function confirmation($id_utilisateur,$choix){
     $bdd=connexionBdd();
