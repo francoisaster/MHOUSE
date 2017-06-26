@@ -4,13 +4,13 @@
 </div>
 <div >
     <ul>
-        <a href="../public/index.php?p=home"><img class="image" src="../public/images/logoBlanc.png"></a>
-        <li><a class ="navbar" href="../public/index.php?p=pilote">Piloter sa maison</a></li>
-        <li><a class ="navbar" href="../public/index.php?p=pieces">Modifications</a></li>
-        <li><a class ="navbar" href="../public/index.php?p=capteur">Capteur</a></li>
-        <li><a class ="navbar" href="../public/index.php?p=maison">Maison</a></li>
-        <li><a class ="navbar" href="../public/index.php?p=profil">Profil</a></li>
-        <li><a class ="navbar" href="../public/index.php?p=contact">Contact</a></li>
-        <li><a class ="navbar" href="../public/index.php?p=leave">Deconnexion</a></li>
+        <a href="../public/index.php?p=home"><img class="image" src="../public/images/logoBlanc.png" title="Statistiques"></a>
+        <li><a class ="navbar" href="../public/index.php?p=pilote" title="Allumer et éteindre des capteurs">Piloter sa maison</a></li>
+        <li><a class ="navbar" href="../public/index.php?p=pieces" title="Ajout de maison/Pièces">Modifications</a></li>
+        <li><a class ="navbar" href="../public/index.php?p=capteur" title="Ajout et suppression de capteurs">Capteur</a></li>
+        <li><a class ="navbar" href="../public/index.php?p=maison" title="Vue précise de chaque pièce et capteur">Maison</a></li>
+        <li><a class ="navbar" href="../public/index.php?p=profil" title="Modifier son prof il ou ajouter un compte spectateur">Profil</a></li>
+        <li><a class ="navbar" href="../public/index.php?p=contact" title="Contacter DomiSEP">Contact</a></li>
+        <li><a class ="navbar" href="../public/index.php?p=leave" title="Se déconnecter">Deconnexion</a></li>
     </ul>
 </div>
