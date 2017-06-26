@@ -28,7 +28,7 @@
     </fieldset>
 </form>
 <?php
-if(afficheMaisonMenu2()!="") {
+if(afficheMaisonMenu3()!="") {
     echo '
 <form action="../Controllers/pieces.php" method="post" class="block test2">
     <fieldset>
@@ -41,7 +41,7 @@ if(afficheMaisonMenu2()!="") {
             <label for="vue_capteur">Choix du domicile :</label>
             <select name="id_maison_piece" id="id_maison_piece">
                 ' .
-        afficheMaisonMenu2() . '
+        afficheMaisonMenu3() . '
             </select>
             <br />
             <br/>

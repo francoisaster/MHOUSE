@@ -75,6 +75,48 @@ function afficheMaisonMenu2()
     $req->closeCursor();
     return $text;
 }
+
+
+
+
+
+function afficheMaisonMenu3()
+{
+
+    $bdd=connexionBdd2();
+
+    $req = $bdd->prepare('SELECT * FROM maison WHERE id_utilisateur = :id_utilisateur ');
+    $req->execute(array('id_utilisateur' => $_SESSION['id_utilisateur']));
+    $req2 = $bdd->prepare('SELECT * FROM maison WHERE id_utilisateur = :id_utilisateur ');
+    $req2->execute(array('id_utilisateur' => $_SESSION['id_utilisateur']));
+    /*
+     * Il y a 2 requetes car le fecth retire les lignes une fois qu'il les parcourt.
+     */
+    $text='';
+    if(!isset($_SESSION['id_maison_client'])) { // si il n'a jamais cliqué sur une piece, alors affiche toutes les pieces dans l'ordre
+        while ($donnees = $req->fetch()) {
+            $text=$text.'<option value="' . htmlspecialchars($donnees['id_maison']) . '">' . htmlspecialchars($donnees['nom']) . '</option>';
+        }
+    }else{
+        while ($donnees = $req->fetch()) {
+            if($_SESSION['id_maison_client']==$donnees['id_maison']){
+                $text=$text.'<option value="' . htmlspecialchars($donnees['id_maison']) . '">' . htmlspecialchars($donnees['nom']) . '</option>';
+            }
+        }
+        while ($donnee = $req2->fetch()) {
+            if(($_SESSION['id_maison_client']!=$donnee['id_maison'])){
+                $text=$text.'<option value="' . htmlspecialchars($donnee['id_maison']) . '">' . htmlspecialchars($donnee['nom']) . '</option>';
+            }
+        }
+    }
+
+
+
+    $req->closeCursor();
+    return $text;
+}
+
+
 function affichePiecesMenu2()
 {
 
