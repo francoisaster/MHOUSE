@@ -57,6 +57,8 @@ elseif ($p =='capteur'){
     }else {
         require '../Views/contact.php';
     }
+}elseif($p== 'FAQ') {
+    require '../Views/FAQ.php';
 }
 
 

@@ -52,13 +52,13 @@ a:hover:not(.active) {
     background-color:#4CAF50;
 }
 .image{
-
     padding-right:10px;
     margin-left: 10px;
     margin-top:0px;
     width : 50px;
     position: absolute;
     left:0px;
+    height: 60px;
 }
 
 
@@ -122,7 +122,7 @@ label
 }
 
 
-
+/*
 footer{
     position: absolute;
 
@@ -147,6 +147,7 @@ footer{
     width: 20%;
     margin: auto;
 }
+*/
 
 #erreur{
     display:none;
@@ -253,3 +254,46 @@ Le bloc qui s'affiche à droite et permet de changer de domicile dans la page ca
     /*border: 2px solid black;*/
     margin-bottom: 20px;
 }
+
+
+/* Debut du Footer */
+footer{
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    margin-top: 33%;
+    color :white;
+    opacity: 0.8;
+    background: black;
+    display:flex;
+}
+
+#faq{
+    width: 70%;
+    margin-left: 30px;
+    margin-top: 0.7%;
+}
+
+.reseaux_sociaux{
+    width: 40%;
+    margin-right: 70px;
+    margin-top: 0.15%;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+}
+
+img {
+    width: 40px;
+    height: 40px;
+}
+
+#insta{
+    height: 30px;
+}
+
+#block_faq {
+    text-align: justify;
+}
+
+/* Fin du footer */

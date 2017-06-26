@@ -7,6 +7,7 @@
  */
 
 require'connexionBdd.php';
+
 function contactAdmin()
 {$id_contact=1; // Ca l'admin principal de l'ISEP a pour ID 1
     $bdd = connexionBdd();
