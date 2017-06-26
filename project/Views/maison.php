@@ -92,77 +92,11 @@ if(isset($_SESSION['id_piece_client'])and affichePiecesMenu2()!=""){
 </form>';
     }
 }
-try
-{
-    $bdd = new PDO('mysql:host=localhost;dbname=mhouse_bdd;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-}
-catch (Exception $e)
-{
-    die('Erreur : ' . $e->getMessage());
-}
-if(isset($_POST['capteur_choisi'])) {
-    $capteur_choisi = $_POST['capteur_choisi'];
+require'../Models/statMaison.php';
 
-
-    $test = $bdd->prepare('SELECT id_capteur FROM capteurs WHERE nom_capteur = ? AND id_utilisateur= ?'); // rajout d'heure
-    $test->execute(array($capteur_choisi, $_SESSION['id_utilisateur']));
-    while ($donneeTest = $test->fetch()) {
-        $idCapteur = htmlspecialchars($donneeTest['id_capteur']);
-    }
-
-    $result = $bdd->prepare('SELECT * FROM valeurs_capteur WHERE id_capteur= ? ORDER BY date_mesure'); // rajout d'heure
-    $result->execute(array($idCapteur));
-
-
-
-    $reponses = $bdd->query('SELECT AVG(valeur) AS valeur FROM valeurs_capteur');
-    while ($donnees42 = $reponses->fetch())
-    {
-        $moyenne = $donnees42['valeur'];
-    }
-    $reponses->closeCursor();
-
-
-}
 
 if(isset($_POST['capteur_choisi'])) {
     require '../Views/homeStats.php';
 }
 
-// ANCIENNE PAGE (QUENTIN)
-/*
-<form action="../Controllers/maison.php" method="post" class="block">
-    <fieldset>
-        <legend>Mes Informations</legend>
-        <h3>Veuillez choisir votre Maison</h3>
-        <p>
-            <select name="choix_maison" id="choix_maison">
-
-                <?php require'../Models/pieces.php';
-                choisirMaison(); ?>
-            </select>
-            <br/>
-            <br/>
-            <input type="submit" value="Choisir" class="submit"/>
-        </p>
-    </fieldset>
-</form>
-<form action="../Controllers/maison.php" method="post" class="block">
-<fieldset>
-        <h3><?php Maisonchoisi(); ?></h3>
-        <p>
-            <br />
-            <table>
-                <?php
-                afficheMaison(); ?>
-            </table>
-            <br/>
-            
-        </p>
-    </fieldset>
-</form>
-<form action="../Controllers/pieces.php" method="post" class="block">
-    <input class="submit" type="submit" value="Modifier mes maisons" />
-</form>
-*/
 ?>
