@@ -25,7 +25,8 @@ function update($id_utilisateur){
     $data_tab = str_split($data,33);
 
     $newDateTab=array();
-    for($i=0, $size=count($data_tab); $i<$size; $i++){
+    $decoupe=count($data_tab);
+    for($i=$decoupe-100, $size=count($data_tab); $i<$size; $i++){
         $trame = $data_tab[$i];
 
             list($t, $o, $r, $c, $n, $v, $a, $x, $year, $month, $day, $hour, $min, $sec) =
