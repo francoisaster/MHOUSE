@@ -27,8 +27,6 @@ if($p === 'home'){ //3 = c'est pour vérifier la value et le type
     }
 }elseif ($p =='inscription'){
     require '../Views/inscription.php';
-}elseif($p== 'FAQ') {
-require '../Views/FAQ.php';
 }
 elseif ($p =='capteur'){
     if(isset($_SESSION['statut']) and $_SESSION['statut']=='spectateur'){
