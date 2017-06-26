@@ -58,10 +58,8 @@ if(afficheMaisonMenu3()!="") {
 ?>
 
 
-
 <script>
     $(document).ready(function() {
-        
 
         $(".submit").click( function(){
             var a = document.getElementById('nom_maison').value;
@@ -106,6 +104,9 @@ if(afficheMaisonMenu3()!="") {
 
 
         });
+
+
+
     });
 </script>
 

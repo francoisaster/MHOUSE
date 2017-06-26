@@ -1,6 +1,9 @@
 <?php
 require '../Models/test2.php'; //necessaire pour avoir la fonction affichePieces
-try
+
+require '../Models/connexionBdd2.php';
+$bdd = connexionBdd2();
+/*try
 {
     $bdd = new PDO('mysql:host=localhost;dbname=mhouse_bdd;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 }
@@ -8,6 +11,7 @@ catch (Exception $e)
 {
     die('Erreur : ' . $e->getMessage());
 }
+*/
 ?>
 <?php
 /*
@@ -91,6 +95,9 @@ $reponseDerniere->closeCursor();
 </script>
 -->
 
+<!--
+ ICI Les notifications
+ -->
     <div id="pinkButton">
     </div>
     <div id="block-flottant">
@@ -104,6 +111,9 @@ $reponseDerniere->closeCursor();
                 }
                 if ($luminositéRecue>5000) {
                     echo '<span style="font-size: small; font-style: italic;">'. 'La lumière est allumée' . '</span>'; ?> <br> <?php
+                }
+                if($luminositéRecue<2000){
+                    echo '<span style="font-size: small; font-style: italic;">'. 'La lumière est éteinte' . '</span>'; ?> <br> <?php
                 }
             }
         }

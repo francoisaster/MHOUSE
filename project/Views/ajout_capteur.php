@@ -48,12 +48,16 @@
         </p>
 </fieldset>
 </form>
-
-<form action="../Controllers/choix_maison.php" method="post" class="block">
+<!--
+LE BLOC QUI CHOISI LE DOMICILE
+</div> -->
+<form action="../Controllers/choix_maison.php" method="post" id="changerDomicileFloatBlock">
     <fieldset>
-        <legend>Changer de domicile</legend>
-        <p>
-            <label for="choix_maison_capteur">Choix du domicile :</label>
+        <legend id="changerDomicileFloat">Changer de domicile</legend>
+        <p id="changerDomicileFloatComplem">
+            <label2 for="choix_maison_capteur">Choix du domicile :</label2>
+            <br>
+            <br>
             <select name="choix_maison_capteur" id="choix_maison_capteur">
 
                 <?php require'../Models/maison.php';
@@ -66,18 +70,20 @@
     </fieldset>
 </form>
 
-<form action="../Controllers/supprimer_capteur.php" method="post" class="block">
-    <fieldset>
-        <legend>Supprimer des capteurs dans
+<!--
+Suppression des capteurs de la pièce qui a été choisi
+-->
+<form action="../Controllers/supprimer_capteur.php" method="post" class="block" >
+    <fieldset >
+        <legend id="suppressionFieldsetToggle">Supprimer des capteurs dans
             <?php
             echo nomMaison($_SESSION['id_maison']);
             ?>
         </legend>
-        <p>
+        <p id="suppressionToggle">
             <label for="nom_capteur">Le nom du capteur :</label>
             <input type="text" name="nom_capteur" id="nom_capteur" />
             <br/><br/>
-            <br /><br/>
             <label for="choix_piece_capteur">Choix de piece :</label>
             <select name="choix_piece_capteur" id="choix_piece_capteur">
                 <?php
@@ -93,15 +99,64 @@
             </select>
             <br/>
             <br/>
-            <input type="submit" value="Supprimer" class="submit" id="suppr" />
+            <input type="submit" value="Supprimer" class="submit" id="suppr1" />
+        </p>
+    </fieldset>
+</form>
+
+<form action="../Controllers/supprimer_pieces.php" method="post" class="block" >
+    <fieldset >
+        <legend id="suppressionFieldset2Toggle">Supprimer des pièces dans
+            <?php
+            echo nomMaison($_SESSION['id_maison']);
+            ?>
+        </legend>
+        <p id="suppressionToggle2">
+            <label for="choix_piece_suppr">Choix de la pièce à supprimer :</label>
+            <select name="choix_piece_suppr" id="choix_piece_suppr">
+                <?php
+                affichePiecesMenu();
+                ?>
+            </select>
+            <br/>
+            <br/>
+            <input type="submit" value="Supprimer" class="submit" id="suppr2" />
+        </p>
+    </fieldset>
+</form>
+
+<form action="../Controllers/supprimer_maison.php" method="post" class="block" >
+    <fieldset >
+        <legend id="suppressionFieldset3Toggle">Supprimer un domicile
+        </legend>
+        <p id="suppressionToggle3">
+
+            <span> Vous allez supprimer la maison :
+            <?php
+            echo nomMaison($_SESSION['id_maison']);
+            ?></span>
+            <br/>
+            <br/>
+        <span>Etes-vous sur de votre choix ?</span>
+            <br/>
+            <br/>
+            <input type="radio" name="choix" value="oui" id="oui" /> <label for="oui">Oui, je désire supprimer le domicile
+            <?php
+            echo nomMaison($_SESSION['id_maison']);
+            ?></label>
+            <br /><br /><br />
+            <input type="radio" name="choix" value="non" id="non" checked/> <label for="non">Non</label><br />
+<br>
+            <input type="submit" value="Supprimer" class="submit" id="suppr3" />
+
         </p>
     </fieldset>
 </form>
 
 
-
 <script>
-    $(document).ready(function() {    
+    $(document).ready(function() {
+
         $(".submit").click( function(){
             var a = document.getElementById('nom_capteur').value;
             if (a === ""){
@@ -123,5 +178,42 @@
             }
         });
 
+
+// Pour pouvoir afficher/Cacher (TOGGLE) la suppression et ne pas prendre trop de place)
+
+        //LES CAPTEURS
+        $("#suppressionToggle").hide(); // Pour cacher de base le gros formulaire
+        $("#suppressionFieldsetToggle").click(function(){
+            $("#suppressionToggle").toggle();
+        });
+
+        //LES PIECES
+        $("#suppressionToggle2").hide(); // Pour cacher de base le gros formulaire
+        $("#suppressionFieldset2Toggle").click(function(){
+            $("#suppressionToggle2").toggle();
+        });
+
+        //LE DOMICILE
+        $("#suppressionToggle3").hide(); // Pour cacher de base le gros formulaire
+        $("#suppressionFieldset3Toggle").click(function(){
+            $("#suppressionToggle3").toggle();
+        });
+
+//Metre en float le bloc changer de domicile, là le code permet de le réduire
+
+
+        $("#changerDomicileFloat").click(function(){
+            $("#changerDomicileFloatComplem").toggle();
+        });
+        /*$("#pinkButton").click(function(){
+            $("#changerDomicileFloat").toggle();
+            $("#pinkButton").hide();
+
+        });
+        $("#changerDomicileFloat").click(function(){
+            $("#changerDomicileFloat").toggle();
+            $("#pinkButton").show();
+
+        });*/
     });
 </script>

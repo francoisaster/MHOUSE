@@ -14,6 +14,7 @@ function creationCapteurs(){
     $req->bindParam(':numero_serie',$_POST['numero_serie']);
     $req->execute();
 }
+
 function afficheCapteurs(){
     $bdd=connexionBdd();
     // Récupération des 20 derniers messages
@@ -25,7 +26,6 @@ function afficheCapteurs(){
     $reponse->closeCursor();
 } //Maintenant la fonction est useless
 
-
 function supprimerCapteurs(){ // Fonction pour supprimer un capteur dans la bdd
     $bdd=connexionBdd();
     // Ici mettre WHERE sur juste le nom supprimera la ligne dans la bdd
@@ -35,4 +35,62 @@ WHERE nom_capteur = :nomDuCapteur
 ');
     $req59->bindParam(':nomDuCapteur',$_POST['nom_capteur']);
     $req59->execute();
+}
+
+function supprimerPiecesEtCapts(){ // Fonction pour supprimer un capteur dans la bdd
+    $bdd=connexionBdd();
+    // Ici mettre WHERE sur juste le nom supprimera la ligne dans la bdd
+    $req528=$bdd->prepare('
+DELETE FROM piece
+WHERE id_piece = :idDeLaPiece AND id_utilisateur = :idUser
+');
+    $req528->bindParam(':idDeLaPiece',$_POST['choix_piece_suppr']);
+    $req528->bindParam(':idUser',$_SESSION['id_utilisateur']);
+    $req528->execute();
+
+    //ICI SUPPRESSION DES CAPTEURS LIES A LA PIECE
+    $req549=$bdd->prepare('
+DELETE FROM capteurs
+WHERE id_piece = :idPiece AND id_utilisateur = :idUser
+');
+    $req549->bindParam(':idPiece',$_POST['choix_piece_suppr']);
+    $req549->bindParam(':idUser',$_SESSION['id_utilisateur']);
+    $req549->execute();
+}
+
+
+
+
+function supprimerMaisonEtPiecesEtCapt(){
+    $bdd=connexionBdd();
+
+    //ICI SUPPRESSION DES CAPTEURS LIES A LA PIECE
+    /*$req549=$bdd->prepare('
+DELETE FROM capteurs
+WHERE id_piece = :idPiece AND id_utilisateur = :idUser
+');
+    $req549->bindParam(':idPiece',$_POST['choix_piece_suppr']);
+    $req549->bindParam(':idUser',$_SESSION['id_utilisateur']);
+    $req549->execute();*/
+
+    //Suppresion de la piece
+    $req537=$bdd->prepare('
+DELETE FROM piece
+WHERE id_maison = :idMaison
+');
+   // $req537->bindParam(':idUser',$_SESSION['id_utilisateur']);
+    $req537->bindParam(':idMaison',$_SESSION['id_maison']);
+    $req537->execute();
+
+    //SPURRESION DE LA MAISON
+    $req529=$bdd->prepare('
+DELETE FROM maison
+WHERE id_maison = :idMaison AND id_utilisateur = :idUser
+');
+    $req529->bindParam(':idMaison',$_SESSION['id_maison']);
+    $req529->bindParam(':idUser',$_SESSION['id_utilisateur']);
+    $req529->execute();
+
+
+
 }
