@@ -1,6 +1,10 @@
 
 <?php
-require '../Models/affMenu.php';
+if($_SESSION['statut']=='spectateur'){
+    require '../Models/affMenuSpec.php';
+}else{
+    require '../Models/affMenu.php';
+}
 if(isset($_POST['id_maison_client'])) {
     $_SESSION['id_maison_client'] = $_POST['id_maison_client'];
 }
