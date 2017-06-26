@@ -52,7 +52,7 @@ a:hover:not(.active) {
     background-color:#4CAF50;
 }
 .image{
-    height: 60px;
+
     padding-right:10px;
     margin-left: 10px;
     margin-top:0px;
@@ -60,6 +60,8 @@ a:hover:not(.active) {
     position: absolute;
     left:0px;
 }
+
+
 
 
 .submit , .submit2 {
@@ -98,7 +100,6 @@ header {
      /*border: 2px solid black;*/
      margin-bottom: 20px;
  }
-
 .petitBlock{
     background-color: white;
     opacity: 1;
@@ -108,7 +109,6 @@ header {
     margin-bottom: 10px;
     box-shadow: 3px 3px 20px;
 }
-
 .petitField{
     border-width: 0;
 
@@ -133,6 +133,7 @@ footer{
     opacity: 0.8;
     background: black;
     display:flex;
+
 }
 
 #faq{
@@ -148,24 +149,24 @@ footer{
     flex-direction: row;
     justify-content: space-between;
     text-align: center;
-}
 
+}
 
 img {
     width: 40px;
     height: 40px;
 }
 
-
 #block_faq {
     text-align: justify;
 }
 
 
-                            /* Fin du footer */
+/* Fin du footer */
 
 #erreur{
     display:none;
+
     background-color: black;
     color: white;
     padding : 20px;
@@ -201,6 +202,7 @@ fieldset{
     padding : 15px;
     border-radius: 2px;
     margin-bottom: 20px;
+
 }
 
 
