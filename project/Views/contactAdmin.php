@@ -15,7 +15,7 @@ $donnees=contactAdmin();
     <fieldset>
         <legend>Modifier les infos de contact :</legend>
         <p>
-            
+
             <!-- RAJOUTER DES VALUES A CHAQUE CHAMPS GRACE A LA SESSION (lecture des données et insertion dans value, pour l'UPDATE -->
             <label for="nv_adresse">Nouvelle adresse :</label>
             <input type="text" name="nv_adresse" id="nv_adresse" value="<?php echo $donnees['adresse']?>"/> <!-- Pour mettre un champ text avec le nom pseudo -->

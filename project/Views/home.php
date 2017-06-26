@@ -109,10 +109,10 @@ $reponseDerniere->closeCursor();
                 if ($moyenne + 100 < $luminositéRecue) {
                     echo '<span style="font-size: small; font-style: italic;">'. 'La luminosité est forte par rapport à la moyenne' . '</span>'; ?> <br> <?php
                 }
-                if ($luminositéRecue>5000) {
+                if ($luminositéRecue>4000) {
                     echo '<span style="font-size: small; font-style: italic;">'. 'La lumière est allumée' . '</span>'; ?> <br> <?php
                 }
-                if($luminositéRecue<2000){
+                if($luminositéRecue<3500){
                     echo '<span style="font-size: small; font-style: italic;">'. 'La lumière est éteinte' . '</span>'; ?> <br> <?php
                 }
             }
@@ -123,6 +123,7 @@ $reponseDerniere->closeCursor();
 
 <script>
     $(document).ready(function(){
+        $("#pinkButton").hide();
         $("#pinkButton").click(function(){
             $("#block-flottant").toggle();
             $("#pinkButton").hide();
@@ -131,7 +132,6 @@ $reponseDerniere->closeCursor();
         $("#block-flottant").click(function(){
             $("#block-flottant").toggle();
             $("#pinkButton").show();
-
         });
     });
 </script>
